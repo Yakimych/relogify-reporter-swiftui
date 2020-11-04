@@ -23,6 +23,8 @@
 		7CBA4F072551AE5400313A51 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4F062551AE5400313A51 /* ComplicationController.swift */; };
 		7CBA4F092551AE5400313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F082551AE5400313A51 /* Assets.xcassets */; };
 		7CBA4F0C2551AE5400313A51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F0B2551AE5400313A51 /* Preview Assets.xcassets */; };
+		7CBA4F282551B1A100313A51 /* AddResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4F272551B1A100313A51 /* AddResult.swift */; };
+		7CBA4F2F2551B3E500313A51 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4F2E2551B3E500313A51 /* Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		7CBA4F0B2551AE5400313A51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7CBA4F0D2551AE5400313A51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CBA4F0E2551AE5400313A51 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		7CBA4F272551B1A100313A51 /* AddResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResult.swift; sourceTree = "<group>"; };
+		7CBA4F2E2551B3E500313A51 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,8 @@
 				7CBA4ECF2551AE5300313A51 /* Assets.xcassets */,
 				7CBA4ED42551AE5300313A51 /* Info.plist */,
 				7CBA4ED12551AE5300313A51 /* Preview Content */,
+				7CBA4F272551B1A100313A51 /* AddResult.swift */,
+				7CBA4F2E2551B3E500313A51 /* Timer.swift */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -427,7 +433,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CBA4ECE2551AE5300313A51 /* ContentView.swift in Sources */,
+				7CBA4F282551B1A100313A51 /* AddResult.swift in Sources */,
 				7CBA4ECC2551AE5300313A51 /* reporterApp.swift in Sources */,
+				7CBA4F2F2551B3E500313A51 /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
