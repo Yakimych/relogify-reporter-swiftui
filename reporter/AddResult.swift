@@ -7,14 +7,14 @@ struct AddResult: View {
     var body: some View {
         VStack {
             NavigationLink(
-                destination: Timer(extraTime: false),
+                destination: GameTimer(extraTime: false),
                 label: {
                     Text("Timer")
                 })
             Text("Add Result against \(playerName) in \(communityName)")
         }
         .navigationBarTitle("\(playerName) in \(communityName)")
-        .navigationBarItems(trailing: NavigationLink("Timer", destination: Timer(extraTime: false)))
+        .navigationBarItems(trailing: NavigationLink("Timer", destination: GameTimer(extraTime: false)))
         // TODO: https://stackoverflow.com/questions/57130866/how-to-show-navigationlink-as-a-button-in-swiftui/57837007#57837007
         // TODO: https://developer.apple.com/forums/thread/124757
     }
