@@ -3,20 +3,20 @@ import SwiftUI
 struct AddResult: View {
     @State var communityName: String
     @State var playerName: String
-
+    @State var timerIsOpen: Bool = false
+    
     var body: some View {
         VStack {
-            NavigationLink(
-                destination: GameTimer(extraTime: false),
-                label: {
-                    Text("Timer")
-                })
             Text("Add Result against \(playerName) in \(communityName)")
         }
         .navigationBarTitle("\(playerName) in \(communityName)")
-        .navigationBarItems(trailing: NavigationLink("Timer", destination: GameTimer(extraTime: false)))
-        // TODO: https://stackoverflow.com/questions/57130866/how-to-show-navigationlink-as-a-button-in-swiftui/57837007#57837007
-        // TODO: https://developer.apple.com/forums/thread/124757
+        .navigationBarItems(trailing:
+                                Button(action: { self.timerIsOpen.toggle() })
+                                    { Text("Timer") }
+            .sheet(isPresented: $timerIsOpen) {
+                GameTimer(isOpen: $timerIsOpen, extraTime: false)
+            }
+        )
     }
 }
 

@@ -10,6 +10,7 @@ struct TimerButtonStyle: ButtonStyle {
 }
 
 struct GameTimer: View {
+    @Binding var isOpen: Bool
     @State var extraTime: Bool
     @State var secondsLeft: Int = 60
     
@@ -40,6 +41,6 @@ struct GameTimer: View {
 
 struct GameTimer_Previews: PreviewProvider {
     static var previews: some View {
-        GameTimer(extraTime: false)
+        GameTimer(isOpen: .constant(true), extraTime: false)
     }
 }
