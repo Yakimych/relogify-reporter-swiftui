@@ -1,0 +1,6 @@
+framework module Pods_reporterTests {
+  umbrella header "Pods-reporterTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
