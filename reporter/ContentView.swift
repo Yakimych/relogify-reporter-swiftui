@@ -5,10 +5,6 @@ struct ContentView: View {
     @State var isFirstRun = false
     
     var body: some View {
-        let player1 = Player(name: "player1")
-        let player2 = Player(name: "player2")
-        let players = [player1, player2]
-        
         if isFirstRun {
             VStack(content: {
                 Text("First run!")
@@ -33,12 +29,7 @@ struct ContentView: View {
         }
         else {
             TabView(selection: $selectedView) {
-                NavigationView {
-                    VStack(alignment: .leading, content: {
-                        List(players) {player in PlayerRow(player: player)}
-                    })
-                    .navigationBarTitle("Opponent list", displayMode: .inline)
-                }
+                OpponentList()
                 .tag(0)
                 .tabItem {
                     Image(systemName: "list.bullet")
