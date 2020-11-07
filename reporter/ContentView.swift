@@ -1,22 +1,5 @@
 import SwiftUI
 
-struct Player: Identifiable {
-    var id = UUID()
-    var name: String
-}
-
-struct PlayerRow: View {
-    var player: Player
-    
-    var body: some View {
-        NavigationLink(
-            destination: AddResult(communityName: "Test", playerName: player.name),
-            label: {
-                Text("Player '\(player.name)'")
-            })
-    }
-}
-
 struct ContentView: View {
     @State var selectedView = 0
     @State var isFirstRun = false
@@ -62,7 +45,7 @@ struct ContentView: View {
                     Text("Opponents")
                 }
 
-                Text("Settings")
+                SettingsView()
                     .tag(1)
                     .tabItem {
                         Image(systemName: "gear")

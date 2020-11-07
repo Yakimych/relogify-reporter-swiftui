@@ -10,6 +10,10 @@
 		09AE6B110C5071865891F908 /* Pods_reporter_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9AE8E90A3D86949636C6F8 /* Pods_reporter_WatchKit_App.framework */; };
 		269BB2091B53BE2EBEA265C7 /* Pods_reporter_reporterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB51EAA1947B180E5A691C /* Pods_reporter_reporterUITests.framework */; };
 		590D48A508F4A745E3F1E265 /* Pods_reporter_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886FAA7C7A2A5B654F992ACD /* Pods_reporter_WatchKit_Extension.framework */; };
+		7C69124D2556AA8E00884215 /* ChooseCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69124C2556AA8E00884215 /* ChooseCommunity.swift */; };
+		7C6912592556ABEA00884215 /* ChoosePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6912582556ABEA00884215 /* ChoosePlayer.swift */; };
+		7C6912602556AC7F00884215 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69125F2556AC7F00884215 /* SettingsView.swift */; };
+		7C69126C2556E4ED00884215 /* PlayerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69126B2556E4ED00884215 /* PlayerRow.swift */; };
 		7CBA4ECC2551AE5300313A51 /* reporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECB2551AE5300313A51 /* reporterApp.swift */; };
 		7CBA4ECE2551AE5300313A51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECD2551AE5300313A51 /* ContentView.swift */; };
 		7CBA4ED02551AE5300313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECF2551AE5300313A51 /* Assets.xcassets */; };
@@ -101,6 +105,10 @@
 		5A9AE8E90A3D86949636C6F8 /* Pods_reporter_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reporter_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A4A2C5B26BB6557041FB37 /* Pods-reporterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporterTests.debug.xcconfig"; path = "Target Support Files/Pods-reporterTests/Pods-reporterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		70BAA7FB56CA16E82986AD53 /* Pods-reporter-reporterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporter-reporterUITests.release.xcconfig"; path = "Target Support Files/Pods-reporter-reporterUITests/Pods-reporter-reporterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7C69124C2556AA8E00884215 /* ChooseCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCommunity.swift; sourceTree = "<group>"; };
+		7C6912582556ABEA00884215 /* ChoosePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlayer.swift; sourceTree = "<group>"; };
+		7C69125F2556AC7F00884215 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7C69126B2556E4ED00884215 /* PlayerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRow.swift; sourceTree = "<group>"; };
 		7CBA4EC82551AE5300313A51 /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBA4ECB2551AE5300313A51 /* reporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reporterApp.swift; sourceTree = "<group>"; };
 		7CBA4ECD2551AE5300313A51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -240,6 +248,10 @@
 				7CBA4F272551B1A100313A51 /* AddResult.swift */,
 				7CBA4F2E2551B3E500313A51 /* GameTimer.swift */,
 				7CBA4F3A25546EAB00313A51 /* StopWatchManager.swift */,
+				7C69124C2556AA8E00884215 /* ChooseCommunity.swift */,
+				7C6912582556ABEA00884215 /* ChoosePlayer.swift */,
+				7C69125F2556AC7F00884215 /* SettingsView.swift */,
+				7C69126B2556E4ED00884215 /* PlayerRow.swift */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -673,11 +685,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C69124D2556AA8E00884215 /* ChooseCommunity.swift in Sources */,
 				7CBA4ECE2551AE5300313A51 /* ContentView.swift in Sources */,
+				7C69126C2556E4ED00884215 /* PlayerRow.swift in Sources */,
+				7C6912602556AC7F00884215 /* SettingsView.swift in Sources */,
 				7CBA4F3B25546EAB00313A51 /* StopWatchManager.swift in Sources */,
 				7CBA4F282551B1A100313A51 /* AddResult.swift in Sources */,
 				7CBA4ECC2551AE5300313A51 /* reporterApp.swift in Sources */,
 				7CBA4F2F2551B3E500313A51 /* GameTimer.swift in Sources */,
+				7C6912592556ABEA00884215 /* ChoosePlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
