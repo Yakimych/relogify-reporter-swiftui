@@ -16,6 +16,15 @@ struct GameTimer: View {
     
     @ObservedObject var stopWatchManager = StopWatchManager()
     
+    init(extraTime: Bool, isOpen: Binding<Bool>) {
+        _extraTime = State(initialValue: extraTime)
+        _isOpen = isOpen
+    }
+    
+    func toggleIsOpen() -> Void {
+        self.isOpen.toggle()
+    }
+    
     var body: some View {
         VStack {
             Text("Milliseconds elapsed: \(stopWatchManager.millisecondsElapsed)")
@@ -36,11 +45,16 @@ struct GameTimer: View {
             }
         }
         .navigationBarTitle("Timer")
+        .onAppear {
+            stopWatchManager.onExpired {
+                toggleIsOpen()
+            }
+        }
     }
 }
 
 struct GameTimer_Previews: PreviewProvider {
     static var previews: some View {
-        GameTimer(isOpen: .constant(true), extraTime: false)
+        GameTimer(extraTime: false, isOpen: .constant(true))
     }
 }

@@ -22,6 +22,11 @@ class StopWatchManager: ObservableObject {
     var isPastHalfTime = false
     var isPastExpirationWarning = false
     var timer = Timer()
+    var funcToRunOnExpired: () -> Void = {}
+    
+    func onExpired(funcToRun: @escaping () -> Void) -> Void {
+        self.funcToRunOnExpired = funcToRun
+    }
     
     func start() {
         isPastHalfTime = false

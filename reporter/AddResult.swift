@@ -68,7 +68,7 @@ struct AddResult: View {
                                 Button(action: { self.timerIsOpen.toggle() })
                                     { Text("Timer") }
             .sheet(isPresented: $timerIsOpen) {
-                GameTimer(isOpen: $timerIsOpen, extraTime: false)
+                GameTimer(extraTime: false, isOpen: $timerIsOpen)
             }
         )
     }
