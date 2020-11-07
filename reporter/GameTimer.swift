@@ -16,11 +16,6 @@ struct GameTimer: View {
     
     @ObservedObject var stopWatchManager = StopWatchManager()
     
-    init(extraTime: Bool, isOpen: Binding<Bool>) {
-        _extraTime = State(initialValue: extraTime)
-        _isOpen = isOpen
-    }
-    
     func toggleIsOpen() -> Void {
         self.isOpen.toggle()
     }
@@ -55,6 +50,6 @@ struct GameTimer: View {
 
 struct GameTimer_Previews: PreviewProvider {
     static var previews: some View {
-        GameTimer(extraTime: false, isOpen: .constant(true))
+        GameTimer(isOpen: .constant(true), extraTime: false)
     }
 }

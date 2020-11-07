@@ -22,10 +22,10 @@ class StopWatchManager: ObservableObject {
     var isPastHalfTime = false
     var isPastExpirationWarning = false
     var timer = Timer()
-    var funcToRunOnExpired: () -> Void = {}
+    var raiseTimerExpired: () -> Void = {}
     
-    func onExpired(funcToRun: @escaping () -> Void) -> Void {
-        self.funcToRunOnExpired = funcToRun
+    func onExpired(funcToRunOnExpired: @escaping () -> Void) -> Void {
+        self.raiseTimerExpired = funcToRunOnExpired
     }
     
     func start() {
@@ -46,6 +46,7 @@ class StopWatchManager: ObservableObject {
             if self.millisecondsElapsed > self.totalMilliseconds {
                 self.reset()
                 Sound.play(file: "final_siren.mp3")
+                self.raiseTimerExpired()
             }
         }
         //Sound.play(file: "expiration_warning.mp3")
