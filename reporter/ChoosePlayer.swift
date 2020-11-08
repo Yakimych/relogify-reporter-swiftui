@@ -15,10 +15,12 @@ struct ChoosePlayer: View {
     }
     
     func addPlayerToLocalStorage() {
-        // TODO: Add to local storage
         if let selectedPlayer = maybeSelectedPlayer {
-            communitiesWithPlayers.communitiesWithPlayers.append(
-                CommunityWithPlayer(communityName: self.communityName, playerName: selectedPlayer.name, id: UUID()))
+            communitiesWithPlayers.add(
+                communityWithPlayer: CommunityWithPlayer(
+                    communityName: self.communityName,
+                    playerName: selectedPlayer.name,
+                    id: UUID()))
         }
     }
     
