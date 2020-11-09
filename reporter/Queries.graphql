@@ -1,0 +1,6 @@
+query getPlayers($communityName: String!) {
+    players(where: { community: { name: { _eq: $communityName } } }) {
+        id
+        name
+    }
+}

@@ -12,7 +12,7 @@ struct PlayerRow: View {
         NavigationLink(
             destination: AddResult(communityName: "Test", playerName: player.name),
             label: {
-                Text("Player '\(player.name)'")
+                Text("\(player.name)")
             })
     }
 }

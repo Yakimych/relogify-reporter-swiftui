@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,10 @@
 		7C69126C2556E4ED00884215 /* PlayerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69126B2556E4ED00884215 /* PlayerRow.swift */; };
 		7C691273255731B800884215 /* CommunitiesWithPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C691272255731B800884215 /* CommunitiesWithPlayers.swift */; };
 		7C69127A2557340D00884215 /* OpponentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6912792557340D00884215 /* OpponentList.swift */; };
+		7C7211132559AB4700D2A2E8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 7C7211122559AB4700D2A2E8 /* Apollo */; };
+		7C72112B2559AE9C00D2A2E8 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7C72112A2559AE9C00D2A2E8 /* Queries.graphql */; };
+		7C7211372559B02500D2A2E8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7211362559B02500D2A2E8 /* API.swift */; };
+		7C72113E2559B05600D2A2E8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C72113D2559B05600D2A2E8 /* Network.swift */; };
 		7CBA4ECC2551AE5300313A51 /* reporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECB2551AE5300313A51 /* reporterApp.swift */; };
 		7CBA4ECE2551AE5300313A51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECD2551AE5300313A51 /* ContentView.swift */; };
 		7CBA4ED02551AE5300313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECF2551AE5300313A51 /* Assets.xcassets */; };
@@ -113,6 +117,10 @@
 		7C69126B2556E4ED00884215 /* PlayerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRow.swift; sourceTree = "<group>"; };
 		7C691272255731B800884215 /* CommunitiesWithPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesWithPlayers.swift; sourceTree = "<group>"; };
 		7C6912792557340D00884215 /* OpponentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentList.swift; sourceTree = "<group>"; };
+		7C7211242559ACBE00D2A2E8 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		7C72112A2559AE9C00D2A2E8 /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Queries.graphql; sourceTree = "<group>"; };
+		7C7211362559B02500D2A2E8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		7C72113D2559B05600D2A2E8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		7CBA4EC82551AE5300313A51 /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBA4ECB2551AE5300313A51 /* reporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reporterApp.swift; sourceTree = "<group>"; };
 		7CBA4ECD2551AE5300313A51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5CD48A6BA3D8D2B4B6269B3 /* Pods_reporter.framework in Frameworks */,
+				7C7211132559AB4700D2A2E8 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +257,8 @@
 				7CBA4ECD2551AE5300313A51 /* ContentView.swift */,
 				7CBA4ECF2551AE5300313A51 /* Assets.xcassets */,
 				7CBA4ED42551AE5300313A51 /* Info.plist */,
+				7C7211362559B02500D2A2E8 /* API.swift */,
+				7C7211242559ACBE00D2A2E8 /* schema.json */,
 				7CBA4ED12551AE5300313A51 /* Preview Content */,
 				7CBA4F272551B1A100313A51 /* AddResult.swift */,
 				7CBA4F2E2551B3E500313A51 /* GameTimer.swift */,
@@ -258,6 +269,8 @@
 				7C69126B2556E4ED00884215 /* PlayerRow.swift */,
 				7C691272255731B800884215 /* CommunitiesWithPlayers.swift */,
 				7C6912792557340D00884215 /* OpponentList.swift */,
+				7C72112A2559AE9C00D2A2E8 /* Queries.graphql */,
+				7C72113D2559B05600D2A2E8 /* Network.swift */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -351,6 +364,7 @@
 			buildConfigurationList = 7CBA4F192551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporter" */;
 			buildPhases = (
 				B20ABEAC140A3863BA043BD1 /* [CP] Check Pods Manifest.lock */,
+				7C72111E2559ABBE00D2A2E8 /* Apollo CLI */,
 				7CBA4EC42551AE5300313A51 /* Sources */,
 				7CBA4EC52551AE5300313A51 /* Frameworks */,
 				7CBA4EC62551AE5300313A51 /* Resources */,
@@ -363,6 +377,9 @@
 				7CBA4EF02551AE5300313A51 /* PBXTargetDependency */,
 			);
 			name = reporter;
+			packageProductDependencies = (
+				7C7211122559AB4700D2A2E8 /* Apollo */,
+			);
 			productName = reporter;
 			productReference = 7CBA4EC82551AE5300313A51 /* reporter.app */;
 			productType = "com.apple.product-type.application";
@@ -480,6 +497,9 @@
 				Base,
 			);
 			mainGroup = 7CBA4EBF2551AE5200313A51;
+			packageReferences = (
+				7C7211112559AB4700D2A2E8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = 7CBA4EC92551AE5300313A51 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -499,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CBA4F5525555A1C00313A51 /* expiration_warning.mp3 in Resources */,
+				7C72112B2559AE9C00D2A2E8 /* Queries.graphql in Resources */,
 				7CBA4F5625555A1C00313A51 /* half_time_beep.mp3 in Resources */,
 				7CBA4ED32551AE5300313A51 /* Preview Assets.xcassets in Resources */,
 				7CBA4F5425555A1C00313A51 /* final_siren.mp3 in Resources */,
@@ -623,6 +644,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reporter-reporterUITests/Pods-reporter-reporterUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7C72111E2559ABBE00D2A2E8 /* Apollo CLI */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Apollo CLI";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n# \"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"http://relogifyapi-temp.herokuapp.com/v1/graphql\"\n";
+		};
 		B20ABEAC140A3863BA043BD1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -691,6 +730,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C72113E2559B05600D2A2E8 /* Network.swift in Sources */,
 				7C69124D2556AA8E00884215 /* ChooseCommunity.swift in Sources */,
 				7CBA4ECE2551AE5300313A51 /* ContentView.swift in Sources */,
 				7C691273255731B800884215 /* CommunitiesWithPlayers.swift in Sources */,
@@ -701,6 +741,7 @@
 				7CBA4F282551B1A100313A51 /* AddResult.swift in Sources */,
 				7CBA4ECC2551AE5300313A51 /* reporterApp.swift in Sources */,
 				7CBA4F2F2551B3E500313A51 /* GameTimer.swift in Sources */,
+				7C7211372559B02500D2A2E8 /* API.swift in Sources */,
 				7C6912592556ABEA00884215 /* ChoosePlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1167,6 +1208,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C7211112559AB4700D2A2E8 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.36.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C7211122559AB4700D2A2E8 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C7211112559AB4700D2A2E8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7CBA4EC02551AE5200313A51 /* Project object */;
 }
