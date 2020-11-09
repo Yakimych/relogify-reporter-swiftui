@@ -6,31 +6,25 @@ struct CommunityWithPlayer: Identifiable, Codable {
     let id: UUID
 }
 
-// TODO: Do we need this wrapper? Is it possible to use the array itself as an ObservableObject?
-class CommunitiesWithPlayers: ObservableObject {
-    @Published var communitiesWithPlayers: [CommunityWithPlayer]
+class CommunitiesWithPlayersStorage: ObservableObject {
+    static private let storageKey = "CommunitiesWithPlayers"
     
-    init() {
-        communitiesWithPlayers = CommunitiesWithPlayers.getFromStorage()
+    @Published var items = [CommunityWithPlayer]() {
+        didSet {
+            if let encoded = try? PropertyListEncoder().encode(items) {
+                UserDefaults.standard.set(encoded, forKey: CommunitiesWithPlayersStorage.storageKey)
+            }
+        }
     }
     
-    private func saveToStorage() {
-        if let encoded = try? JSONEncoder().encode(communitiesWithPlayers) {
-            UserDefaults.standard.set(encoded, forKey: "CommunitiesWithPlayers")
-        }
+    init() {
+        items = CommunitiesWithPlayersStorage.getFromStorage()
     }
     
     private static func getFromStorage() -> [CommunityWithPlayer] {
-        if let communitiesWithPlayersData = UserDefaults.standard.data(forKey: "CommunitiesWithPlayers") {
-            return (try? JSONDecoder().decode([CommunityWithPlayer].self, from: communitiesWithPlayersData)) ?? []
+        if let data = UserDefaults.standard.data(forKey: CommunitiesWithPlayersStorage.storageKey) {
+            return (try? PropertyListDecoder().decode([CommunityWithPlayer].self, from: data)) ?? []
         }
         return []
     }
-    
-    func add(communityWithPlayer: CommunityWithPlayer) {
-        communitiesWithPlayers.append(communityWithPlayer)
-        saveToStorage()
-    }
-    
-    // TODO: Remove
 }

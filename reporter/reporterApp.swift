@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct reporterApp: App {
-    @StateObject var communitiesWithPlayers = CommunitiesWithPlayers()
+    @StateObject var communitiesWithPlayers = CommunitiesWithPlayersStorage()
     
     var body: some Scene {
         WindowGroup {

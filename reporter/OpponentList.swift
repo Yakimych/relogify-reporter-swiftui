@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct OpponentList: View {
-    @EnvironmentObject var communitiesWithPlayers: CommunitiesWithPlayers
+    @EnvironmentObject var communitiesWithPlayers: CommunitiesWithPlayersStorage
     
     var body: some View {
         let player1 = Player(name: "player1")
@@ -11,7 +11,7 @@ struct OpponentList: View {
         NavigationView {
             VStack(alignment: .leading, content: {
                 HStack {
-                    ForEach(communitiesWithPlayers.communitiesWithPlayers) {
+                    ForEach(communitiesWithPlayers.items) {
                         communityWithPlayer in
                         Button(communityWithPlayer.communityName, action: {})
                     }
