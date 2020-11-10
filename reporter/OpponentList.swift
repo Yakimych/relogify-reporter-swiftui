@@ -6,7 +6,17 @@ extension String: Identifiable {
 
 struct OpponentList: View {
     @EnvironmentObject var communitiesWithPlayers: CommunitiesWithPlayersStorage
-    @ObservedObject private var playerListData: PlayerListData = PlayerListData()
+    @ObservedObject private var communitiesWithPlayersListData: CommunitiesWithPlayersListData = CommunitiesWithPlayersListData()
+    
+    // TODO: Make everything that can be private private
+    @State var selectedCommunityName: String = ""
+    
+    func getCommunityTabColor(communityName: String) -> Color {
+        if communityName == selectedCommunityName {
+            return Color.red
+        }
+        return Color.white
+    }
     
     var body: some View {
         NavigationView {
@@ -14,11 +24,12 @@ struct OpponentList: View {
                 HStack {
                     ForEach(communitiesWithPlayers.items) {
                         communityWithPlayer in
-                        Button(communityWithPlayer.communityName, action: {})
+                        Button(communityWithPlayer.communityName, action: { selectedCommunityName = communityWithPlayer.communityName })
+                            .background(getCommunityTabColor(communityName: communityWithPlayer.communityName))
                     }
                 }
                 
-                switch playerListData.playerLoadingState {
+                switch communitiesWithPlayersListData.loadingState1 {
                 case .loading:
                     Text("Loading...")
                 case .loaded(let playerNames):
@@ -31,6 +42,14 @@ struct OpponentList: View {
             })
             .navigationBarTitle("Opponent list", displayMode: .inline)
         }
+        .onAppear {
+            // TODO: Make sure we never end up here with empty communitiesWithPlayers.items
+            if (!communitiesWithPlayers.items.isEmpty) {
+                selectedCommunityName = communitiesWithPlayers.items[0].communityName
+                
+                communitiesWithPlayersListData.loadData(communityNames: self.communitiesWithPlayers.items.map({ $0.communityName }))
+            }
+        }
     }
 }
 
@@ -40,22 +59,24 @@ struct OpponentList_Previews: PreviewProvider {
     }
 }
 
-enum PlayerLoadingState {
+// TODO: Make generic
+enum LoadingState1 {
     case loading
     case loaded([String]) // TODO: Return "Player"-objects instead
     case error(String)
 }
 
-class PlayerListData: ObservableObject {
-    @Published var playerLoadingState: PlayerLoadingState
+class CommunitiesWithPlayersListData: ObservableObject {
+    @Published var loadingState1: LoadingState1
     
     init() {
-        self.playerLoadingState = .loading
-        loadData()
+        self.loadingState1 = .loading
     }
     
-    func loadData() {
-        Network.shared.apollo.fetch(query: GetPlayersQuery(communityName: "test")) { result in
+    func loadData(communityNames: [String]) {
+        // TODO: Group by community
+        
+        Network.shared.apollo.fetch(query: GetPlayersForCommunitiesQuery(communityNames: communityNames)) { result in
             var loadedPlayers: [String] = []
             switch result {
             case .success(let graphQLResult):
@@ -63,7 +84,7 @@ class PlayerListData: ObservableObject {
                     loadedPlayers.append(player.name)
                 }
                 
-                self.playerLoadingState = .loaded(loadedPlayers)
+                self.loadingState1 = .loaded(loadedPlayers)
                 print("Success! Result: \(String(describing: loadedPlayers))")
             case .failure(let error):
                 print("Failure! Error: \(error)")

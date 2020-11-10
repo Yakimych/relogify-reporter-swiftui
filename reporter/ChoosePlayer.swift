@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ChoosePlayer: View {
     @EnvironmentObject var communitiesWithPlayers: CommunitiesWithPlayersStorage
+    @ObservedObject private var playerListData = PlayerListData()
     
     var communityName: String
     @State var maybeSelectedPlayer: Player?
@@ -25,22 +26,30 @@ struct ChoosePlayer: View {
     }
     
     var body: some View {
-        let player1 = Player(name: "player1")
-        let player2 = Player(name: "player2")
-        let player3 = Player(name: "player3")
-        let players = [player1, player2, player3]
-        
-        VStack{
-            Text("Choose player in \(communityName)!")
-            List(players) {player in
-                Button("Player '\(player.name)'", action: { maybeSelectedPlayer = player })
-                    .background(getColor(player: player))
-            }
-            Button("Done", action: {
-                addPlayerToLocalStorage()
-                isOpen = false
-            })
+        VStack {
+            switch playerListData.loadingState2 {
+            case .loading:
+                Text("Loading...")
+            case .loaded(let playerNames):
+                // TODO: Remove
+                let players = playerNames.map({ Player(name: $0) })
+                
+                Text("Choose player in \(communityName)!")
+                List(players) {player in
+                    Button("Player '\(player.name)'", action: { maybeSelectedPlayer = player })
+                        .background(getColor(player: player))
+                }
+                Button("Done", action: {
+                    addPlayerToLocalStorage()
+                    isOpen = false
+                })
                 .disabled(maybeSelectedPlayer == nil)
+            case .error(_):
+                Text("Error")
+            }
+        }
+        .onAppear {
+            playerListData.loadData(communityName: communityName)
         }
     }
 }
@@ -48,5 +57,37 @@ struct ChoosePlayer: View {
 struct ChoosePlayer_Previews: PreviewProvider {
     static var previews: some View {
         ChoosePlayer(communityName: "TestCommunity", maybeSelectedPlayer: Player(name: "player1"), isOpen: .constant(true))
+    }
+}
+
+// TODO: Make generic
+enum LoadingState2 {
+    case loading
+    case loaded([String]) // TODO: Return "Player"-objects instead
+    case error(String)
+}
+
+class PlayerListData: ObservableObject {
+    @Published var loadingState2: LoadingState2
+    
+    init() {
+        self.loadingState2 = .loading
+    }
+    
+    func loadData(communityName: String) {
+        Network.shared.apollo.fetch(query: GetPlayersQuery(communityName: communityName)) { result in
+            var loadedPlayers: [String] = []
+            switch result {
+            case .success(let graphQLResult):
+                for player in graphQLResult.data!.players {
+                    loadedPlayers.append(player.name)
+                }
+                
+                self.loadingState2 = .loaded(loadedPlayers)
+                print("Success! Result: \(String(describing: loadedPlayers))")
+            case .failure(let error):
+                print("Failure! Error: \(error)")
+            }
+        }
     }
 }

@@ -20,6 +20,7 @@
 		7C72112B2559AE9C00D2A2E8 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7C72112A2559AE9C00D2A2E8 /* Queries.graphql */; };
 		7C7211372559B02500D2A2E8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7211362559B02500D2A2E8 /* API.swift */; };
 		7C72113E2559B05600D2A2E8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C72113D2559B05600D2A2E8 /* Network.swift */; };
+		7C721145255AA60B00D2A2E8 /* AddResultMutation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */; };
 		7CBA4ECC2551AE5300313A51 /* reporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECB2551AE5300313A51 /* reporterApp.swift */; };
 		7CBA4ECE2551AE5300313A51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECD2551AE5300313A51 /* ContentView.swift */; };
 		7CBA4ED02551AE5300313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECF2551AE5300313A51 /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		7C72112A2559AE9C00D2A2E8 /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Queries.graphql; sourceTree = "<group>"; };
 		7C7211362559B02500D2A2E8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		7C72113D2559B05600D2A2E8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddResultMutation.graphql; sourceTree = "<group>"; };
 		7CBA4EC82551AE5300313A51 /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBA4ECB2551AE5300313A51 /* reporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reporterApp.swift; sourceTree = "<group>"; };
 		7CBA4ECD2551AE5300313A51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				7C6912792557340D00884215 /* OpponentList.swift */,
 				7C72112A2559AE9C00D2A2E8 /* Queries.graphql */,
 				7C72113D2559B05600D2A2E8 /* Network.swift */,
+				7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */,
 			);
 			path = reporter;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				7CBA4F5525555A1C00313A51 /* expiration_warning.mp3 in Resources */,
 				7C72112B2559AE9C00D2A2E8 /* Queries.graphql in Resources */,
 				7CBA4F5625555A1C00313A51 /* half_time_beep.mp3 in Resources */,
+				7C721145255AA60B00D2A2E8 /* AddResultMutation.graphql in Resources */,
 				7CBA4ED32551AE5300313A51 /* Preview Assets.xcassets in Resources */,
 				7CBA4F5425555A1C00313A51 /* final_siren.mp3 in Resources */,
 				7CBA4ED02551AE5300313A51 /* Assets.xcassets in Resources */,

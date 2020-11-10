@@ -4,3 +4,14 @@ query getPlayers($communityName: String!) {
         name
     }
 }
+
+query getPlayersForCommunities($communityNames: [String!]!) {
+    players(where: { community: { name: { _in: $communityNames } } }) {
+        id
+        name
+        community {
+            id
+            name
+        }
+    }
+}
