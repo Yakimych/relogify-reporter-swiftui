@@ -1,9 +1,5 @@
 import SwiftUI
 
-extension String: Identifiable {
-    public var id: String { self }
-}
-
 struct OpponentList: View {
     @EnvironmentObject private var communitiesWithPlayers: CommunitiesWithPlayersStorage
     @ObservedObject private var communitiesWithPlayersListData: CommunitiesWithPlayersListData = CommunitiesWithPlayersListData()
@@ -33,9 +29,12 @@ struct OpponentList: View {
                     Text("Loading...")
                 case .loaded(let communitiesWithPlayers):
                     let selectedCommunityWithPlayers = communitiesWithPlayers[selectedCommunityName] ?? []
-                    let players = selectedCommunityWithPlayers.map({ Player(name: $0.playerName) })
 
-                    List(players) {player in PlayerRow(player: player)}
+                    List(selectedCommunityWithPlayers.map({ $0.playerName })) {playerName in
+                        NavigationLink(
+                            destination: AddResult(communityName: selectedCommunityName, playerName: playerName),
+                            label: { Text("\(playerName)") })
+                    }
                 case .error(_):
                     Text("Error")
                 }
