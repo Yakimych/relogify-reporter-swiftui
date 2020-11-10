@@ -8,7 +8,7 @@ struct CommunityWithPlayer: Identifiable, Codable {
 
 class CommunitiesWithPlayersStorage: ObservableObject {
     static private let storageKey = "CommunitiesWithPlayers"
-    
+
     @Published var items = [CommunityWithPlayer]() {
         didSet {
             if let encoded = try? PropertyListEncoder().encode(items) {

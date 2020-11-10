@@ -27,22 +27,22 @@ struct ChoosePlayer: View {
 
     var body: some View {
         VStack {
-            switch playerListData.loadingState2 {
-            case .loading:
-                Text("Loading...")
-            case .loaded(let playerNames):
-                Text("Choose player in \(communityName)!")
-                List(playerNames) {playerName in
-                    Button("Player '\(playerName)'", action: { maybeSelectedPlayerName = playerName })
-                        .background(getColor(playerName: playerName))
-                }
-                Button("Done", action: {
-                    addPlayerToLocalStorage()
-                    isOpen = false
-                })
-                .disabled(maybeSelectedPlayerName == nil)
-            case .error(_):
-                Text("Error")
+            switch playerListData.loadingState {
+                case .loading:
+                    Text("Loading...")
+                case .loaded(let playerNames):
+                    Text("Choose player in \(communityName)!")
+                    List(playerNames) {playerName in
+                        Button("Player '\(playerName)'", action: { maybeSelectedPlayerName = playerName })
+                            .background(getColor(playerName: playerName))
+                    }
+                    Button("Done", action: {
+                        addPlayerToLocalStorage()
+                        isOpen = false
+                    })
+                    .disabled(maybeSelectedPlayerName == nil)
+                case .error(_):
+                    Text("Error")
             }
         }
         .onAppear {
@@ -57,33 +57,26 @@ struct ChoosePlayer_Previews: PreviewProvider {
     }
 }
 
-// TODO: Make generic
-enum LoadingState2 {
-    case loading
-    case loaded([String])
-    case error(String)
-}
-
 class PlayerListData: ObservableObject {
-    @Published var loadingState2: LoadingState2
-    
+    @Published var loadingState: LoadingState<[String]>
+
     init() {
-        self.loadingState2 = .loading
+        self.loadingState = .loading
     }
-    
+
     func loadData(communityName: String) {
         Network.shared.apollo.fetch(query: GetPlayersQuery(communityName: communityName)) { result in
             var loadedPlayers: [String] = []
             switch result {
-            case .success(let graphQLResult):
-                for player in graphQLResult.data!.players {
-                    loadedPlayers.append(player.name)
-                }
-                
-                self.loadingState2 = .loaded(loadedPlayers)
-                print("Success! Result: \(String(describing: loadedPlayers))")
-            case .failure(let error):
-                print("Failure! Error: \(error)")
+                case .success(let graphQLResult):
+                    for player in graphQLResult.data!.players {
+                        loadedPlayers.append(player.name)
+                    }
+
+                    self.loadingState = .loaded(loadedPlayers)
+                    print("Success! Result: \(String(describing: loadedPlayers))")
+                case .failure(let error):
+                    print("Failure! Error: \(error)")
             }
         }
     }

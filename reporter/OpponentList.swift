@@ -24,19 +24,19 @@ struct OpponentList: View {
                     }
                 }
 
-                switch communitiesWithPlayersListData.loadingState1 {
-                case .loading:
-                    Text("Loading...")
-                case .loaded(let communitiesWithPlayers):
-                    let selectedCommunityWithPlayers = communitiesWithPlayers[selectedCommunityName] ?? []
-
-                    List(selectedCommunityWithPlayers.map({ $0.playerName })) {playerName in
-                        NavigationLink(
-                            destination: AddResult(communityName: selectedCommunityName, playerName: playerName),
-                            label: { Text("\(playerName)") })
-                    }
-                case .error(_):
-                    Text("Error")
+                switch communitiesWithPlayersListData.loadingState {
+                    case .loading:
+                        Text("Loading...")
+                    case .loaded(let communitiesWithPlayers):
+                        let selectedCommunityWithPlayers = communitiesWithPlayers[selectedCommunityName] ?? []
+                        
+                        List(selectedCommunityWithPlayers.map({ $0.playerName })) {playerName in
+                            NavigationLink(
+                                destination: AddResult(communityName: selectedCommunityName, playerName: playerName),
+                                label: { Text("\(playerName)") })
+                        }
+                    case .error(_):
+                        Text("Error")
                 }
             })
             .navigationBarTitle("Opponent list", displayMode: .inline)
@@ -58,40 +58,28 @@ struct OpponentList_Previews: PreviewProvider {
     }
 }
 
-struct CommunityWithPlayers {
-    public var communityName: String
-    public var playerNames: [String]
-}
-
-// TODO: Make generic
-enum LoadingState1 {
-    case loading
-    case loaded(Dictionary<String, [CommunityWithPlayer]>)
-    case error(String)
-}
-
 class CommunitiesWithPlayersListData: ObservableObject {
-    @Published var loadingState1: LoadingState1
+    @Published var loadingState: LoadingState<Dictionary<String, [CommunityWithPlayer]>>
 
     init() {
-        self.loadingState1 = .loading
+        self.loadingState = .loading
     }
 
     func loadData(communityNames: [String]) {
         Network.shared.apollo.fetch(query: GetPlayersForCommunitiesQuery(communityNames: communityNames)) { result in
             var loadedCommunitiesWithPlayers: [CommunityWithPlayer] = []
             switch result {
-            case .success(let graphQLResult):
-                for player in graphQLResult.data!.players {
-                    loadedCommunitiesWithPlayers.append(CommunityWithPlayer(communityName: player.community.name, playerName: player.name, id: UUID()))
-                }
+                case .success(let graphQLResult):
+                    for player in graphQLResult.data!.players {
+                        loadedCommunitiesWithPlayers.append(CommunityWithPlayer(communityName: player.community.name, playerName: player.name, id: UUID()))
+                    }
 
-                let groupedCommunitiesWithPlayers = Dictionary(grouping: loadedCommunitiesWithPlayers, by: { $0.communityName })
+                    let groupedCommunitiesWithPlayers = Dictionary(grouping: loadedCommunitiesWithPlayers, by: { $0.communityName })
 
-                self.loadingState1 = .loaded(groupedCommunitiesWithPlayers)
-                print("Success! Result: \(String(describing: groupedCommunitiesWithPlayers))")
-            case .failure(let error):
-                print("Failure! Error: \(error)")
+                    self.loadingState = .loaded(groupedCommunitiesWithPlayers)
+                    print("Success! Result: \(String(describing: groupedCommunitiesWithPlayers))")
+                case .failure(let error):
+                    print("Failure! Error: \(error)")
             }
         }
     }

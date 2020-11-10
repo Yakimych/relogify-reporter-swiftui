@@ -30,12 +30,11 @@ struct ContentView: View {
         else {
             TabView(selection: $selectedView) {
                 OpponentList()
-                .tag(0)
-                .tabItem {
-                    Image(systemName: "list.bullet")
-                    Text("Opponents")
-                }
-
+                    .tag(0)
+                    .tabItem {
+                        Image(systemName: "list.bullet")
+                        Text("Opponents")
+                    }
                 SettingsView()
                     .tag(1)
                     .tabItem {

@@ -14,8 +14,8 @@ class StopWatchManager: ObservableObject {
     private let totalMilliseconds = 5 * 60 * 1000
     private let expirationWarningMilliseconds = 30 * 1000
 
-//    private let totalMilliseconds = 5 * 1000
-//    private let expirationWarningMilliseconds = 2 * 1000
+    //    private let totalMilliseconds = 5 * 1000
+    //    private let expirationWarningMilliseconds = 2 * 1000
 
     private let tickFrequencyMs = 200
 
@@ -37,12 +37,12 @@ class StopWatchManager: ObservableObject {
                 self.isPastHalfTime = true
                 Sound.play(file: "half_time_beep.mp3")
             }
-            
+
             if (self.millisecondsElapsed > self.totalMilliseconds - self.expirationWarningMilliseconds && !self.isPastExpirationWarning) {
                 self.isPastExpirationWarning = true
                 Sound.play(file: "expiration_warning.mp3")
             }
-            
+
             if self.millisecondsElapsed > self.totalMilliseconds {
                 self.reset()
                 Sound.play(file: "final_siren.mp3")

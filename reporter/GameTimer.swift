@@ -13,7 +13,7 @@ struct GameTimer: View {
     @Binding var isOpen: Bool
     @State var extraTime: Bool
     @State private var secondsLeft: Int = 60
-    
+
     @ObservedObject var stopWatchManager = StopWatchManager()
 
     private func toggleIsOpen() -> Void {

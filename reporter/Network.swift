@@ -6,3 +6,9 @@ class Network {
 
     private(set) lazy var apollo = ApolloClient(url: URL(string: "[TODO: Move to configuration (Plist? file]")!)
 }
+
+enum LoadingState<T> {
+    case loading
+    case loaded(T)
+    case error(String)
+}
