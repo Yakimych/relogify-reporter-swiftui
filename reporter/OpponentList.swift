@@ -32,8 +32,9 @@ struct OpponentList: View {
                 switch communitiesWithPlayersListData.loadingState1 {
                 case .loading:
                     Text("Loading...")
-                case .loaded(let playerNames):
-                    let players = playerNames.map({ Player(name: $0) })
+                case .loaded(let communitiesWithPlayers):
+                    let selectedCommunityWithPlayers = communitiesWithPlayers[selectedCommunityName] ?? []
+                    let players = selectedCommunityWithPlayers.map({ Player(name: $0.playerName) })
 
                     List(players) {player in PlayerRow(player: player)}
                 case .error(_):
@@ -59,10 +60,15 @@ struct OpponentList_Previews: PreviewProvider {
     }
 }
 
+struct CommunityWithPlayers {
+    public var communityName: String
+    public var playerNames: [String]
+}
+
 // TODO: Make generic
 enum LoadingState1 {
     case loading
-    case loaded([String]) // TODO: Return "Player"-objects instead
+    case loaded(Dictionary<String, [CommunityWithPlayer]>)
     case error(String)
 }
 
@@ -74,18 +80,18 @@ class CommunitiesWithPlayersListData: ObservableObject {
     }
     
     func loadData(communityNames: [String]) {
-        // TODO: Group by community
-        
         Network.shared.apollo.fetch(query: GetPlayersForCommunitiesQuery(communityNames: communityNames)) { result in
-            var loadedPlayers: [String] = []
+            var loadedCommunitiesWithPlayers: [CommunityWithPlayer] = []
             switch result {
             case .success(let graphQLResult):
                 for player in graphQLResult.data!.players {
-                    loadedPlayers.append(player.name)
+                    loadedCommunitiesWithPlayers.append(CommunityWithPlayer(communityName: player.community.name, playerName: player.name, id: UUID()))
                 }
                 
-                self.loadingState1 = .loaded(loadedPlayers)
-                print("Success! Result: \(String(describing: loadedPlayers))")
+                let groupedCommunitiesWithPlayers = Dictionary(grouping: loadedCommunitiesWithPlayers, by: { $0.communityName })
+                
+                self.loadingState1 = .loaded(groupedCommunitiesWithPlayers)
+                print("Success! Result: \(String(describing: groupedCommunitiesWithPlayers))")
             case .failure(let error):
                 print("Failure! Error: \(error)")
             }
