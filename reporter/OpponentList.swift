@@ -24,19 +24,24 @@ struct OpponentList: View {
                     }
                 }
 
-                switch communitiesWithPlayersListData.loadingState {
-                    case .loading:
-                        Text("Loading...")
-                    case .loaded(let communitiesWithOpponents):
-                        let selectedCommunityWithPlayers = communitiesWithOpponents[maybeSelectedPlayerInCommunity?.communityName ?? "TODO: Remove"] ?? []
+                if let selectedPlayerInCommunity = maybeSelectedPlayerInCommunity {
+                    switch communitiesWithPlayersListData.loadingState {
+                        case .loading:
+                            Text("Loading...")
+                        case .loaded(let communitiesWithOpponents):
+                            let selectedCommunityWithPlayers = communitiesWithOpponents[selectedPlayerInCommunity.communityName] ?? []
 
-                        List(selectedCommunityWithPlayers.map({ $0.playerName })) {opponentName in
-                            NavigationLink(
-                                destination: AddResult(communityName: maybeSelectedPlayerInCommunity?.communityName ?? "TODO: Remove", ownName: maybeSelectedPlayerInCommunity?.playerName ?? "TODO: Remove", opponentName: opponentName),
-                                label: { Text("\(opponentName)") })
-                        }
-                    case .error(_):
-                        Text("Error")
+                            List(selectedCommunityWithPlayers.map({ $0.playerName })) {opponentName in
+                                NavigationLink(
+                                    destination: AddResult(communityName: selectedPlayerInCommunity.communityName, ownName: selectedPlayerInCommunity.playerName, opponentName: opponentName),
+                                    label: { Text("\(opponentName)") })
+                            }
+                        case .error(_):
+                            Text("Error")
+                    }
+                }
+                else {
+                    Text("Loading...")
                 }
             })
             .navigationBarTitle("Opponent list", displayMode: .inline)
