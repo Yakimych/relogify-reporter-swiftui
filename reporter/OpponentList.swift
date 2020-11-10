@@ -4,10 +4,10 @@ struct OpponentList: View {
     @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
     @ObservedObject private var communitiesWithPlayersListData: CommunitiesWithPlayersListData = CommunitiesWithPlayersListData()
 
-    @State private var selectedCommunityName: String = ""
+    @State private var maybeSelectedPlayerInCommunity: PlayerInCommunity? = nil
 
     private func getCommunityTabColor(communityName: String) -> Color {
-        if communityName == selectedCommunityName {
+        if communityName == maybeSelectedPlayerInCommunity?.communityName {
             return Color.red
         }
         return Color.white
@@ -19,7 +19,7 @@ struct OpponentList: View {
                 HStack {
                     ForEach(playersInCommunitiesStorage.items) {
                         communityWithPlayer in
-                        Button(communityWithPlayer.communityName, action: { selectedCommunityName = communityWithPlayer.communityName })
+                        Button(communityWithPlayer.communityName, action: { maybeSelectedPlayerInCommunity = communityWithPlayer })
                             .background(getCommunityTabColor(communityName: communityWithPlayer.communityName))
                     }
                 }
@@ -28,14 +28,11 @@ struct OpponentList: View {
                     case .loading:
                         Text("Loading...")
                     case .loaded(let communitiesWithOpponents):
-                        let selectedCommunityWithPlayers = communitiesWithOpponents[selectedCommunityName] ?? []
+                        let selectedCommunityWithPlayers = communitiesWithOpponents[maybeSelectedPlayerInCommunity?.communityName ?? "TODO: Remove"] ?? []
 
-                        // TODO: Store own name in the same dictionary in CommunitiesWithPlayersListData?
-                        let ownPlayerName = playersInCommunitiesStorage.items.first(where: { $0.communityName == selectedCommunityName })?.playerName ?? ""
-                        
                         List(selectedCommunityWithPlayers.map({ $0.playerName })) {opponentName in
                             NavigationLink(
-                                destination: AddResult(communityName: selectedCommunityName, ownName: ownPlayerName, opponentName: opponentName),
+                                destination: AddResult(communityName: maybeSelectedPlayerInCommunity?.communityName ?? "TODO: Remove", ownName: maybeSelectedPlayerInCommunity?.playerName ?? "TODO: Remove", opponentName: opponentName),
                                 label: { Text("\(opponentName)") })
                         }
                     case .error(_):
@@ -47,8 +44,8 @@ struct OpponentList: View {
         .onAppear {
             // TODO: Make sure we never end up here with empty playersInCommunitiesStorage.items
             if (!playersInCommunitiesStorage.items.isEmpty) {
-                selectedCommunityName = playersInCommunitiesStorage.items[0].communityName
-                
+                maybeSelectedPlayerInCommunity = playersInCommunitiesStorage.items[0]
+
                 communitiesWithPlayersListData.loadData(communityNames: playersInCommunitiesStorage.items.map({ $0.communityName }))
             }
         }
@@ -61,7 +58,6 @@ struct OpponentList_Previews: PreviewProvider {
     }
 }
 
-// TODO: CommunitiesWithOpponents?
 class CommunitiesWithPlayersListData: ObservableObject {
     @Published var loadingState: LoadingState<Dictionary<String, [PlayerInCommunity]>>
 
