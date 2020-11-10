@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ChooseCommunity: View {
-    @EnvironmentObject private var communitiesWithPlayers: CommunitiesWithPlayersStorage
+    @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
 
     @State private var communityName: String = ""
     @State private var isChoosingPlayer = false
@@ -9,7 +9,7 @@ struct ChooseCommunity: View {
     var body: some View {
         VStack {
             Text("Existing communities:")
-            List(communitiesWithPlayers.items) { communityWithPlayer in
+            List(playersInCommunitiesStorage.items) { communityWithPlayer in
                 Button("\(communityWithPlayer.playerName) (\(communityWithPlayer.communityName))", action: { })
             }
 

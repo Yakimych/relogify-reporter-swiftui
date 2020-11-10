@@ -1,29 +1,29 @@
 import SwiftUI
 
-struct CommunityWithPlayer: Identifiable, Codable {
+struct PlayerInCommunity: Identifiable, Codable {
     let communityName: String
     let playerName: String
     let id: UUID
 }
 
-class CommunitiesWithPlayersStorage: ObservableObject {
-    static private let storageKey = "CommunitiesWithPlayers"
+class PlayersInCommunitiesStorage: ObservableObject {
+    static private let storageKey = "PlayersInCommunities"
 
-    @Published var items = [CommunityWithPlayer]() {
+    @Published var items = [PlayerInCommunity]() {
         didSet {
             if let encoded = try? PropertyListEncoder().encode(items) {
-                UserDefaults.standard.set(encoded, forKey: CommunitiesWithPlayersStorage.storageKey)
+                UserDefaults.standard.set(encoded, forKey: PlayersInCommunitiesStorage.storageKey)
             }
         }
     }
 
     init() {
-        items = CommunitiesWithPlayersStorage.getFromStorage()
+        items = PlayersInCommunitiesStorage.getFromStorage()
     }
 
-    private static func getFromStorage() -> [CommunityWithPlayer] {
-        if let data = UserDefaults.standard.data(forKey: CommunitiesWithPlayersStorage.storageKey) {
-            return (try? PropertyListDecoder().decode([CommunityWithPlayer].self, from: data)) ?? []
+    private static func getFromStorage() -> [PlayerInCommunity] {
+        if let data = UserDefaults.standard.data(forKey: PlayersInCommunitiesStorage.storageKey) {
+            return (try? PropertyListDecoder().decode([PlayerInCommunity].self, from: data)) ?? []
         }
         return []
     }

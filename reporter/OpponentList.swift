@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct OpponentList: View {
-    @EnvironmentObject private var communitiesWithPlayers: CommunitiesWithPlayersStorage
+    @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
     @ObservedObject private var communitiesWithPlayersListData: CommunitiesWithPlayersListData = CommunitiesWithPlayersListData()
 
     @State private var selectedCommunityName: String = ""
@@ -17,7 +17,7 @@ struct OpponentList: View {
         NavigationView {
             VStack(alignment: .leading, content: {
                 HStack {
-                    ForEach(communitiesWithPlayers.items) {
+                    ForEach(playersInCommunitiesStorage.items) {
                         communityWithPlayer in
                         Button(communityWithPlayer.communityName, action: { selectedCommunityName = communityWithPlayer.communityName })
                             .background(getCommunityTabColor(communityName: communityWithPlayer.communityName))
@@ -31,7 +31,7 @@ struct OpponentList: View {
                         let selectedCommunityWithPlayers = communitiesWithOpponents[selectedCommunityName] ?? []
 
                         // TODO: Store own name in the same dictionary in CommunitiesWithPlayersListData?
-                        let ownPlayerName = communitiesWithPlayers.items.first(where: { $0.communityName == selectedCommunityName })?.playerName ?? ""
+                        let ownPlayerName = playersInCommunitiesStorage.items.first(where: { $0.communityName == selectedCommunityName })?.playerName ?? ""
                         
                         List(selectedCommunityWithPlayers.map({ $0.playerName })) {opponentName in
                             NavigationLink(
@@ -45,11 +45,11 @@ struct OpponentList: View {
             .navigationBarTitle("Opponent list", displayMode: .inline)
         }
         .onAppear {
-            // TODO: Make sure we never end up here with empty communitiesWithPlayers.items
-            if (!communitiesWithPlayers.items.isEmpty) {
-                selectedCommunityName = communitiesWithPlayers.items[0].communityName
+            // TODO: Make sure we never end up here with empty playersInCommunitiesStorage.items
+            if (!playersInCommunitiesStorage.items.isEmpty) {
+                selectedCommunityName = playersInCommunitiesStorage.items[0].communityName
                 
-                communitiesWithPlayersListData.loadData(communityNames: self.communitiesWithPlayers.items.map({ $0.communityName }))
+                communitiesWithPlayersListData.loadData(communityNames: playersInCommunitiesStorage.items.map({ $0.communityName }))
             }
         }
     }
@@ -63,7 +63,7 @@ struct OpponentList_Previews: PreviewProvider {
 
 // TODO: CommunitiesWithOpponents?
 class CommunitiesWithPlayersListData: ObservableObject {
-    @Published var loadingState: LoadingState<Dictionary<String, [CommunityWithPlayer]>>
+    @Published var loadingState: LoadingState<Dictionary<String, [PlayerInCommunity]>>
 
     init() {
         self.loadingState = .loading
@@ -71,11 +71,11 @@ class CommunitiesWithPlayersListData: ObservableObject {
 
     func loadData(communityNames: [String]) {
         Network.shared.apollo.fetch(query: GetPlayersForCommunitiesQuery(communityNames: communityNames)) { result in
-            var loadedCommunitiesWithPlayers: [CommunityWithPlayer] = []
+            var loadedCommunitiesWithPlayers: [PlayerInCommunity] = []
             switch result {
                 case .success(let graphQLResult):
                     for player in graphQLResult.data!.players {
-                        loadedCommunitiesWithPlayers.append(CommunityWithPlayer(communityName: player.community.name, playerName: player.name, id: UUID()))
+                        loadedCommunitiesWithPlayers.append(PlayerInCommunity(communityName: player.community.name, playerName: player.name, id: UUID()))
                     }
 
                     let groupedCommunitiesWithPlayers = Dictionary(grouping: loadedCommunitiesWithPlayers, by: { $0.communityName })

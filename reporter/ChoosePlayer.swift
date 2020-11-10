@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ChoosePlayer: View {
-    @EnvironmentObject private var communitiesWithPlayers: CommunitiesWithPlayersStorage
+    @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
     @ObservedObject private var playerListData = PlayerListData()
 
     let communityName: String
@@ -17,8 +17,8 @@ struct ChoosePlayer: View {
 
     private func addPlayerToLocalStorage() {
         if let selectedPlayerName = maybeSelectedPlayerName {
-            communitiesWithPlayers.items.append(
-                CommunityWithPlayer(
+            playersInCommunitiesStorage.items.append(
+                PlayerInCommunity(
                     communityName: self.communityName,
                     playerName: selectedPlayerName,
                     id: UUID()))
