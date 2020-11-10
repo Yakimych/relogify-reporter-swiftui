@@ -12,14 +12,14 @@ struct TimerButtonStyle: ButtonStyle {
 struct GameTimer: View {
     @Binding var isOpen: Bool
     @State var extraTime: Bool
-    @State var secondsLeft: Int = 60
+    @State private var secondsLeft: Int = 60
     
     @ObservedObject var stopWatchManager = StopWatchManager()
-    
-    func toggleIsOpen() -> Void {
+
+    private func toggleIsOpen() -> Void {
         self.isOpen.toggle()
     }
-    
+
     var body: some View {
         VStack {
             Text("Milliseconds elapsed: \(stopWatchManager.millisecondsElapsed)")

@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var selectedView = 0
-    @State var isFirstRun = false
-    
+    @State private var selectedView = 0
+    @State private var isFirstRun = false
+
     var body: some View {
         if isFirstRun {
             VStack(content: {
@@ -55,6 +55,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(selectedView: 0, isFirstRun: true)
+        ContentView()
     }
 }

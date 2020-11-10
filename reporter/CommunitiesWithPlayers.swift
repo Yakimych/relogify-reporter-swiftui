@@ -16,11 +16,11 @@ class CommunitiesWithPlayersStorage: ObservableObject {
             }
         }
     }
-    
+
     init() {
         items = CommunitiesWithPlayersStorage.getFromStorage()
     }
-    
+
     private static func getFromStorage() -> [CommunityWithPlayer] {
         if let data = UserDefaults.standard.data(forKey: CommunitiesWithPlayersStorage.storageKey) {
             return (try? PropertyListDecoder().decode([CommunityWithPlayer].self, from: data)) ?? []

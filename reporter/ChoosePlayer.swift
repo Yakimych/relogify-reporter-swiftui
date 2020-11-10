@@ -1,21 +1,21 @@
 import SwiftUI
 
 struct ChoosePlayer: View {
-    @EnvironmentObject var communitiesWithPlayers: CommunitiesWithPlayersStorage
+    @EnvironmentObject private var communitiesWithPlayers: CommunitiesWithPlayersStorage
     @ObservedObject private var playerListData = PlayerListData()
-    
-    var communityName: String
+
+    let communityName: String
     @State var maybeSelectedPlayer: Player?
     @Binding var isOpen: Bool
-    
-    func getColor(player: Player) -> Color {
+
+    private func getColor(player: Player) -> Color {
         if player.name == maybeSelectedPlayer?.name {
             return Color.red
         }
         return Color.white
     }
-    
-    func addPlayerToLocalStorage() {
+
+    private func addPlayerToLocalStorage() {
         if let selectedPlayer = maybeSelectedPlayer {
             communitiesWithPlayers.items.append(
                 CommunityWithPlayer(
@@ -24,7 +24,7 @@ struct ChoosePlayer: View {
                     id: UUID()))
         }
     }
-    
+
     var body: some View {
         VStack {
             switch playerListData.loadingState2 {
@@ -91,3 +91,4 @@ class PlayerListData: ObservableObject {
         }
     }
 }
+

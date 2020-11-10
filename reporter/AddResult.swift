@@ -3,25 +3,25 @@ import SwiftUI
 struct AddResult: View {
     @State var communityName: String
     @State var playerName: String
-    @State var timerIsOpen: Bool = false
-    
-    @State var playerPoints: String = "0"
-    @State var opponentPoints: String = "0"
-    @State var extraTime: Bool = false
-    
-    let maxSelectablePoints = 20
-    
-    func getColor(_ playerPointsString: String, _ currentNumber: Int) -> Color {
+
+    @State private var timerIsOpen: Bool = false
+    @State private var playerPoints: String = "0"
+    @State private var opponentPoints: String = "0"
+    @State private var extraTime: Bool = false
+
+    private let maxSelectablePoints = 20
+
+    private func getColor(_ playerPointsString: String, _ currentNumber: Int) -> Color {
         if Int(playerPointsString) == currentNumber {
             return Color.green
         }
         return Color.yellow
     }
-    
-    func setPlayerPoints(newValue: String) -> Void {
+
+    private func setPlayerPoints(newValue: String) -> Void {
         self.playerPoints = newValue
     }
-    
+
     var body: some View {
         VStack(alignment: .center) {
             HStack {

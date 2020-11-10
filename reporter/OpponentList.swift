@@ -5,19 +5,18 @@ extension String: Identifiable {
 }
 
 struct OpponentList: View {
-    @EnvironmentObject var communitiesWithPlayers: CommunitiesWithPlayersStorage
+    @EnvironmentObject private var communitiesWithPlayers: CommunitiesWithPlayersStorage
     @ObservedObject private var communitiesWithPlayersListData: CommunitiesWithPlayersListData = CommunitiesWithPlayersListData()
-    
-    // TODO: Make everything that can be private private
-    @State var selectedCommunityName: String = ""
-    
-    func getCommunityTabColor(communityName: String) -> Color {
+
+    @State private var selectedCommunityName: String = ""
+
+    private func getCommunityTabColor(communityName: String) -> Color {
         if communityName == selectedCommunityName {
             return Color.red
         }
         return Color.white
     }
-    
+
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, content: {
@@ -28,7 +27,7 @@ struct OpponentList: View {
                             .background(getCommunityTabColor(communityName: communityWithPlayer.communityName))
                     }
                 }
-                
+
                 switch communitiesWithPlayersListData.loadingState1 {
                 case .loading:
                     Text("Loading...")
@@ -74,11 +73,11 @@ enum LoadingState1 {
 
 class CommunitiesWithPlayersListData: ObservableObject {
     @Published var loadingState1: LoadingState1
-    
+
     init() {
         self.loadingState1 = .loading
     }
-    
+
     func loadData(communityNames: [String]) {
         Network.shared.apollo.fetch(query: GetPlayersForCommunitiesQuery(communityNames: communityNames)) { result in
             var loadedCommunitiesWithPlayers: [CommunityWithPlayer] = []
@@ -87,9 +86,9 @@ class CommunitiesWithPlayersListData: ObservableObject {
                 for player in graphQLResult.data!.players {
                     loadedCommunitiesWithPlayers.append(CommunityWithPlayer(communityName: player.community.name, playerName: player.name, id: UUID()))
                 }
-                
+
                 let groupedCommunitiesWithPlayers = Dictionary(grouping: loadedCommunitiesWithPlayers, by: { $0.communityName })
-                
+
                 self.loadingState1 = .loaded(groupedCommunitiesWithPlayers)
                 print("Success! Result: \(String(describing: groupedCommunitiesWithPlayers))")
             case .failure(let error):

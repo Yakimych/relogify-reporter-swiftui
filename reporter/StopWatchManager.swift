@@ -10,24 +10,24 @@ enum stopWatchMode {
 class StopWatchManager: ObservableObject {
     @Published var millisecondsElapsed = 0
     @Published var mode: stopWatchMode = .stopped
-    
-    let totalMilliseconds = 5 * 60 * 1000
-    let expirationWarningMilliseconds = 30 * 1000
 
-//    let totalMilliseconds = 5 * 1000
-//    let expirationWarningMilliseconds = 2 * 1000
-    
-    let tickFrequencyMs = 200
-    
-    var isPastHalfTime = false
-    var isPastExpirationWarning = false
-    var timer = Timer()
-    var raiseTimerExpired: () -> Void = {}
-    
+    private let totalMilliseconds = 5 * 60 * 1000
+    private let expirationWarningMilliseconds = 30 * 1000
+
+//    private let totalMilliseconds = 5 * 1000
+//    private let expirationWarningMilliseconds = 2 * 1000
+
+    private let tickFrequencyMs = 200
+
+    private var isPastHalfTime = false
+    private var isPastExpirationWarning = false
+    private var timer = Timer()
+    private var raiseTimerExpired: () -> Void = {}
+
     func onExpired(funcToRunOnExpired: @escaping () -> Void) -> Void {
         self.raiseTimerExpired = funcToRunOnExpired
     }
-    
+
     func start() {
         isPastHalfTime = false
         isPastExpirationWarning = false
@@ -52,12 +52,12 @@ class StopWatchManager: ObservableObject {
         //Sound.play(file: "expiration_warning.mp3")
         mode = .running
     }
-    
+
     func pause() {
         timer.invalidate()
         mode = .paused
     }
-    
+
     func reset() {
         timer.invalidate()
         self.millisecondsElapsed = 0
