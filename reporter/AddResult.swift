@@ -3,8 +3,11 @@ import SwiftUI
 struct AddResult: View {
     @State var communityName: String
     @State var playerName: String
+    //@State var opponentName: String
 
     @State private var timerIsOpen: Bool = false
+
+    // TODO: Int as backing field?
     @State private var playerPoints: String = "0"
     @State private var opponentPoints: String = "0"
     @State private var extraTime: Bool = false
@@ -20,6 +23,26 @@ struct AddResult: View {
 
     private func setPlayerPoints(newValue: String) -> Void {
         self.playerPoints = newValue
+    }
+
+    private func addResult() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+        let addResultMutation =
+            AddResultMutation(
+                communityName: communityName,
+                player1Name: playerName,
+                player2Name: playerName,
+                date: dateFormatter.string(from: Date()),
+                player1Goals: Int(playerPoints) ?? 0,
+                player2Goals: Int(opponentPoints) ?? 0,
+                extraTime: extraTime)
+
+        Network.shared.apollo.perform(mutation: addResultMutation) { result in
+            print("Added result. Response: \(result).")
+        }
     }
 
     var body: some View {
@@ -58,7 +81,7 @@ struct AddResult: View {
                 Text("Extra Time")
             })
             Button(action: {
-                print("TODO: Add result against \(playerName): \(playerPoints):\(opponentPoints) with extraTime: \(extraTime).")
+                addResult()
             }) {
                 Text("Add Result")
             }
