@@ -27,13 +27,16 @@ struct OpponentList: View {
                 switch communitiesWithPlayersListData.loadingState {
                     case .loading:
                         Text("Loading...")
-                    case .loaded(let communitiesWithPlayers):
-                        let selectedCommunityWithPlayers = communitiesWithPlayers[selectedCommunityName] ?? []
+                    case .loaded(let communitiesWithOpponents):
+                        let selectedCommunityWithPlayers = communitiesWithOpponents[selectedCommunityName] ?? []
+
+                        // TODO: Store own name in the same dictionary in CommunitiesWithPlayersListData?
+                        let ownPlayerName = communitiesWithPlayers.items.first(where: { $0.communityName == selectedCommunityName })?.playerName ?? ""
                         
-                        List(selectedCommunityWithPlayers.map({ $0.playerName })) {playerName in
+                        List(selectedCommunityWithPlayers.map({ $0.playerName })) {opponentName in
                             NavigationLink(
-                                destination: AddResult(communityName: selectedCommunityName, playerName: playerName),
-                                label: { Text("\(playerName)") })
+                                destination: AddResult(communityName: selectedCommunityName, ownName: ownPlayerName, opponentName: opponentName),
+                                label: { Text("\(opponentName)") })
                         }
                     case .error(_):
                         Text("Error")
@@ -58,6 +61,7 @@ struct OpponentList_Previews: PreviewProvider {
     }
 }
 
+// TODO: CommunitiesWithOpponents?
 class CommunitiesWithPlayersListData: ObservableObject {
     @Published var loadingState: LoadingState<Dictionary<String, [CommunityWithPlayer]>>
 

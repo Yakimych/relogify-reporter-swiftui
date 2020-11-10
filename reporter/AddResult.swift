@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct AddResult: View {
-    @State var communityName: String
-    @State var playerName: String
-    //@State var opponentName: String
+    let communityName: String
+    let ownName: String
+    let opponentName: String
 
     @State private var timerIsOpen: Bool = false
 
@@ -33,8 +33,8 @@ struct AddResult: View {
         let addResultMutation =
             AddResultMutation(
                 communityName: communityName,
-                player1Name: playerName,
-                player2Name: playerName,
+                player1Name: ownName,
+                player2Name: opponentName,
                 date: dateFormatter.string(from: Date()),
                 player1Goals: Int(playerPoints) ?? 0,
                 player2Goals: Int(opponentPoints) ?? 0,
@@ -86,7 +86,7 @@ struct AddResult: View {
                 Text("Add Result")
             }
         }
-        .navigationBarTitle("\(playerName) in \(communityName)")
+        .navigationBarTitle("\(ownName) vs \(opponentName) in \(communityName)")
         .navigationBarItems(trailing:
                                 Button(action: { self.timerIsOpen.toggle() })
                                     { Text("Timer") }
@@ -99,6 +99,6 @@ struct AddResult: View {
 
 struct AddResult_Previews: PreviewProvider {
     static var previews: some View {
-        AddResult(communityName: "TestCommunity", playerName: "TestPlayer")
+        AddResult(communityName: "TestCommunity", ownName: "TestPlayer", opponentName: "TestOpponent")
     }
 }
