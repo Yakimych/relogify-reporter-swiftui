@@ -18,13 +18,10 @@ struct SettingsView: View {
                 // TODO: Sections
                 Text("Existing communities:")
 
-                if playersInCommunitiesStorage.items.count <= 1 {
-                    List { listContents }
-                }
-                else {
-                    List { listContents.onDelete(perform: { indexSet in
-                        playersInCommunitiesStorage.items.remove(atOffsets: indexSet)
-                    }) }
+                List {
+                    listContents.onDelete(perform: {
+                        indexSet in playersInCommunitiesStorage.items.remove(atOffsets: indexSet)
+                    })
                 }
 
                 NavigationLink(

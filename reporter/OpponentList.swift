@@ -68,8 +68,10 @@ struct OpponentList: View {
             .navigationBarTitle("Opponent list", displayMode: .inline)
         }
         .onAppear {
-            selectedPlayerInCommunity = playersInCommunitiesStorage.items[0]
-            loadData(communityNames: playersInCommunitiesStorage.items.map({ $0.communityName }))
+            if !playersInCommunitiesStorage.items.isEmpty {
+                selectedPlayerInCommunity = playersInCommunitiesStorage.items[0]
+                loadData(communityNames: playersInCommunitiesStorage.items.map({ $0.communityName }))
+            }
         }
     }
 }

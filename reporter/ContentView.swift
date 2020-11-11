@@ -3,34 +3,18 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
 
-    @State private var selectedView = 0
-    @State private var isFirstRun = false
+    @State private var isAddingFirstCommunity: Bool = false
 
     var body: some View {
-        if isFirstRun {
-            VStack(content: {
-                Text("First run!")
-                Group {
-                    Button(action: {
-                        self.isFirstRun.toggle()
-                    }) {
-                        Text("Done")
-                            .fontWeight(.bold)
-                            .font(.title)
-                            .foregroundColor(.blue)
-                            .padding()
-                            .background(Color.yellow)
-                            .cornerRadius(20)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.black, style: StrokeStyle(lineWidth: 3))
-                            )
-                    }
+        if playersInCommunitiesStorage.items.isEmpty {
+            NavigationView {
+                VStack {
+                    ChooseCommunity(isAddingPlayerInCommunity: $isAddingFirstCommunity)
                 }
-            })
+            }
         }
         else {
-            TabView(selection: $selectedView) {
+            TabView {
                 OpponentList(playersInCommunitiesStorage: playersInCommunitiesStorage)
                     .tag(0)
                     .tabItem {
