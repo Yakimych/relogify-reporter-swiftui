@@ -1,13 +1,37 @@
 import SwiftUI
 
 struct OpponentList: View {
-    @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
-    @ObservedObject private var communitiesWithPlayersListData: CommunitiesWithPlayersListData = CommunitiesWithPlayersListData()
+    let playersInCommunitiesStorage: PlayersInCommunitiesStorage
 
-    @State private var maybeSelectedPlayerInCommunity: PlayerInCommunity? = nil
+    @State private var selectedPlayerInCommunity: PlayerInCommunity
+    @State private var communitiesWithPlayersRemoteData: RemoteData<Dictionary<String, [PlayerInCommunity]>> = .loading
+
+    init(playersInCommunitiesStorage: PlayersInCommunitiesStorage) {
+        self.playersInCommunitiesStorage = playersInCommunitiesStorage
+        _selectedPlayerInCommunity = State(initialValue: playersInCommunitiesStorage.items[0])
+    }
+
+    private func loadData(communityNames: [String]) {
+        Network.shared.apollo.fetch(query: GetPlayersForCommunitiesQuery(communityNames: communityNames)) { result in
+            var loadedCommunitiesWithPlayers: [PlayerInCommunity] = []
+            switch result {
+                case .success(let graphQLResult):
+                    for player in graphQLResult.data!.players {
+                        loadedCommunitiesWithPlayers.append(PlayerInCommunity(communityName: player.community.name, playerName: player.name, id: UUID()))
+                    }
+
+                    let groupedCommunitiesWithPlayers = Dictionary(grouping: loadedCommunitiesWithPlayers, by: { $0.communityName })
+
+                    self.communitiesWithPlayersRemoteData = .loaded(groupedCommunitiesWithPlayers)
+                    print("Success! Timestamp: \(Date()) Result: \(String(describing: groupedCommunitiesWithPlayers))")
+                case .failure(let error):
+                    print("Failure! Error: \(error)")
+            }
+        }
+    }
 
     private func getCommunityTabColor(communityName: String) -> Color {
-        if communityName == maybeSelectedPlayerInCommunity?.communityName {
+        if communityName == selectedPlayerInCommunity.communityName {
             return Color.red
         }
         return Color.white
@@ -19,75 +43,39 @@ struct OpponentList: View {
                 HStack {
                     ForEach(playersInCommunitiesStorage.items) {
                         communityWithPlayer in
-                        Button(communityWithPlayer.communityName, action: { maybeSelectedPlayerInCommunity = communityWithPlayer })
+                        Button(communityWithPlayer.communityName, action: { selectedPlayerInCommunity = communityWithPlayer })
                             .background(getCommunityTabColor(communityName: communityWithPlayer.communityName))
                     }
                 }
 
-                if let selectedPlayerInCommunity = maybeSelectedPlayerInCommunity {
-                    switch communitiesWithPlayersListData.loadingState {
-                        case .loading:
-                            Text("Loading...")
-                        case .loaded(let communitiesWithOpponents):
-                            let selectedCommunityWithPlayers = communitiesWithOpponents[selectedPlayerInCommunity.communityName] ?? []
+                switch communitiesWithPlayersRemoteData {
+                    case .loading:
+                        Text("Loading...")
+                    case .loaded(let communitiesWithOpponents):
+                        let selectedCommunityWithPlayers = communitiesWithOpponents[selectedPlayerInCommunity.communityName] ?? []
 
-                            List(selectedCommunityWithPlayers
-                                    .filter({ $0.playerName != selectedPlayerInCommunity.playerName })
-                                    .map({ $0.playerName })) {opponentName in
-                                NavigationLink(
-                                    destination: AddResult(communityName: selectedPlayerInCommunity.communityName, ownName: selectedPlayerInCommunity.playerName, opponentName: opponentName),
-                                    label: { Text("\(opponentName)") })
-                            }
-                        case .error(_):
-                            Text("Error")
-                    }
-                }
-                else {
-                    Text("Loading...")
+                        List(selectedCommunityWithPlayers
+                                .filter({ $0.playerName != selectedPlayerInCommunity.playerName })
+                                .map({ $0.playerName })) {opponentName in
+                            NavigationLink(
+                                destination: AddResult(communityName: selectedPlayerInCommunity.communityName, ownName: selectedPlayerInCommunity.playerName, opponentName: opponentName),
+                                label: { Text("\(opponentName)") })
+                        }
+                    case .error(_):
+                        Text("Error")
                 }
             })
             .navigationBarTitle("Opponent list", displayMode: .inline)
         }
         .onAppear {
-            // TODO: Make sure we never end up here with empty playersInCommunitiesStorage.items
-            if (!playersInCommunitiesStorage.items.isEmpty) {
-                maybeSelectedPlayerInCommunity = playersInCommunitiesStorage.items[0]
-
-                communitiesWithPlayersListData.loadData(communityNames: playersInCommunitiesStorage.items.map({ $0.communityName }))
-            }
+            selectedPlayerInCommunity = playersInCommunitiesStorage.items[0]
+            loadData(communityNames: playersInCommunitiesStorage.items.map({ $0.communityName }))
         }
     }
 }
 
 struct OpponentList_Previews: PreviewProvider {
     static var previews: some View {
-        OpponentList()
-    }
-}
-
-class CommunitiesWithPlayersListData: ObservableObject {
-    @Published var loadingState: LoadingState<Dictionary<String, [PlayerInCommunity]>>
-
-    init() {
-        self.loadingState = .loading
-    }
-
-    func loadData(communityNames: [String]) {
-        Network.shared.apollo.fetch(query: GetPlayersForCommunitiesQuery(communityNames: communityNames)) { result in
-            var loadedCommunitiesWithPlayers: [PlayerInCommunity] = []
-            switch result {
-                case .success(let graphQLResult):
-                    for player in graphQLResult.data!.players {
-                        loadedCommunitiesWithPlayers.append(PlayerInCommunity(communityName: player.community.name, playerName: player.name, id: UUID()))
-                    }
-
-                    let groupedCommunitiesWithPlayers = Dictionary(grouping: loadedCommunitiesWithPlayers, by: { $0.communityName })
-
-                    self.loadingState = .loaded(groupedCommunitiesWithPlayers)
-                    print("Success! Timestamp: \(Date()) Result: \(String(describing: groupedCommunitiesWithPlayers))")
-                case .failure(let error):
-                    print("Failure! Error: \(error)")
-            }
-        }
+        OpponentList(playersInCommunitiesStorage: PlayersInCommunitiesStorage())
     }
 }

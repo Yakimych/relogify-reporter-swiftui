@@ -2,11 +2,30 @@ import SwiftUI
 
 struct ChoosePlayer: View {
     @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
-    @ObservedObject private var playerListData = PlayerListData()
 
     let communityName: String
-    @State var maybeSelectedPlayerName: String?
+    @State private var maybeSelectedPlayerName: String?
+
     @Binding var isAddingPlayerInCommunity: Bool
+
+    @State private var playersRemoteData: RemoteData<[String]> = .loading
+
+    private func loadData(communityName: String) {
+        Network.shared.apollo.fetch(query: GetPlayersQuery(communityName: communityName)) { result in
+            var loadedPlayers: [String] = []
+            switch result {
+                case .success(let graphQLResult):
+                    for player in graphQLResult.data!.players {
+                        loadedPlayers.append(player.name)
+                    }
+
+                    playersRemoteData = .loaded(loadedPlayers)
+                    print("Success! Result: \(String(describing: loadedPlayers))")
+                case .failure(let error):
+                    print("Failure! Error: \(error)")
+            }
+        }
+    }
 
     private func getColor(playerName: String) -> Color {
         if playerName == maybeSelectedPlayerName {
@@ -27,7 +46,7 @@ struct ChoosePlayer: View {
 
     var body: some View {
         VStack {
-            switch playerListData.loadingState {
+            switch playersRemoteData {
                 case .loading:
                     Text("Loading...")
                 case .loaded(let playerNames):
@@ -46,39 +65,13 @@ struct ChoosePlayer: View {
             }
         }
         .onAppear {
-            playerListData.loadData(communityName: communityName)
+            loadData(communityName: communityName)
         }
     }
 }
 
 struct ChoosePlayer_Previews: PreviewProvider {
     static var previews: some View {
-        ChoosePlayer(communityName: "TestCommunity", maybeSelectedPlayerName: "player1", isAddingPlayerInCommunity: .constant(false))
+        ChoosePlayer(communityName: "TestCommunity", isAddingPlayerInCommunity: .constant(false))
     }
 }
-
-class PlayerListData: ObservableObject {
-    @Published var loadingState: LoadingState<[String]>
-
-    init() {
-        self.loadingState = .loading
-    }
-
-    func loadData(communityName: String) {
-        Network.shared.apollo.fetch(query: GetPlayersQuery(communityName: communityName)) { result in
-            var loadedPlayers: [String] = []
-            switch result {
-                case .success(let graphQLResult):
-                    for player in graphQLResult.data!.players {
-                        loadedPlayers.append(player.name)
-                    }
-
-                    self.loadingState = .loaded(loadedPlayers)
-                    print("Success! Result: \(String(describing: loadedPlayers))")
-                case .failure(let error):
-                    print("Failure! Error: \(error)")
-            }
-        }
-    }
-}
-

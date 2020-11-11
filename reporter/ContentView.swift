@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
+
     @State private var selectedView = 0
     @State private var isFirstRun = false
 
@@ -29,7 +31,7 @@ struct ContentView: View {
         }
         else {
             TabView(selection: $selectedView) {
-                OpponentList()
+                OpponentList(playersInCommunitiesStorage: playersInCommunitiesStorage)
                     .tag(0)
                     .tabItem {
                         Image(systemName: "list.bullet")
