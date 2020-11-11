@@ -6,7 +6,7 @@ struct ChoosePlayer: View {
 
     let communityName: String
     @State var maybeSelectedPlayerName: String?
-    @Binding var isOpen: Bool
+    @Binding var isAddingPlayerInCommunity: Bool
 
     private func getColor(playerName: String) -> Color {
         if playerName == maybeSelectedPlayerName {
@@ -38,7 +38,7 @@ struct ChoosePlayer: View {
                     }
                     Button("Done", action: {
                         addPlayerToLocalStorage()
-                        isOpen = false
+                        isAddingPlayerInCommunity = false
                     })
                     .disabled(maybeSelectedPlayerName == nil)
                 case .error(_):
@@ -53,7 +53,7 @@ struct ChoosePlayer: View {
 
 struct ChoosePlayer_Previews: PreviewProvider {
     static var previews: some View {
-        ChoosePlayer(communityName: "TestCommunity", maybeSelectedPlayerName: "player1", isOpen: .constant(true))
+        ChoosePlayer(communityName: "TestCommunity", maybeSelectedPlayerName: "player1", isAddingPlayerInCommunity: .constant(false))
     }
 }
 
