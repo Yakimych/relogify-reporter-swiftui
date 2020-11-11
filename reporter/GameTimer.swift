@@ -10,15 +10,12 @@ struct TimerButtonStyle: ButtonStyle {
 }
 
 struct GameTimer: View {
-    @Binding var isOpen: Bool
+    @Environment(\.presentationMode) var presentationMode
+
     @State var extraTime: Bool
     @State private var secondsLeft: Int = 60
 
     @ObservedObject var stopWatchManager = StopWatchManager()
-
-    private func toggleIsOpen() -> Void {
-        self.isOpen.toggle()
-    }
 
     var body: some View {
         VStack {
@@ -42,7 +39,7 @@ struct GameTimer: View {
         .navigationBarTitle("Timer")
         .onAppear {
             stopWatchManager.onExpired {
-                toggleIsOpen()
+                presentationMode.wrappedValue.dismiss()
             }
         }
     }
@@ -50,6 +47,6 @@ struct GameTimer: View {
 
 struct GameTimer_Previews: PreviewProvider {
     static var previews: some View {
-        GameTimer(isOpen: .constant(true), extraTime: false)
+        GameTimer(extraTime: false)
     }
 }

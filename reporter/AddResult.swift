@@ -87,12 +87,8 @@ struct AddResult: View {
             }
         }
         .navigationBarTitle("\(ownName) vs \(opponentName) in \(communityName)")
-        .navigationBarItems(trailing:
-                                Button(action: { self.timerIsOpen.toggle() })
-                                    { Text("Timer") }
-            .sheet(isPresented: $timerIsOpen) {
-                GameTimer(isOpen: $timerIsOpen, extraTime: false)
-            }
+        .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
+                                .sheet(isPresented: $timerIsOpen) { GameTimer(extraTime: false) }
         )
     }
 }
