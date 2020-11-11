@@ -9,8 +9,14 @@ struct ChooseCommunity: View {
     var body: some View {
         VStack {
             Text("Existing communities:")
-            List(playersInCommunitiesStorage.items) { communityWithPlayer in
-                Button("\(communityWithPlayer.playerName) (\(communityWithPlayer.communityName))", action: { })
+            List {
+                ForEach(playersInCommunitiesStorage.items) {
+                    communityWithPlayer in
+                    Text("\(communityWithPlayer.playerName) (\(communityWithPlayer.communityName))")
+                }
+                .onDelete { indexSet in
+                    playersInCommunitiesStorage.items.remove(atOffsets: indexSet)
+                }
             }
 
             // TODO: Split this into a separate view, rename isChoosingPlayer to something that indicates that both player and community are being chosen
