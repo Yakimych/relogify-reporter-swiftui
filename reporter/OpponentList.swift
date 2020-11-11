@@ -6,6 +6,9 @@ struct OpponentList: View {
     @State private var selectedPlayerInCommunity: PlayerInCommunity
     @State private var communitiesWithPlayersRemoteData: RemoteData<Dictionary<String, [PlayerInCommunity]>> = .loading
 
+    // TODO: Replace with Discriminated Union
+    @State private var addResultSucceeded: Bool = false
+
     init(playersInCommunitiesStorage: PlayersInCommunitiesStorage) {
         self.playersInCommunitiesStorage = playersInCommunitiesStorage
         _selectedPlayerInCommunity = State(initialValue: playersInCommunitiesStorage.items[0])
@@ -58,7 +61,11 @@ struct OpponentList: View {
                                 .filter({ $0.playerName != selectedPlayerInCommunity.playerName })
                                 .map({ $0.playerName })) {opponentName in
                             NavigationLink(
-                                destination: AddResult(communityName: selectedPlayerInCommunity.communityName, ownName: selectedPlayerInCommunity.playerName, opponentName: opponentName),
+                                destination: AddResult(
+                                    communityName: selectedPlayerInCommunity.communityName,
+                                    ownName: selectedPlayerInCommunity.playerName,
+                                    opponentName: opponentName,
+                                    addResultSucceeded: $addResultSucceeded),
                                 label: { Text("\(opponentName)") })
                         }
                     case .error(_):
@@ -72,6 +79,9 @@ struct OpponentList: View {
                 selectedPlayerInCommunity = playersInCommunitiesStorage.items[0]
                 loadData(communityNames: playersInCommunitiesStorage.items.map({ $0.communityName }))
             }
+        }
+        .alert(isPresented: $addResultSucceeded) {
+            Alert(title: Text("Success"), message: Text("The result has been added!"))
         }
     }
 }
