@@ -31,7 +31,9 @@ struct OpponentList: View {
                         case .loaded(let communitiesWithOpponents):
                             let selectedCommunityWithPlayers = communitiesWithOpponents[selectedPlayerInCommunity.communityName] ?? []
 
-                            List(selectedCommunityWithPlayers.map({ $0.playerName })) {opponentName in
+                            List(selectedCommunityWithPlayers
+                                    .filter({ $0.playerName != selectedPlayerInCommunity.playerName })
+                                    .map({ $0.playerName })) {opponentName in
                                 NavigationLink(
                                     destination: AddResult(communityName: selectedPlayerInCommunity.communityName, ownName: selectedPlayerInCommunity.playerName, opponentName: opponentName),
                                     label: { Text("\(opponentName)") })
@@ -82,7 +84,7 @@ class CommunitiesWithPlayersListData: ObservableObject {
                     let groupedCommunitiesWithPlayers = Dictionary(grouping: loadedCommunitiesWithPlayers, by: { $0.communityName })
 
                     self.loadingState = .loaded(groupedCommunitiesWithPlayers)
-                    print("Success! Result: \(String(describing: groupedCommunitiesWithPlayers))")
+                    print("Success! Timestamp: \(Date()) Result: \(String(describing: groupedCommunitiesWithPlayers))")
                 case .failure(let error):
                     print("Failure! Error: \(error)")
             }
