@@ -10,6 +10,7 @@ struct AddResult: View {
     @Binding var addResultSucceeded: Bool
     @State private var timerIsOpen: Bool = false
     @State private var isAddingResult: Bool = false
+    @State private var errorAddingResult: Bool = false
 
     // TODO: Int as backing field?
     @State private var ownPoints: String = "0"
@@ -34,40 +35,41 @@ struct AddResult: View {
             isAddingResult = true
         }
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-
-        let addResultMutation =
-            AddResultMutation(
-                communityName: communityName,
-                player1Name: ownName,
-                player2Name: opponentName,
-                date: dateFormatter.string(from: Date()),
-                player1Goals: Int(ownPoints) ?? 0,
-                player2Goals: Int(opponentPoints) ?? 0,
-                extraTime: extraTime)
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//
+//        let addResultMutation =
+//            AddResultMutation(
+//                communityName: communityName,
+//                player1Name: ownName,
+//                player2Name: opponentName,
+//                date: dateFormatter.string(from: Date()),
+//                player1Goals: Int(ownPoints) ?? 0,
+//                player2Goals: Int(opponentPoints) ?? 0,
+//                extraTime: extraTime)
 
 // TODO: Remove after handling the error
-//        let seconds = 2.0
-//        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-//            // Put your code which should be executed with a delay here
-//            addResultSucceeded = true
-//            presentationMode.wrappedValue.dismiss()
-//        }
-
-        Network.shared.apollo.perform(mutation: addResultMutation) { result in
-            print("Added result. Response: \(result).")
-
-            switch result {
-                case .success:
-                    addResultSucceeded = true
-                    presentationMode.wrappedValue.dismiss()
-                case .failure:
-                    // TODO: Handle error
-                    isAddingResult = false
-            }
+        let seconds = 2.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            // Put your code which should be executed with a delay here
+            errorAddingResult = true
+            isAddingResult = false
+            //presentationMode.wrappedValue.dismiss()
         }
+
+//        Network.shared.apollo.perform(mutation: addResultMutation) { result in
+//            print("Added result. Response: \(result).")
+//
+//            switch result {
+//                case .success:
+//                    addResultSucceeded = true
+//                    presentationMode.wrappedValue.dismiss()
+//                case .failure:
+//                    // TODO: Handle error
+//                    isAddingResult = false
+//            }
+//        }
     }
 
     var body: some View {
@@ -116,6 +118,9 @@ struct AddResult: View {
             .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
                                     .sheet(isPresented: $timerIsOpen) { GameTimer(extraTime: false) }
             )
+            .alert(isPresented: $errorAddingResult) {
+                Alert(title: Text("Error"), message: Text("The result has not been added, please check your internet connection and try again"))
+            }
         }
     }
 }
