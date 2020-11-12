@@ -1,38 +1,38 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'reporter' do
+target 'Reporter' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for reporter
+  # Pods for Reporter
   platform :ios, '8.0'
   use_frameworks!
   pod 'SwiftySound'
 
-  target 'reporterTests' do
+  target 'ReporterTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'reporterUITests' do
+  target 'ReporterUITests' do
     # Pods for testing
   end
 
 end
 
-target 'reporter WatchKit App' do
+target 'Reporter WatchKit App' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for reporter WatchKit App
+  # Pods for Reporter WatchKit App
 
 end
 
-target 'reporter WatchKit Extension' do
+target 'Reporter WatchKit Extension' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for reporter WatchKit Extension
+  # Pods for Reporter WatchKit Extension
 
 end

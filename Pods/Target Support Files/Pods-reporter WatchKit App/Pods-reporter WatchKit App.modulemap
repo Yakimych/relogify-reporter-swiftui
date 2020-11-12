@@ -1,5 +1,5 @@
-framework module Pods_reporter_WatchKit_App {
-  umbrella header "Pods-reporter WatchKit App-umbrella.h"
+framework module Pods_Reporter_WatchKit_App {
+  umbrella header "Pods-Reporter WatchKit App-umbrella.h"
 
   export *
   module * { export * }

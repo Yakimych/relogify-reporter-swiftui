@@ -1,6 +1,6 @@
 //
 //  ComplicationController.swift
-//  reporter WatchKit Extension
+//  Reporter WatchKit Extension
 //
 //  Created by Kyrylo Yakymenko on 2020-11-03.
 //
@@ -14,7 +14,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
     func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
         let descriptors = [
-            CLKComplicationDescriptor(identifier: "complication", displayName: "reporter", supportedFamilies: CLKComplicationFamily.allCases)
+            CLKComplicationDescriptor(identifier: "complication", displayName: "Reporter", supportedFamilies: CLKComplicationFamily.allCases)
             // Multiple complication support can be added here with more descriptors
         ]
         

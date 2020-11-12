@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09AE6B110C5071865891F908 /* Pods_reporter_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9AE8E90A3D86949636C6F8 /* Pods_reporter_WatchKit_App.framework */; };
-		269BB2091B53BE2EBEA265C7 /* Pods_reporter_reporterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB51EAA1947B180E5A691C /* Pods_reporter_reporterUITests.framework */; };
-		590D48A508F4A745E3F1E265 /* Pods_reporter_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886FAA7C7A2A5B654F992ACD /* Pods_reporter_WatchKit_Extension.framework */; };
+		09AE6B110C5071865891F908 /* Pods_Reporter_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9AE8E90A3D86949636C6F8 /* Pods_Reporter_WatchKit_App.framework */; };
+		269BB2091B53BE2EBEA265C7 /* Pods_Reporter_ReporterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB51EAA1947B180E5A691C /* Pods_Reporter_ReporterUITests.framework */; };
+		590D48A508F4A745E3F1E265 /* Pods_Reporter_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886FAA7C7A2A5B654F992ACD /* Pods_Reporter_WatchKit_Extension.framework */; };
 		7C69124D2556AA8E00884215 /* ChooseCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69124C2556AA8E00884215 /* ChooseCommunity.swift */; };
 		7C6912592556ABEA00884215 /* ChoosePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6912582556ABEA00884215 /* ChoosePlayer.swift */; };
 		7C6912602556AC7F00884215 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69125F2556AC7F00884215 /* SettingsView.swift */; };
@@ -22,16 +22,16 @@
 		7C72113E2559B05600D2A2E8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C72113D2559B05600D2A2E8 /* Network.swift */; };
 		7C721145255AA60B00D2A2E8 /* AddResultMutation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */; };
 		7C721161255D8F4D00D2A2E8 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C721160255D8F4D00D2A2E8 /* Settings.plist */; };
-		7CBA4ECC2551AE5300313A51 /* reporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECB2551AE5300313A51 /* reporterApp.swift */; };
+		7CBA4ECC2551AE5300313A51 /* ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */; };
 		7CBA4ECE2551AE5300313A51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECD2551AE5300313A51 /* MainView.swift */; };
 		7CBA4ED02551AE5300313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECF2551AE5300313A51 /* Assets.xcassets */; };
 		7CBA4ED32551AE5300313A51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4ED22551AE5300313A51 /* Preview Assets.xcassets */; };
-		7CBA4EDE2551AE5300313A51 /* reporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4EDD2551AE5300313A51 /* reporterTests.swift */; };
-		7CBA4EE92551AE5300313A51 /* reporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4EE82551AE5300313A51 /* reporterUITests.swift */; };
-		7CBA4EEE2551AE5300313A51 /* reporter WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7CBA4EED2551AE5300313A51 /* reporter WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7CBA4EDE2551AE5300313A51 /* ReporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4EDD2551AE5300313A51 /* ReporterTests.swift */; };
+		7CBA4EE92551AE5300313A51 /* ReporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4EE82551AE5300313A51 /* ReporterUITests.swift */; };
+		7CBA4EEE2551AE5300313A51 /* Reporter WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7CBA4EED2551AE5300313A51 /* Reporter WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7CBA4EF32551AE5400313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4EF22551AE5400313A51 /* Assets.xcassets */; };
-		7CBA4EFA2551AE5400313A51 /* reporter WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CBA4EF92551AE5400313A51 /* reporter WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7CBA4EFF2551AE5400313A51 /* reporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4EFE2551AE5400313A51 /* reporterApp.swift */; };
+		7CBA4EFA2551AE5400313A51 /* Reporter WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CBA4EF92551AE5400313A51 /* Reporter WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7CBA4EFF2551AE5400313A51 /* ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4EFE2551AE5400313A51 /* ReporterApp.swift */; };
 		7CBA4F012551AE5400313A51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4F002551AE5400313A51 /* ContentView.swift */; };
 		7CBA4F032551AE5400313A51 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4F022551AE5400313A51 /* NotificationController.swift */; };
 		7CBA4F052551AE5400313A51 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4F042551AE5400313A51 /* NotificationView.swift */; };
@@ -44,8 +44,8 @@
 		7CBA4F5425555A1C00313A51 /* final_siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F5125555A1C00313A51 /* final_siren.mp3 */; };
 		7CBA4F5525555A1C00313A51 /* expiration_warning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F5225555A1C00313A51 /* expiration_warning.mp3 */; };
 		7CBA4F5625555A1C00313A51 /* half_time_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F5325555A1C00313A51 /* half_time_beep.mp3 */; };
-		E5EFD1516418561A576137A1 /* Pods_reporterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49652F1717D6F71A1DDC3BA /* Pods_reporterTests.framework */; };
-		F5CD48A6BA3D8D2B4B6269B3 /* Pods_reporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A98229747631BF30E480BC7 /* Pods_reporter.framework */; };
+		E5EFD1516418561A576137A1 /* Pods_ReporterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49652F1717D6F71A1DDC3BA /* Pods_ReporterTests.framework */; };
+		F5CD48A6BA3D8D2B4B6269B3 /* Pods_Reporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A98229747631BF30E480BC7 /* Pods_Reporter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,28 +54,28 @@
 			containerPortal = 7CBA4EC02551AE5200313A51 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7CBA4EC72551AE5300313A51;
-			remoteInfo = reporter;
+			remoteInfo = Reporter;
 		};
 		7CBA4EE52551AE5300313A51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7CBA4EC02551AE5200313A51 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7CBA4EC72551AE5300313A51;
-			remoteInfo = reporter;
+			remoteInfo = Reporter;
 		};
 		7CBA4EEF2551AE5300313A51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7CBA4EC02551AE5200313A51 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7CBA4EEC2551AE5300313A51;
-			remoteInfo = "reporter WatchKit App";
+			remoteInfo = "Reporter WatchKit App";
 		};
 		7CBA4EFB2551AE5400313A51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7CBA4EC02551AE5200313A51 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7CBA4EF82551AE5400313A51;
-			remoteInfo = "reporter WatchKit Extension";
+			remoteInfo = "Reporter WatchKit Extension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -86,7 +86,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				7CBA4EFA2551AE5400313A51 /* reporter WatchKit Extension.appex in Embed App Extensions */,
+				7CBA4EFA2551AE5400313A51 /* Reporter WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +97,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				7CBA4EEE2551AE5300313A51 /* reporter WatchKit App.app in Embed Watch Content */,
+				7CBA4EEE2551AE5300313A51 /* Reporter WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,14 +105,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0BDA5E0E948EB19F52AB6504 /* Pods-reporter WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporter WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-reporter WatchKit App/Pods-reporter WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
-		1FBB51EAA1947B180E5A691C /* Pods_reporter_reporterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reporter_reporterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A98229747631BF30E480BC7 /* Pods_reporter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reporter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		369F4BC0F1BAB333B4E92D9A /* Pods-reporter-reporterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporter-reporterUITests.debug.xcconfig"; path = "Target Support Files/Pods-reporter-reporterUITests/Pods-reporter-reporterUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		40D115C5E54CE4D5542F99AE /* Pods-reporter WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporter WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-reporter WatchKit App/Pods-reporter WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
-		5A9AE8E90A3D86949636C6F8 /* Pods_reporter_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reporter_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		62A4A2C5B26BB6557041FB37 /* Pods-reporterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporterTests.debug.xcconfig"; path = "Target Support Files/Pods-reporterTests/Pods-reporterTests.debug.xcconfig"; sourceTree = "<group>"; };
-		70BAA7FB56CA16E82986AD53 /* Pods-reporter-reporterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporter-reporterUITests.release.xcconfig"; path = "Target Support Files/Pods-reporter-reporterUITests/Pods-reporter-reporterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0BDA5E0E948EB19F52AB6504 /* Pods-Reporter WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-Reporter WatchKit App/Pods-Reporter WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		1FBB51EAA1947B180E5A691C /* Pods_Reporter_ReporterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reporter_ReporterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A98229747631BF30E480BC7 /* Pods_Reporter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reporter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		369F4BC0F1BAB333B4E92D9A /* Pods-Reporter-ReporterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter-ReporterUITests.debug.xcconfig"; path = "Target Support Files/Pods-Reporter-ReporterUITests/Pods-Reporter-ReporterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		40D115C5E54CE4D5542F99AE /* Pods-Reporter WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-Reporter WatchKit App/Pods-Reporter WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		5A9AE8E90A3D86949636C6F8 /* Pods_Reporter_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reporter_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62A4A2C5B26BB6557041FB37 /* Pods-ReporterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReporterTests.debug.xcconfig"; path = "Target Support Files/Pods-ReporterTests/Pods-ReporterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		70BAA7FB56CA16E82986AD53 /* Pods-Reporter-ReporterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter-ReporterUITests.release.xcconfig"; path = "Target Support Files/Pods-Reporter-ReporterUITests/Pods-Reporter-ReporterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7C69124C2556AA8E00884215 /* ChooseCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCommunity.swift; sourceTree = "<group>"; };
 		7C6912582556ABEA00884215 /* ChoosePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlayer.swift; sourceTree = "<group>"; };
 		7C69125F2556AC7F00884215 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -125,23 +125,23 @@
 		7C72113D2559B05600D2A2E8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddResultMutation.graphql; sourceTree = "<group>"; };
 		7C721160255D8F4D00D2A2E8 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
-		7CBA4EC82551AE5300313A51 /* reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CBA4ECB2551AE5300313A51 /* reporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reporterApp.swift; sourceTree = "<group>"; };
+		7CBA4EC82551AE5300313A51 /* Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterApp.swift; sourceTree = "<group>"; };
 		7CBA4ECD2551AE5300313A51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7CBA4ECF2551AE5300313A51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CBA4ED22551AE5300313A51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7CBA4ED42551AE5300313A51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CBA4ED92551AE5300313A51 /* reporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CBA4EDD2551AE5300313A51 /* reporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reporterTests.swift; sourceTree = "<group>"; };
+		7CBA4ED92551AE5300313A51 /* ReporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBA4EDD2551AE5300313A51 /* ReporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterTests.swift; sourceTree = "<group>"; };
 		7CBA4EDF2551AE5300313A51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CBA4EE42551AE5300313A51 /* reporterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reporterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CBA4EE82551AE5300313A51 /* reporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reporterUITests.swift; sourceTree = "<group>"; };
+		7CBA4EE42551AE5300313A51 /* ReporterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReporterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBA4EE82551AE5300313A51 /* ReporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterUITests.swift; sourceTree = "<group>"; };
 		7CBA4EEA2551AE5300313A51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CBA4EED2551AE5300313A51 /* reporter WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "reporter WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBA4EED2551AE5300313A51 /* Reporter WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reporter WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBA4EF22551AE5400313A51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CBA4EF42551AE5400313A51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CBA4EF92551AE5400313A51 /* reporter WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "reporter WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CBA4EFE2551AE5400313A51 /* reporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reporterApp.swift; sourceTree = "<group>"; };
+		7CBA4EF92551AE5400313A51 /* Reporter WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Reporter WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBA4EFE2551AE5400313A51 /* ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterApp.swift; sourceTree = "<group>"; };
 		7CBA4F002551AE5400313A51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7CBA4F022551AE5400313A51 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		7CBA4F042551AE5400313A51 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -156,13 +156,13 @@
 		7CBA4F5125555A1C00313A51 /* final_siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = final_siren.mp3; sourceTree = "<group>"; };
 		7CBA4F5225555A1C00313A51 /* expiration_warning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = expiration_warning.mp3; sourceTree = "<group>"; };
 		7CBA4F5325555A1C00313A51 /* half_time_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = half_time_beep.mp3; sourceTree = "<group>"; };
-		886FAA7C7A2A5B654F992ACD /* Pods_reporter_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reporter_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DE1B7497A37B3B15ED2F45B /* Pods-reporter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporter.debug.xcconfig"; path = "Target Support Files/Pods-reporter/Pods-reporter.debug.xcconfig"; sourceTree = "<group>"; };
-		9C19C4C24B13749AC23A12BB /* Pods-reporter WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporter WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-reporter WatchKit Extension/Pods-reporter WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		AEE66A78B6F8E0173ACBDD49 /* Pods-reporterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporterTests.release.xcconfig"; path = "Target Support Files/Pods-reporterTests/Pods-reporterTests.release.xcconfig"; sourceTree = "<group>"; };
-		B49652F1717D6F71A1DDC3BA /* Pods_reporterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reporterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2539947956DA230ACDC5254 /* Pods-reporter WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporter WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-reporter WatchKit Extension/Pods-reporter WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
-		E0ADFEEB9DF56C8B426A4F47 /* Pods-reporter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reporter.release.xcconfig"; path = "Target Support Files/Pods-reporter/Pods-reporter.release.xcconfig"; sourceTree = "<group>"; };
+		886FAA7C7A2A5B654F992ACD /* Pods_Reporter_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reporter_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DE1B7497A37B3B15ED2F45B /* Pods-Reporter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter.debug.xcconfig"; path = "Target Support Files/Pods-Reporter/Pods-Reporter.debug.xcconfig"; sourceTree = "<group>"; };
+		9C19C4C24B13749AC23A12BB /* Pods-Reporter WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-Reporter WatchKit Extension/Pods-Reporter WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		AEE66A78B6F8E0173ACBDD49 /* Pods-ReporterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReporterTests.release.xcconfig"; path = "Target Support Files/Pods-ReporterTests/Pods-ReporterTests.release.xcconfig"; sourceTree = "<group>"; };
+		B49652F1717D6F71A1DDC3BA /* Pods_ReporterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReporterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2539947956DA230ACDC5254 /* Pods-Reporter WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-Reporter WatchKit Extension/Pods-Reporter WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		E0ADFEEB9DF56C8B426A4F47 /* Pods-Reporter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter.release.xcconfig"; path = "Target Support Files/Pods-Reporter/Pods-Reporter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5CD48A6BA3D8D2B4B6269B3 /* Pods_reporter.framework in Frameworks */,
+				F5CD48A6BA3D8D2B4B6269B3 /* Pods_Reporter.framework in Frameworks */,
 				7C7211132559AB4700D2A2E8 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,7 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5EFD1516418561A576137A1 /* Pods_reporterTests.framework in Frameworks */,
+				E5EFD1516418561A576137A1 /* Pods_ReporterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				269BB2091B53BE2EBEA265C7 /* Pods_reporter_reporterUITests.framework in Frameworks */,
+				269BB2091B53BE2EBEA265C7 /* Pods_Reporter_ReporterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				590D48A508F4A745E3F1E265 /* Pods_reporter_WatchKit_Extension.framework in Frameworks */,
+				590D48A508F4A745E3F1E265 /* Pods_Reporter_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09AE6B110C5071865891F908 /* Pods_reporter_WatchKit_App.framework in Frameworks */,
+				09AE6B110C5071865891F908 /* Pods_Reporter_WatchKit_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,16 +213,16 @@
 		63A324D8D151181D9FC12EBF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8DE1B7497A37B3B15ED2F45B /* Pods-reporter.debug.xcconfig */,
-				E0ADFEEB9DF56C8B426A4F47 /* Pods-reporter.release.xcconfig */,
-				40D115C5E54CE4D5542F99AE /* Pods-reporter WatchKit App.debug.xcconfig */,
-				0BDA5E0E948EB19F52AB6504 /* Pods-reporter WatchKit App.release.xcconfig */,
-				9C19C4C24B13749AC23A12BB /* Pods-reporter WatchKit Extension.debug.xcconfig */,
-				C2539947956DA230ACDC5254 /* Pods-reporter WatchKit Extension.release.xcconfig */,
-				369F4BC0F1BAB333B4E92D9A /* Pods-reporter-reporterUITests.debug.xcconfig */,
-				70BAA7FB56CA16E82986AD53 /* Pods-reporter-reporterUITests.release.xcconfig */,
-				62A4A2C5B26BB6557041FB37 /* Pods-reporterTests.debug.xcconfig */,
-				AEE66A78B6F8E0173ACBDD49 /* Pods-reporterTests.release.xcconfig */,
+				8DE1B7497A37B3B15ED2F45B /* Pods-Reporter.debug.xcconfig */,
+				E0ADFEEB9DF56C8B426A4F47 /* Pods-Reporter.release.xcconfig */,
+				40D115C5E54CE4D5542F99AE /* Pods-Reporter WatchKit App.debug.xcconfig */,
+				0BDA5E0E948EB19F52AB6504 /* Pods-Reporter WatchKit App.release.xcconfig */,
+				9C19C4C24B13749AC23A12BB /* Pods-Reporter WatchKit Extension.debug.xcconfig */,
+				C2539947956DA230ACDC5254 /* Pods-Reporter WatchKit Extension.release.xcconfig */,
+				369F4BC0F1BAB333B4E92D9A /* Pods-Reporter-ReporterUITests.debug.xcconfig */,
+				70BAA7FB56CA16E82986AD53 /* Pods-Reporter-ReporterUITests.release.xcconfig */,
+				62A4A2C5B26BB6557041FB37 /* Pods-ReporterTests.debug.xcconfig */,
+				AEE66A78B6F8E0173ACBDD49 /* Pods-ReporterTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -230,11 +230,11 @@
 		7CBA4EBF2551AE5200313A51 = {
 			isa = PBXGroup;
 			children = (
-				7CBA4ECA2551AE5300313A51 /* reporter */,
-				7CBA4EDC2551AE5300313A51 /* reporterTests */,
-				7CBA4EE72551AE5300313A51 /* reporterUITests */,
-				7CBA4EF12551AE5300313A51 /* reporter WatchKit App */,
-				7CBA4EFD2551AE5400313A51 /* reporter WatchKit Extension */,
+				7CBA4ECA2551AE5300313A51 /* Reporter */,
+				7CBA4EDC2551AE5300313A51 /* ReporterTests */,
+				7CBA4EE72551AE5300313A51 /* ReporterUITests */,
+				7CBA4EF12551AE5300313A51 /* Reporter WatchKit App */,
+				7CBA4EFD2551AE5400313A51 /* Reporter WatchKit Extension */,
 				7CBA4EC92551AE5300313A51 /* Products */,
 				63A324D8D151181D9FC12EBF /* Pods */,
 				B22D9C18B5FFCC39F2BEF0EF /* Frameworks */,
@@ -244,20 +244,20 @@
 		7CBA4EC92551AE5300313A51 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7CBA4EC82551AE5300313A51 /* reporter.app */,
-				7CBA4ED92551AE5300313A51 /* reporterTests.xctest */,
-				7CBA4EE42551AE5300313A51 /* reporterUITests.xctest */,
-				7CBA4EED2551AE5300313A51 /* reporter WatchKit App.app */,
-				7CBA4EF92551AE5400313A51 /* reporter WatchKit Extension.appex */,
+				7CBA4EC82551AE5300313A51 /* Reporter.app */,
+				7CBA4ED92551AE5300313A51 /* ReporterTests.xctest */,
+				7CBA4EE42551AE5300313A51 /* ReporterUITests.xctest */,
+				7CBA4EED2551AE5300313A51 /* Reporter WatchKit App.app */,
+				7CBA4EF92551AE5400313A51 /* Reporter WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7CBA4ECA2551AE5300313A51 /* reporter */ = {
+		7CBA4ECA2551AE5300313A51 /* Reporter */ = {
 			isa = PBXGroup;
 			children = (
 				7CBA4F5025555A0200313A51 /* Sounds */,
-				7CBA4ECB2551AE5300313A51 /* reporterApp.swift */,
+				7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */,
 				7CBA4ECD2551AE5300313A51 /* MainView.swift */,
 				7CBA4ECF2551AE5300313A51 /* Assets.xcassets */,
 				7CBA4ED42551AE5300313A51 /* Info.plist */,
@@ -278,7 +278,7 @@
 				7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */,
 				7C721160255D8F4D00D2A2E8 /* Settings.plist */,
 			);
-			path = reporter;
+			path = Reporter;
 			sourceTree = "<group>";
 		};
 		7CBA4ED12551AE5300313A51 /* Preview Content */ = {
@@ -289,37 +289,37 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		7CBA4EDC2551AE5300313A51 /* reporterTests */ = {
+		7CBA4EDC2551AE5300313A51 /* ReporterTests */ = {
 			isa = PBXGroup;
 			children = (
-				7CBA4EDD2551AE5300313A51 /* reporterTests.swift */,
+				7CBA4EDD2551AE5300313A51 /* ReporterTests.swift */,
 				7CBA4EDF2551AE5300313A51 /* Info.plist */,
 			);
-			path = reporterTests;
+			path = ReporterTests;
 			sourceTree = "<group>";
 		};
-		7CBA4EE72551AE5300313A51 /* reporterUITests */ = {
+		7CBA4EE72551AE5300313A51 /* ReporterUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7CBA4EE82551AE5300313A51 /* reporterUITests.swift */,
+				7CBA4EE82551AE5300313A51 /* ReporterUITests.swift */,
 				7CBA4EEA2551AE5300313A51 /* Info.plist */,
 			);
-			path = reporterUITests;
+			path = ReporterUITests;
 			sourceTree = "<group>";
 		};
-		7CBA4EF12551AE5300313A51 /* reporter WatchKit App */ = {
+		7CBA4EF12551AE5300313A51 /* Reporter WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
 				7CBA4EF22551AE5400313A51 /* Assets.xcassets */,
 				7CBA4EF42551AE5400313A51 /* Info.plist */,
 			);
-			path = "reporter WatchKit App";
+			path = "Reporter WatchKit App";
 			sourceTree = "<group>";
 		};
-		7CBA4EFD2551AE5400313A51 /* reporter WatchKit Extension */ = {
+		7CBA4EFD2551AE5400313A51 /* Reporter WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				7CBA4EFE2551AE5400313A51 /* reporterApp.swift */,
+				7CBA4EFE2551AE5400313A51 /* ReporterApp.swift */,
 				7CBA4F002551AE5400313A51 /* ContentView.swift */,
 				7CBA4F022551AE5400313A51 /* NotificationController.swift */,
 				7CBA4F042551AE5400313A51 /* NotificationView.swift */,
@@ -329,7 +329,7 @@
 				7CBA4F0E2551AE5400313A51 /* PushNotificationPayload.apns */,
 				7CBA4F0A2551AE5400313A51 /* Preview Content */,
 			);
-			path = "reporter WatchKit Extension";
+			path = "Reporter WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		7CBA4F0A2551AE5400313A51 /* Preview Content */ = {
@@ -353,11 +353,11 @@
 		B22D9C18B5FFCC39F2BEF0EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2A98229747631BF30E480BC7 /* Pods_reporter.framework */,
-				5A9AE8E90A3D86949636C6F8 /* Pods_reporter_WatchKit_App.framework */,
-				886FAA7C7A2A5B654F992ACD /* Pods_reporter_WatchKit_Extension.framework */,
-				1FBB51EAA1947B180E5A691C /* Pods_reporter_reporterUITests.framework */,
-				B49652F1717D6F71A1DDC3BA /* Pods_reporterTests.framework */,
+				2A98229747631BF30E480BC7 /* Pods_Reporter.framework */,
+				5A9AE8E90A3D86949636C6F8 /* Pods_Reporter_WatchKit_App.framework */,
+				886FAA7C7A2A5B654F992ACD /* Pods_Reporter_WatchKit_Extension.framework */,
+				1FBB51EAA1947B180E5A691C /* Pods_Reporter_ReporterUITests.framework */,
+				B49652F1717D6F71A1DDC3BA /* Pods_ReporterTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -365,9 +365,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7CBA4EC72551AE5300313A51 /* reporter */ = {
+		7CBA4EC72551AE5300313A51 /* Reporter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CBA4F192551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporter" */;
+			buildConfigurationList = 7CBA4F192551AE5400313A51 /* Build configuration list for PBXNativeTarget "Reporter" */;
 			buildPhases = (
 				B20ABEAC140A3863BA043BD1 /* [CP] Check Pods Manifest.lock */,
 				7C72111E2559ABBE00D2A2E8 /* Apollo CLI */,
@@ -382,17 +382,17 @@
 			dependencies = (
 				7CBA4EF02551AE5300313A51 /* PBXTargetDependency */,
 			);
-			name = reporter;
+			name = Reporter;
 			packageProductDependencies = (
 				7C7211122559AB4700D2A2E8 /* Apollo */,
 			);
-			productName = reporter;
-			productReference = 7CBA4EC82551AE5300313A51 /* reporter.app */;
+			productName = Reporter;
+			productReference = 7CBA4EC82551AE5300313A51 /* Reporter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7CBA4ED82551AE5300313A51 /* reporterTests */ = {
+		7CBA4ED82551AE5300313A51 /* ReporterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CBA4F1C2551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporterTests" */;
+			buildConfigurationList = 7CBA4F1C2551AE5400313A51 /* Build configuration list for PBXNativeTarget "ReporterTests" */;
 			buildPhases = (
 				EDA2074070F346AF5A9F8C41 /* [CP] Check Pods Manifest.lock */,
 				7CBA4ED52551AE5300313A51 /* Sources */,
@@ -404,14 +404,14 @@
 			dependencies = (
 				7CBA4EDB2551AE5300313A51 /* PBXTargetDependency */,
 			);
-			name = reporterTests;
-			productName = reporterTests;
-			productReference = 7CBA4ED92551AE5300313A51 /* reporterTests.xctest */;
+			name = ReporterTests;
+			productName = ReporterTests;
+			productReference = 7CBA4ED92551AE5300313A51 /* ReporterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7CBA4EE32551AE5300313A51 /* reporterUITests */ = {
+		7CBA4EE32551AE5300313A51 /* ReporterUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CBA4F1F2551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporterUITests" */;
+			buildConfigurationList = 7CBA4F1F2551AE5400313A51 /* Build configuration list for PBXNativeTarget "ReporterUITests" */;
 			buildPhases = (
 				066D368F6777FF45D7D346DC /* [CP] Check Pods Manifest.lock */,
 				7CBA4EE02551AE5300313A51 /* Sources */,
@@ -424,14 +424,14 @@
 			dependencies = (
 				7CBA4EE62551AE5300313A51 /* PBXTargetDependency */,
 			);
-			name = reporterUITests;
-			productName = reporterUITests;
-			productReference = 7CBA4EE42551AE5300313A51 /* reporterUITests.xctest */;
+			name = ReporterUITests;
+			productName = ReporterUITests;
+			productReference = 7CBA4EE42551AE5300313A51 /* ReporterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		7CBA4EEC2551AE5300313A51 /* reporter WatchKit App */ = {
+		7CBA4EEC2551AE5300313A51 /* Reporter WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CBA4F152551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporter WatchKit App" */;
+			buildConfigurationList = 7CBA4F152551AE5400313A51 /* Build configuration list for PBXNativeTarget "Reporter WatchKit App" */;
 			buildPhases = (
 				05C0011A2AFF60079599B623 /* [CP] Check Pods Manifest.lock */,
 				7CBA4EEB2551AE5300313A51 /* Resources */,
@@ -443,14 +443,14 @@
 			dependencies = (
 				7CBA4EFC2551AE5400313A51 /* PBXTargetDependency */,
 			);
-			name = "reporter WatchKit App";
-			productName = "reporter WatchKit App";
-			productReference = 7CBA4EED2551AE5300313A51 /* reporter WatchKit App.app */;
+			name = "Reporter WatchKit App";
+			productName = "Reporter WatchKit App";
+			productReference = 7CBA4EED2551AE5300313A51 /* Reporter WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		7CBA4EF82551AE5400313A51 /* reporter WatchKit Extension */ = {
+		7CBA4EF82551AE5400313A51 /* Reporter WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CBA4F112551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporter WatchKit Extension" */;
+			buildConfigurationList = 7CBA4F112551AE5400313A51 /* Build configuration list for PBXNativeTarget "Reporter WatchKit Extension" */;
 			buildPhases = (
 				2B9C95C305EF5E8C2B4A2BAE /* [CP] Check Pods Manifest.lock */,
 				7CBA4EF52551AE5400313A51 /* Sources */,
@@ -461,9 +461,9 @@
 			);
 			dependencies = (
 			);
-			name = "reporter WatchKit Extension";
-			productName = "reporter WatchKit Extension";
-			productReference = 7CBA4EF92551AE5400313A51 /* reporter WatchKit Extension.appex */;
+			name = "Reporter WatchKit Extension";
+			productName = "Reporter WatchKit Extension";
+			productReference = 7CBA4EF92551AE5400313A51 /* Reporter WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -494,7 +494,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7CBA4EC32551AE5200313A51 /* Build configuration list for PBXProject "reporter" */;
+			buildConfigurationList = 7CBA4EC32551AE5200313A51 /* Build configuration list for PBXProject "Reporter" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -510,11 +510,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7CBA4EC72551AE5300313A51 /* reporter */,
-				7CBA4ED82551AE5300313A51 /* reporterTests */,
-				7CBA4EE32551AE5300313A51 /* reporterUITests */,
-				7CBA4EEC2551AE5300313A51 /* reporter WatchKit App */,
-				7CBA4EF82551AE5400313A51 /* reporter WatchKit Extension */,
+				7CBA4EC72551AE5300313A51 /* Reporter */,
+				7CBA4ED82551AE5300313A51 /* ReporterTests */,
+				7CBA4EE32551AE5300313A51 /* ReporterUITests */,
+				7CBA4EEC2551AE5300313A51 /* Reporter WatchKit App */,
+				7CBA4EF82551AE5400313A51 /* Reporter WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -584,7 +584,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-reporter WatchKit App-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Reporter WatchKit App-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -606,7 +606,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-reporter-reporterUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Reporter-ReporterUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -628,7 +628,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-reporter WatchKit Extension-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Reporter WatchKit Extension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -641,15 +641,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reporter-reporterUITests/Pods-reporter-reporterUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Reporter-ReporterUITests/Pods-Reporter-ReporterUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reporter-reporterUITests/Pods-reporter-reporterUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Reporter-ReporterUITests/Pods-Reporter-ReporterUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reporter-reporterUITests/Pods-reporter-reporterUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reporter-ReporterUITests/Pods-Reporter-ReporterUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7C72111E2559ABBE00D2A2E8 /* Apollo CLI */ = {
@@ -685,7 +685,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-reporter-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Reporter-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -698,15 +698,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reporter/Pods-reporter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Reporter/Pods-Reporter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reporter/Pods-reporter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Reporter/Pods-Reporter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reporter/Pods-reporter-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reporter/Pods-Reporter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EDA2074070F346AF5A9F8C41 /* [CP] Check Pods Manifest.lock */ = {
@@ -724,7 +724,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-reporterTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReporterTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -747,7 +747,7 @@
 				7C6912602556AC7F00884215 /* SettingsView.swift in Sources */,
 				7CBA4F3B25546EAB00313A51 /* StopWatchManager.swift in Sources */,
 				7CBA4F282551B1A100313A51 /* AddResult.swift in Sources */,
-				7CBA4ECC2551AE5300313A51 /* reporterApp.swift in Sources */,
+				7CBA4ECC2551AE5300313A51 /* ReporterApp.swift in Sources */,
 				7CBA4F2F2551B3E500313A51 /* GameTimer.swift in Sources */,
 				7C7211372559B02500D2A2E8 /* API.swift in Sources */,
 				7C6912592556ABEA00884215 /* ChoosePlayer.swift in Sources */,
@@ -758,7 +758,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CBA4EDE2551AE5300313A51 /* reporterTests.swift in Sources */,
+				7CBA4EDE2551AE5300313A51 /* ReporterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,7 +766,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CBA4EE92551AE5300313A51 /* reporterUITests.swift in Sources */,
+				7CBA4EE92551AE5300313A51 /* ReporterUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,7 +777,7 @@
 				7CBA4F032551AE5400313A51 /* NotificationController.swift in Sources */,
 				7CBA4F012551AE5400313A51 /* ContentView.swift in Sources */,
 				7CBA4F072551AE5400313A51 /* ComplicationController.swift in Sources */,
-				7CBA4EFF2551AE5400313A51 /* reporterApp.swift in Sources */,
+				7CBA4EFF2551AE5400313A51 /* ReporterApp.swift in Sources */,
 				7CBA4F052551AE5400313A51 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,22 +787,22 @@
 /* Begin PBXTargetDependency section */
 		7CBA4EDB2551AE5300313A51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7CBA4EC72551AE5300313A51 /* reporter */;
+			target = 7CBA4EC72551AE5300313A51 /* Reporter */;
 			targetProxy = 7CBA4EDA2551AE5300313A51 /* PBXContainerItemProxy */;
 		};
 		7CBA4EE62551AE5300313A51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7CBA4EC72551AE5300313A51 /* reporter */;
+			target = 7CBA4EC72551AE5300313A51 /* Reporter */;
 			targetProxy = 7CBA4EE52551AE5300313A51 /* PBXContainerItemProxy */;
 		};
 		7CBA4EF02551AE5300313A51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7CBA4EEC2551AE5300313A51 /* reporter WatchKit App */;
+			target = 7CBA4EEC2551AE5300313A51 /* Reporter WatchKit App */;
 			targetProxy = 7CBA4EEF2551AE5300313A51 /* PBXContainerItemProxy */;
 		};
 		7CBA4EFC2551AE5400313A51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7CBA4EF82551AE5400313A51 /* reporter WatchKit Extension */;
+			target = 7CBA4EF82551AE5400313A51 /* Reporter WatchKit Extension */;
 			targetProxy = 7CBA4EFB2551AE5400313A51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -921,20 +921,20 @@
 		};
 		7CBA4F122551AE5400313A51 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C19C4C24B13749AC23A12BB /* Pods-reporter WatchKit Extension.debug.xcconfig */;
+			baseConfigurationReference = 9C19C4C24B13749AC23A12BB /* Pods-Reporter WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"reporter WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Reporter WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "reporter WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "Reporter WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporter.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.Reporter.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -946,20 +946,20 @@
 		};
 		7CBA4F132551AE5400313A51 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2539947956DA230ACDC5254 /* Pods-reporter WatchKit Extension.release.xcconfig */;
+			baseConfigurationReference = C2539947956DA230ACDC5254 /* Pods-Reporter WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"reporter WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Reporter WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "reporter WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "Reporter WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporter.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.Reporter.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -972,16 +972,16 @@
 		};
 		7CBA4F162551AE5400313A51 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40D115C5E54CE4D5542F99AE /* Pods-reporter WatchKit App.debug.xcconfig */;
+			baseConfigurationReference = 40D115C5E54CE4D5542F99AE /* Pods-Reporter WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
-				IBSC_MODULE = reporter_WatchKit_Extension;
-				INFOPLIST_FILE = "reporter WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporter.watchkitapp;
+				IBSC_MODULE = Reporter_WatchKit_Extension;
+				INFOPLIST_FILE = "Reporter WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.Reporter.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -993,16 +993,16 @@
 		};
 		7CBA4F172551AE5400313A51 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BDA5E0E948EB19F52AB6504 /* Pods-reporter WatchKit App.release.xcconfig */;
+			baseConfigurationReference = 0BDA5E0E948EB19F52AB6504 /* Pods-Reporter WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
-				IBSC_MODULE = reporter_WatchKit_Extension;
-				INFOPLIST_FILE = "reporter WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporter.watchkitapp;
+				IBSC_MODULE = Reporter_WatchKit_Extension;
+				INFOPLIST_FILE = "Reporter WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.Reporter.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1015,21 +1015,21 @@
 		};
 		7CBA4F1A2551AE5400313A51 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DE1B7497A37B3B15ED2F45B /* Pods-reporter.debug.xcconfig */;
+			baseConfigurationReference = 8DE1B7497A37B3B15ED2F45B /* Pods-Reporter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"reporter/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Reporter/Preview Content\"";
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = reporter/Info.plist;
+				INFOPLIST_FILE = Reporter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.Reporter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -1039,21 +1039,21 @@
 		};
 		7CBA4F1B2551AE5400313A51 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0ADFEEB9DF56C8B426A4F47 /* Pods-reporter.release.xcconfig */;
+			baseConfigurationReference = E0ADFEEB9DF56C8B426A4F47 /* Pods-Reporter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"reporter/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Reporter/Preview Content\"";
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = reporter/Info.plist;
+				INFOPLIST_FILE = Reporter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.Reporter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -1064,96 +1064,96 @@
 		};
 		7CBA4F1D2551AE5400313A51 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62A4A2C5B26BB6557041FB37 /* Pods-reporterTests.debug.xcconfig */;
+			baseConfigurationReference = 62A4A2C5B26BB6557041FB37 /* Pods-ReporterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
-				INFOPLIST_FILE = reporterTests/Info.plist;
+				INFOPLIST_FILE = ReporterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporterTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.ReporterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reporter.app/reporter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reporter.app/Reporter";
 			};
 			name = Debug;
 		};
 		7CBA4F1E2551AE5400313A51 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEE66A78B6F8E0173ACBDD49 /* Pods-reporterTests.release.xcconfig */;
+			baseConfigurationReference = AEE66A78B6F8E0173ACBDD49 /* Pods-ReporterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
-				INFOPLIST_FILE = reporterTests/Info.plist;
+				INFOPLIST_FILE = ReporterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporterTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.ReporterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reporter.app/reporter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reporter.app/Reporter";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		7CBA4F202551AE5400313A51 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 369F4BC0F1BAB333B4E92D9A /* Pods-reporter-reporterUITests.debug.xcconfig */;
+			baseConfigurationReference = 369F4BC0F1BAB333B4E92D9A /* Pods-Reporter-ReporterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
-				INFOPLIST_FILE = reporterUITests/Info.plist;
+				INFOPLIST_FILE = ReporterUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporterUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.ReporterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = reporter;
+				TEST_TARGET_NAME = Reporter;
 			};
 			name = Debug;
 		};
 		7CBA4F212551AE5400313A51 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70BAA7FB56CA16E82986AD53 /* Pods-reporter-reporterUITests.release.xcconfig */;
+			baseConfigurationReference = 70BAA7FB56CA16E82986AD53 /* Pods-Reporter-ReporterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
-				INFOPLIST_FILE = reporterUITests/Info.plist;
+				INFOPLIST_FILE = ReporterUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.reporterUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.ReporterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = reporter;
+				TEST_TARGET_NAME = Reporter;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1161,7 +1161,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7CBA4EC32551AE5200313A51 /* Build configuration list for PBXProject "reporter" */ = {
+		7CBA4EC32551AE5200313A51 /* Build configuration list for PBXProject "Reporter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CBA4F0F2551AE5400313A51 /* Debug */,
@@ -1170,7 +1170,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CBA4F112551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporter WatchKit Extension" */ = {
+		7CBA4F112551AE5400313A51 /* Build configuration list for PBXNativeTarget "Reporter WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CBA4F122551AE5400313A51 /* Debug */,
@@ -1179,7 +1179,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CBA4F152551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporter WatchKit App" */ = {
+		7CBA4F152551AE5400313A51 /* Build configuration list for PBXNativeTarget "Reporter WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CBA4F162551AE5400313A51 /* Debug */,
@@ -1188,7 +1188,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CBA4F192551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporter" */ = {
+		7CBA4F192551AE5400313A51 /* Build configuration list for PBXNativeTarget "Reporter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CBA4F1A2551AE5400313A51 /* Debug */,
@@ -1197,7 +1197,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CBA4F1C2551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporterTests" */ = {
+		7CBA4F1C2551AE5400313A51 /* Build configuration list for PBXNativeTarget "ReporterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CBA4F1D2551AE5400313A51 /* Debug */,
@@ -1206,7 +1206,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CBA4F1F2551AE5400313A51 /* Build configuration list for PBXNativeTarget "reporterUITests" */ = {
+		7CBA4F1F2551AE5400313A51 /* Build configuration list for PBXNativeTarget "ReporterUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CBA4F202551AE5400313A51 /* Debug */,

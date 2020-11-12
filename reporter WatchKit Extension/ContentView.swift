@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  reporter WatchKit Extension
+//  Reporter WatchKit Extension
 //
 //  Created by Kyrylo Yakymenko on 2020-11-03.
 //

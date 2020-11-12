@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct reporterApp: App {
+struct ReporterApp: App {
     @StateObject private var playersInCommunitiesStorage = PlayersInCommunitiesStorage()
 
     var body: some Scene {

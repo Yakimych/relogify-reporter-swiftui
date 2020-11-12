@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_reporter_WatchKit_ExtensionVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_reporter_WatchKit_ExtensionVersionString[];
+FOUNDATION_EXPORT double Pods_Reporter_WatchKit_ExtensionVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Reporter_WatchKit_ExtensionVersionString[];
 

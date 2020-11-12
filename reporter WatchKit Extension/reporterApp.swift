@@ -1,6 +1,6 @@
 //
-//  reporterApp.swift
-//  reporter WatchKit Extension
+//  ReporterApp.swift
+//  Reporter WatchKit Extension
 //
 //  Created by Kyrylo Yakymenko on 2020-11-03.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct reporterApp: App {
+struct ReporterApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {

@@ -1,13 +1,13 @@
 //
-//  reporterUITests.swift
-//  reporterUITests
+//  ReporterUITests.swift
+//  ReporterUITests
 //
 //  Created by Kyrylo Yakymenko on 2020-11-03.
 //
 
 import XCTest
 
-class reporterUITests: XCTestCase {
+class ReporterUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,5 +1,5 @@
-framework module Pods_reporter {
-  umbrella header "Pods-reporter-umbrella.h"
+framework module Pods_Reporter {
+  umbrella header "Pods-Reporter-umbrella.h"
 
   export *
   module * { export * }

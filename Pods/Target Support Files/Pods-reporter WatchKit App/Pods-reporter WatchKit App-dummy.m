@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_reporter_WatchKit_App : NSObject
+@interface PodsDummy_Pods_Reporter_WatchKit_App : NSObject
 @end
-@implementation PodsDummy_Pods_reporter_WatchKit_App
+@implementation PodsDummy_Pods_Reporter_WatchKit_App
 @end
