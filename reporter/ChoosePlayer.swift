@@ -20,9 +20,8 @@ struct ChoosePlayer: View {
                     }
 
                     playersRemoteData = .loaded(loadedPlayers)
-                    print("Success! Result: \(String(describing: loadedPlayers))")
-                case .failure(let error):
-                    print("Failure! Error: \(error)")
+                case .failure:
+                    playersRemoteData = .error
             }
         }
     }
@@ -48,7 +47,7 @@ struct ChoosePlayer: View {
         VStack {
             switch playersRemoteData {
                 case .loading:
-                    Text("Loading...")
+                    ProgressView()
                 case .loaded(let playerNames):
                     Text("Choose player in \(communityName)!")
                     List(playerNames) {playerName in
@@ -60,8 +59,8 @@ struct ChoosePlayer: View {
                         isAddingPlayerInCommunity = false
                     })
                     .disabled(maybeSelectedPlayerName == nil)
-                case .error(_):
-                    Text("Error")
+                case .error:
+                    Text("Failed to fetch players, please check your internet connection and try again")
             }
         }
         .onAppear {

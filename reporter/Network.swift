@@ -10,7 +10,7 @@ class Network {
 enum RemoteData<T> {
     case loading
     case loaded(T)
-    case error(String)
+    case error
 }
 
 enum ApiCallState {

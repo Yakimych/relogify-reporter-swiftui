@@ -38,9 +38,8 @@ struct OpponentList: View {
                     let groupedCommunitiesWithPlayers = Dictionary(grouping: loadedCommunitiesWithPlayers, by: { $0.communityName })
 
                     self.communitiesWithPlayersRemoteData = .loaded(groupedCommunitiesWithPlayers)
-                    print("Success! Timestamp: \(Date()) Result: \(String(describing: groupedCommunitiesWithPlayers))")
-                case .failure(let error):
-                    print("Failure! Error: \(error)")
+                case .failure:
+                    self.communitiesWithPlayersRemoteData = .error
             }
         }
     }
@@ -65,7 +64,7 @@ struct OpponentList: View {
 
                 switch communitiesWithPlayersRemoteData {
                     case .loading:
-                        Text("Loading...")
+                        ProgressView()
                     case .loaded(let communitiesWithOpponents):
                         let selectedCommunityWithPlayers = communitiesWithOpponents[selectedPlayerInCommunity.communityName] ?? []
 
@@ -80,8 +79,8 @@ struct OpponentList: View {
                                     addResultApiCallState: $addResultApiCallState),
                                 label: { Text("\(opponentName)") })
                         }
-                    case .error(_):
-                        Text("Error")
+                    case .error:
+                        Text("Failed to fetch opponent list, please check your internet connection and try again")
                 }
             })
             .navigationBarTitle("Opponent list", displayMode: .inline)
