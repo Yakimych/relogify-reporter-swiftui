@@ -7,10 +7,22 @@ struct AddResult: View {
     let ownName: String
     let opponentName: String
 
-    @Binding var addResultSucceeded: Bool
+    @Binding var addResultApiCallState: ApiCallState
+
+    private var errorAddingResult: Binding<Bool> {
+        Binding (
+            get: {
+                switch self.addResultApiCallState {
+                    case .error:
+                        return true
+                    default:
+                        return false
+                }
+            },
+            set: { _ in }
+        )}
+
     @State private var timerIsOpen: Bool = false
-    @State private var isAddingResult: Bool = false
-    @State private var errorAddingResult: Bool = false
 
     // TODO: Int as backing field?
     @State private var ownPoints: String = "0"
@@ -18,6 +30,15 @@ struct AddResult: View {
     @State private var extraTime: Bool = false
 
     private let maxSelectablePoints = 20
+
+    private func addResultPending() -> Bool {
+        switch self.addResultApiCallState {
+            case .calling:
+                return true
+            default:
+                return false
+        }
+    }
 
     private func getColor(_ playerPointsString: String, _ currentNumber: Int) -> Color {
         if Int(playerPointsString) == currentNumber {
@@ -32,48 +53,36 @@ struct AddResult: View {
 
     private func addResult() {
         withAnimation {
-            isAddingResult = true
+            addResultApiCallState = .calling
         }
 
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-//
-//        let addResultMutation =
-//            AddResultMutation(
-//                communityName: communityName,
-//                player1Name: ownName,
-//                player2Name: opponentName,
-//                date: dateFormatter.string(from: Date()),
-//                player1Goals: Int(ownPoints) ?? 0,
-//                player2Goals: Int(opponentPoints) ?? 0,
-//                extraTime: extraTime)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-// TODO: Remove after handling the error
-        let seconds = 2.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            // Put your code which should be executed with a delay here
-            errorAddingResult = true
-            isAddingResult = false
-            //presentationMode.wrappedValue.dismiss()
+        let addResultMutation =
+            AddResultMutation(
+                communityName: communityName,
+                player1Name: ownName,
+                player2Name: opponentName,
+                date: dateFormatter.string(from: Date()),
+                player1Goals: Int(ownPoints) ?? 0,
+                player2Goals: Int(opponentPoints) ?? 0,
+                extraTime: extraTime)
+
+        Network.shared.apollo.perform(mutation: addResultMutation) { result in
+            switch result {
+                case .success:
+                    addResultApiCallState = .success
+                    presentationMode.wrappedValue.dismiss()
+                case .failure:
+                    addResultApiCallState = .error
+            }
         }
-
-//        Network.shared.apollo.perform(mutation: addResultMutation) { result in
-//            print("Added result. Response: \(result).")
-//
-//            switch result {
-//                case .success:
-//                    addResultSucceeded = true
-//                    presentationMode.wrappedValue.dismiss()
-//                case .failure:
-//                    // TODO: Handle error
-//                    isAddingResult = false
-//            }
-//        }
     }
 
     var body: some View {
-        if isAddingResult {
+        if addResultPending() {
             VStack {
                 Text("Adding Result: \(ownName) \(ownPoints):\(opponentPoints) \(opponentName)")
                 ProgressView()
@@ -118,7 +127,7 @@ struct AddResult: View {
             .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
                                     .sheet(isPresented: $timerIsOpen) { GameTimer(extraTime: false) }
             )
-            .alert(isPresented: $errorAddingResult) {
+            .alert(isPresented: errorAddingResult) {
                 Alert(title: Text("Error"), message: Text("The result has not been added, please check your internet connection and try again"))
             }
         }
@@ -131,6 +140,6 @@ struct AddResult_Previews: PreviewProvider {
             communityName: "TestCommunity",
             ownName: "TestPlayer",
             opponentName: "TestOpponent",
-            addResultSucceeded: .constant(false))
+            addResultApiCallState: .constant(.notCalled))
     }
 }

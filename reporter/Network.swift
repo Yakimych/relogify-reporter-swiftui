@@ -12,3 +12,10 @@ enum RemoteData<T> {
     case loaded(T)
     case error(String)
 }
+
+enum ApiCallState {
+    case notCalled
+    case calling
+    case success
+    case error
+}

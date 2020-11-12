@@ -6,8 +6,20 @@ struct OpponentList: View {
     @State private var selectedPlayerInCommunity: PlayerInCommunity
     @State private var communitiesWithPlayersRemoteData: RemoteData<Dictionary<String, [PlayerInCommunity]>> = .loading
 
-    // TODO: Replace with Discriminated Union
-    @State private var addResultSucceeded: Bool = false
+    @State private var addResultApiCallState: ApiCallState = ApiCallState.notCalled
+
+    private var resultAddedSuccesfully: Binding<Bool> {
+        Binding (
+            get: {
+                switch self.addResultApiCallState {
+                    case .success:
+                        return true
+                    default:
+                        return false
+                }
+            },
+            set: { _ in }
+        )}
 
     init(playersInCommunitiesStorage: PlayersInCommunitiesStorage) {
         self.playersInCommunitiesStorage = playersInCommunitiesStorage
@@ -65,7 +77,7 @@ struct OpponentList: View {
                                     communityName: selectedPlayerInCommunity.communityName,
                                     ownName: selectedPlayerInCommunity.playerName,
                                     opponentName: opponentName,
-                                    addResultSucceeded: $addResultSucceeded),
+                                    addResultApiCallState: $addResultApiCallState),
                                 label: { Text("\(opponentName)") })
                         }
                     case .error(_):
@@ -80,7 +92,7 @@ struct OpponentList: View {
                 loadData(communityNames: playersInCommunitiesStorage.items.map({ $0.communityName }))
             }
         }
-        .alert(isPresented: $addResultSucceeded) {
+        .alert(isPresented: resultAddedSuccesfully) {
             Alert(title: Text("Success"), message: Text("The result has been added!"))
         }
     }
