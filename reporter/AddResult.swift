@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 struct AddResult: View {
     @Environment(\.presentationMode) var presentationMode
@@ -24,7 +25,6 @@ struct AddResult: View {
 
     @State private var timerIsOpen: Bool = false
 
-    // TODO: Int as backing field?
     @State private var ownPoints: String = "0"
     @State private var opponentPoints: String = "0"
     @State private var extraTime: Bool = false
@@ -45,10 +45,6 @@ struct AddResult: View {
             return Color.green
         }
         return Color.yellow
-    }
-
-    private func setPlayerPoints(newValue: String) -> Void {
-        self.ownPoints = newValue
     }
 
     private func addResult() {
@@ -81,6 +77,15 @@ struct AddResult: View {
         }
     }
 
+    private func toNumericString(stringValue: String) -> String {
+        if let numericValue = Int(stringValue) {
+            return String(numericValue)
+        }
+        else {
+            return "0"
+        }
+    }
+
     var body: some View {
         if addResultPending() {
             VStack {
@@ -93,7 +98,9 @@ struct AddResult: View {
                 HStack {
                     VStack {
                         Text("Player points: \(ownPoints)")
-                        TextField("Player", text: $ownPoints).keyboardType(.numberPad)
+                        TextField("Player", text: $ownPoints)
+                            .keyboardType(.numberPad)
+                            .onReceive(Just(ownPoints), perform: { self.ownPoints = toNumericString(stringValue: $0) })
                         ScrollView {
                             VStack(spacing: 10) {
                                 ForEach(0..<maxSelectablePoints) { currentNumber in
@@ -107,7 +114,9 @@ struct AddResult: View {
                     }
                     VStack{
                         Text("Opponent points: \(opponentPoints)")
-                        TextField("Opponent", text: $opponentPoints).keyboardType(.numberPad)
+                        TextField("Opponent", text: $opponentPoints)
+                            .keyboardType(.numberPad)
+                            .onReceive(Just(opponentPoints), perform: { self.opponentPoints = toNumericString(stringValue: $0) })
                         ScrollView {
                             VStack(spacing: 10) {
                                 ForEach(0..<maxSelectablePoints) { currentNumber in
