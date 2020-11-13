@@ -1,14 +1,5 @@
 import SwiftUI
 
-struct TimerButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .foregroundColor(.white)
-            .padding()
-            .background(Color.blue)
-    }
-}
-
 struct GameTimer: View {
     @Environment(\.presentationMode) var presentationMode
 

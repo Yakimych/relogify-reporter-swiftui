@@ -24,17 +24,7 @@ struct SettingsView: View {
                     destination: ChooseCommunity(isAddingPlayerInCommunity: $isAddingPlayerInCommunity),
                     isActive: $isAddingPlayerInCommunity
                 ) {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(
-                            minWidth: 20,
-                            idealWidth: 50,
-                            maxWidth: 100,
-                            minHeight: 20,
-                            idealHeight: 100,
-                            maxHeight: 100,
-                            alignment: .center)
-                        .padding()
+                    withIconButtonStyle(Image(systemName: "plus.circle.fill"))
                 }
                 .isDetailLink(false)
             }

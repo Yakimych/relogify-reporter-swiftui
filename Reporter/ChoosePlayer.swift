@@ -70,18 +70,8 @@ struct ChoosePlayer: View {
                         addPlayerToLocalStorage()
                         isAddingPlayerInCommunity = false
                     }) {
-                        Image(systemName: "checkmark.circle")
-                            .resizable()
-                            .frame(
-                                minWidth: 20,
-                                idealWidth: 50,
-                                maxWidth: 100,
-                                minHeight: 20,
-                                idealHeight: 100,
-                                maxHeight: 100,
-                                alignment: .center)
+                        withIconButtonStyle(Image(systemName: "checkmark.circle"))
                             .foregroundColor(getConfirmationButtonColor())
-                            .padding()
                     }
                     .disabled(!canAddPlayer())
                 case .error:

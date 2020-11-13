@@ -10,6 +10,7 @@
 		09AE6B110C5071865891F908 /* Pods_Reporter_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9AE8E90A3D86949636C6F8 /* Pods_Reporter_WatchKit_App.framework */; };
 		269BB2091B53BE2EBEA265C7 /* Pods_Reporter_ReporterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB51EAA1947B180E5A691C /* Pods_Reporter_ReporterUITests.framework */; };
 		590D48A508F4A745E3F1E265 /* Pods_Reporter_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886FAA7C7A2A5B654F992ACD /* Pods_Reporter_WatchKit_Extension.framework */; };
+		7C5FF4F3255EF2570011B0ED /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5FF4F2255EF2570011B0ED /* Styling.swift */; };
 		7C69124D2556AA8E00884215 /* ChooseCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69124C2556AA8E00884215 /* ChooseCommunity.swift */; };
 		7C6912592556ABEA00884215 /* ChoosePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6912582556ABEA00884215 /* ChoosePlayer.swift */; };
 		7C6912602556AC7F00884215 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69125F2556AC7F00884215 /* SettingsView.swift */; };
@@ -114,6 +115,7 @@
 		5A9AE8E90A3D86949636C6F8 /* Pods_Reporter_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reporter_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A4A2C5B26BB6557041FB37 /* Pods-ReporterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReporterTests.debug.xcconfig"; path = "Target Support Files/Pods-ReporterTests/Pods-ReporterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		70BAA7FB56CA16E82986AD53 /* Pods-Reporter-ReporterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter-ReporterUITests.release.xcconfig"; path = "Target Support Files/Pods-Reporter-ReporterUITests/Pods-Reporter-ReporterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7C5FF4F2255EF2570011B0ED /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
 		7C69124C2556AA8E00884215 /* ChooseCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCommunity.swift; sourceTree = "<group>"; };
 		7C6912582556ABEA00884215 /* ChoosePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePlayer.swift; sourceTree = "<group>"; };
 		7C69125F2556AC7F00884215 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */,
 				7C721160255D8F4D00D2A2E8 /* Settings.plist */,
 				7CD97399255EA17300C8AD30 /* About.swift */,
+				7C5FF4F2255EF2570011B0ED /* Styling.swift */,
 			);
 			path = Reporter;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C5FF4F3255EF2570011B0ED /* Styling.swift in Sources */,
 				7C72113E2559B05600D2A2E8 /* Network.swift in Sources */,
 				7C69124D2556AA8E00884215 /* ChooseCommunity.swift in Sources */,
 				7CBA4ECE2551AE5300313A51 /* MainView.swift in Sources */,
