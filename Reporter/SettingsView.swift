@@ -8,29 +8,30 @@ struct SettingsView: View {
         let listContents =
             ForEach(playersInCommunitiesStorage.items) {
                 communityWithPlayer in
-                Text("\(communityWithPlayer.playerName) (\(communityWithPlayer.communityName))")
+                Text("\(communityWithPlayer.communityName) (\(communityWithPlayer.playerName))")
             }
 
         NavigationView {
             VStack {
-                Text("Setting View")
-
-                // TODO: Sections
-                Text("Existing communities:")
-
                 List {
                     listContents.onDelete(perform: {
                         indexSet in playersInCommunitiesStorage.items.remove(atOffsets: indexSet)
                     })
                 }
+                .listStyle(PlainListStyle())
 
                 NavigationLink(
                     destination: ChooseCommunity(isAddingPlayerInCommunity: $isAddingPlayerInCommunity),
-                    isActive: $isAddingPlayerInCommunity,
-                    label: { Text("Add") }
-                )
+                    isActive: $isAddingPlayerInCommunity
+                ) {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(minWidth: 10, idealWidth: 50, maxWidth: 100, minHeight: 50, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .padding()
+                }
                 .isDetailLink(false)
             }
+            .navigationBarTitle("Settings", displayMode: .inline)
         }
     }
 }
@@ -38,5 +39,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .environmentObject(PlayersInCommunitiesStorage())
     }
 }
