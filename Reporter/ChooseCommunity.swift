@@ -6,7 +6,6 @@ struct ChooseCommunity: View {
 
     var body: some View {
         VStack {
-            Text("Enter community name:")
             TextField("Community", text: $communityName).padding().autocapitalization(.none)
             NavigationLink(
                 destination: ChoosePlayer(communityName: communityName, isAddingPlayerInCommunity: $isAddingPlayerInCommunity),
@@ -14,6 +13,7 @@ struct ChooseCommunity: View {
             )
             .isDetailLink(false)
         }
+        .navigationTitle("Choose community")
     }
 }
 

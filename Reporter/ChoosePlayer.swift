@@ -49,11 +49,12 @@ struct ChoosePlayer: View {
                 case .loading:
                     ProgressView()
                 case .loaded(let playerNames):
-                    Text("Choose player in \(communityName)!")
                     List(playerNames) {playerName in
                         Button("Player '\(playerName)'", action: { maybeSelectedPlayerName = playerName })
                             .background(getColor(playerName: playerName))
                     }
+                    .listStyle(PlainListStyle())
+                    
                     Button("Done", action: {
                         addPlayerToLocalStorage()
                         isAddingPlayerInCommunity = false
@@ -63,6 +64,7 @@ struct ChoosePlayer: View {
                     Text("Failed to fetch players, please check your internet connection and try again")
             }
         }
+        .navigationTitle("Choose player in '\(communityName)'")
         .onAppear {
             loadData(communityName: communityName)
         }

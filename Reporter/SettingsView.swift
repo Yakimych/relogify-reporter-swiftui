@@ -26,7 +26,14 @@ struct SettingsView: View {
                 ) {
                     Image(systemName: "plus.circle.fill")
                         .resizable()
-                        .frame(minWidth: 10, idealWidth: 50, maxWidth: 100, minHeight: 50, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(
+                            minWidth: 20,
+                            idealWidth: 50,
+                            maxWidth: 100,
+                            minHeight: 20,
+                            idealHeight: 100,
+                            maxHeight: 100,
+                            alignment: .center)
                         .padding()
                 }
                 .isDetailLink(false)
