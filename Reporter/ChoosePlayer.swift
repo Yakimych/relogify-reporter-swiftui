@@ -26,11 +26,22 @@ struct ChoosePlayer: View {
         }
     }
 
-    private func getColor(playerName: String) -> Color {
+    private func getListItemColor(playerName: String) -> Color {
         if playerName == maybeSelectedPlayerName {
             return Color.red
         }
         return Color.white
+    }
+
+    private func canAddPlayer() -> Bool {
+        return maybeSelectedPlayerName != nil
+    }
+
+    private func getConfirmationButtonColor() -> Color {
+        if canAddPlayer() {
+            return Color.green
+        }
+        return Color(UIColor.lightGray)
     }
 
     private func addPlayerToLocalStorage() {
@@ -49,17 +60,30 @@ struct ChoosePlayer: View {
                 case .loading:
                     ProgressView()
                 case .loaded(let playerNames):
-                    List(playerNames) {playerName in
-                        Button("Player '\(playerName)'", action: { maybeSelectedPlayerName = playerName })
-                            .background(getColor(playerName: playerName))
+                    List(playerNames) { playerName in
+                        Button(playerName, action: { maybeSelectedPlayerName = playerName })
+                            .background(getListItemColor(playerName: playerName))
                     }
                     .listStyle(PlainListStyle())
-                    
-                    Button("Done", action: {
+
+                    Button(action: {
                         addPlayerToLocalStorage()
                         isAddingPlayerInCommunity = false
-                    })
-                    .disabled(maybeSelectedPlayerName == nil)
+                    }) {
+                        Image(systemName: "checkmark.circle")
+                            .resizable()
+                            .frame(
+                                minWidth: 20,
+                                idealWidth: 50,
+                                maxWidth: 100,
+                                minHeight: 20,
+                                idealHeight: 100,
+                                maxHeight: 100,
+                                alignment: .center)
+                            .foregroundColor(getConfirmationButtonColor())
+                            .padding()
+                    }
+                    .disabled(!canAddPlayer())
                 case .error:
                     Text("Failed to fetch players, please check your internet connection and try again")
             }
@@ -73,6 +97,7 @@ struct ChoosePlayer: View {
 
 struct ChoosePlayer_Previews: PreviewProvider {
     static var previews: some View {
-        ChoosePlayer(communityName: "TestCommunity", isAddingPlayerInCommunity: .constant(false))
+        ChoosePlayer(communityName: "TestCommunity", isAddingPlayerInCommunity: .constant(true))
+            .environmentObject(PlayersInCommunitiesStorage())
     }
 }
