@@ -27,7 +27,7 @@ struct MainView: View {
                         Image(systemName: "gear")
                         Text("Settings")
                     }
-                Text("About")
+                About()
                     .tag(2)
                     .tabItem {
                         Image(systemName: "info.circle")

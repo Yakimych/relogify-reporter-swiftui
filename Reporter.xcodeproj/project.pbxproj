@@ -44,6 +44,7 @@
 		7CBA4F5425555A1C00313A51 /* final_siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F5125555A1C00313A51 /* final_siren.mp3 */; };
 		7CBA4F5525555A1C00313A51 /* expiration_warning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F5225555A1C00313A51 /* expiration_warning.mp3 */; };
 		7CBA4F5625555A1C00313A51 /* half_time_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F5325555A1C00313A51 /* half_time_beep.mp3 */; };
+		7CD9739A255EA17300C8AD30 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD97399255EA17300C8AD30 /* About.swift */; };
 		E5EFD1516418561A576137A1 /* Pods_ReporterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49652F1717D6F71A1DDC3BA /* Pods_ReporterTests.framework */; };
 		F5CD48A6BA3D8D2B4B6269B3 /* Pods_Reporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A98229747631BF30E480BC7 /* Pods_Reporter.framework */; };
 /* End PBXBuildFile section */
@@ -156,6 +157,7 @@
 		7CBA4F5125555A1C00313A51 /* final_siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = final_siren.mp3; sourceTree = "<group>"; };
 		7CBA4F5225555A1C00313A51 /* expiration_warning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = expiration_warning.mp3; sourceTree = "<group>"; };
 		7CBA4F5325555A1C00313A51 /* half_time_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = half_time_beep.mp3; sourceTree = "<group>"; };
+		7CD97399255EA17300C8AD30 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		886FAA7C7A2A5B654F992ACD /* Pods_Reporter_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reporter_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE1B7497A37B3B15ED2F45B /* Pods-Reporter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter.debug.xcconfig"; path = "Target Support Files/Pods-Reporter/Pods-Reporter.debug.xcconfig"; sourceTree = "<group>"; };
 		9C19C4C24B13749AC23A12BB /* Pods-Reporter WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-Reporter WatchKit Extension/Pods-Reporter WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				7C72113D2559B05600D2A2E8 /* Network.swift */,
 				7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */,
 				7C721160255D8F4D00D2A2E8 /* Settings.plist */,
+				7CD97399255EA17300C8AD30 /* About.swift */,
 			);
 			path = Reporter;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				7C6912602556AC7F00884215 /* SettingsView.swift in Sources */,
 				7CBA4F3B25546EAB00313A51 /* StopWatchManager.swift in Sources */,
 				7CBA4F282551B1A100313A51 /* AddResult.swift in Sources */,
+				7CD9739A255EA17300C8AD30 /* About.swift in Sources */,
 				7CBA4ECC2551AE5300313A51 /* ReporterApp.swift in Sources */,
 				7CBA4F2F2551B3E500313A51 /* GameTimer.swift in Sources */,
 				7C7211372559B02500D2A2E8 /* API.swift in Sources */,
