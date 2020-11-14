@@ -79,6 +79,7 @@ struct OpponentList: View {
                                     addResultApiCallState: $addResultApiCallState),
                                 label: { Text("\(opponentName)") })
                         }
+                        .listStyle(PlainListStyle())
                     case .error:
                         Text("Failed to fetch opponent list, please check your internet connection and try again")
                 }
