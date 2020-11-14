@@ -54,13 +54,22 @@ struct ChoosePlayer: View {
         }
     }
 
+    private func playerNotAlreadyAdded(playerToAdd: String) -> Bool {
+        let addedPlayersInCurrentCommunity =
+            playersInCommunitiesStorage.items
+                .filter({ $0.communityName == self.communityName })
+                .map({$0.playerName})
+
+        return !addedPlayersInCurrentCommunity.contains(playerToAdd)
+    }
+
     var body: some View {
         VStack {
             switch playersRemoteData {
                 case .loading:
                     ProgressView()
                 case .loaded(let playerNames):
-                    List(playerNames) { playerName in
+                    List(playerNames.filter(playerNotAlreadyAdded)) { playerName in
                         Button(playerName, action: { maybeSelectedPlayerName = playerName })
                             .background(getListItemColor(playerName: playerName))
                     }
