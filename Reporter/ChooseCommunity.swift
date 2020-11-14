@@ -17,9 +17,40 @@ struct ChooseCommunity: View {
 
     var body: some View {
         VStack {
-            TextField("Community", text: $communityName).padding().autocapitalization(.none)
+            VStack {
+                HStack {
+                    Image(systemName: "info.circle")
+                        .resizable()
+                        .foregroundColor(Color.blue)
+                        .frame(
+                            minWidth: 10,
+                            idealWidth: 50,
+                            maxWidth: 50,
+                            minHeight: 10,
+                            idealHeight: 50,
+                            maxHeight: 50,
+                            alignment: .center)
 
-            // TODO: Add information as to how to find the community name
+                    Text("The community name is the last part of your Relogify URL")
+                        .font(.footnote)
+                        .multilineTextAlignment(.center)
+            }
+            }.padding(EdgeInsets(top: 10, leading: 0, bottom: 40, trailing: 0))
+
+
+            VStack(alignment: .leading) {
+                Text("Community name")
+                    .font(.callout)
+                    .bold()
+                    .multilineTextAlignment(.leading)
+
+                HStack {
+                    Text("https://relogify.com/").font(.subheadline)
+                    TextField("communityname", text: $communityName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                }
+            }
 
             NavigationLink(
                 destination: ChoosePlayer(communityName: communityName, isAddingPlayerInCommunity: $isAddingPlayerInCommunity)
@@ -29,8 +60,10 @@ struct ChooseCommunity: View {
             }
             .isDetailLink(false)
             .disabled(!canProceed())
+            .padding()
         }
         .navigationTitle("Choose community")
+        .padding()
     }
 }
 
