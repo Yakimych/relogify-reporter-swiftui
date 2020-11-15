@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct SettingsView: View {
     @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
     @State private var isAddingPlayerInCommunity: Bool = false

@@ -40,7 +40,7 @@ struct AddResult: View {
         }
     }
 
-    private func getColor(_ playerPointsString: String, _ currentNumber: Int) -> Color {
+    private func getScoreButtonColor(_ playerPointsString: String, _ currentNumber: Int) -> Color {
         if Int(playerPointsString) == currentNumber {
             return Color.green
         }
@@ -86,6 +86,22 @@ struct AddResult: View {
         }
     }
 
+    private func getScoreButtonText(scoreNumber: Int, backgroundColor: Color) -> some View {
+        let buttonCornerRadius = CGFloat(15.0)
+
+        return Text(String(scoreNumber))
+            .fontWeight(.bold)
+            .font(.title2)
+            .frame(width: 100, height: 50)
+            .background(backgroundColor)
+            .foregroundColor(RelogifyColors.relogifyDark)
+            .overlay(
+                RoundedRectangle(cornerRadius: buttonCornerRadius)
+                    .stroke(RelogifyColors.relogifyDark, lineWidth: 5)
+            )
+            .cornerRadius(buttonCornerRadius)
+    }
+
     var body: some View {
         if addResultPending() {
             VStack {
@@ -97,38 +113,37 @@ struct AddResult: View {
             VStack(alignment: .center) {
                 HStack {
                     VStack {
-                        Text("Player points: \(ownPoints)")
+                        Text(ownName)
                         TextField("Player", text: $ownPoints)
                             .keyboardType(.numberPad)
                             .onReceive(Just(ownPoints), perform: { self.ownPoints = toNumericString(stringValue: $0) })
                         ScrollView {
                             VStack(spacing: 10) {
                                 ForEach(0..<maxSelectablePoints) { currentNumber in
-                                    Button(String(currentNumber), action: { self.ownPoints = String(currentNumber) })
-                                        .foregroundColor(.blue)
-                                        .frame(width: 100, height: 50)
-                                        .background(getColor(self.ownPoints, currentNumber))
+                                    Button(action: { self.ownPoints = String(currentNumber) }) {
+                                        getScoreButtonText(scoreNumber: currentNumber, backgroundColor: getScoreButtonColor(self.ownPoints, currentNumber))
+                                    }
                                 }
                             }
                         }
                     }
                     VStack{
-                        Text("Opponent points: \(opponentPoints)")
+                        Text(opponentName)
                         TextField("Opponent", text: $opponentPoints)
                             .keyboardType(.numberPad)
                             .onReceive(Just(opponentPoints), perform: { self.opponentPoints = toNumericString(stringValue: $0) })
                         ScrollView {
                             VStack(spacing: 10) {
                                 ForEach(0..<maxSelectablePoints) { currentNumber in
-                                    Button(String(currentNumber), action: { self.opponentPoints = String(currentNumber) })
-                                        .foregroundColor(.blue)
-                                        .frame(width: 100, height: 50)
-                                        .background(getColor(self.opponentPoints, currentNumber))
+                                    Button(action: { self.opponentPoints = String(currentNumber) }) {
+                                        getScoreButtonText(scoreNumber: currentNumber, backgroundColor: getScoreButtonColor(self.opponentPoints, currentNumber))
+                                    }
                                 }
                             }
                         }
                     }
                 }
+
                 Toggle(isOn: $extraTime, label: { Text("Extra Time") })
                 Button(action: { addResult() }) { Text("Add Result") }
             }
@@ -139,6 +154,7 @@ struct AddResult: View {
             .alert(isPresented: errorAddingResult) {
                 Alert(title: Text("Error"), message: Text("The result has not been added, please check your internet connection and try again"))
             }
+            .padding()
         }
     }
 }
