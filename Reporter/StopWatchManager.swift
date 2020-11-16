@@ -29,27 +29,41 @@ class StopWatchManager: ObservableObject {
     }
 
     func start() {
+        // TODO: Prepare/preload sounds
+
+        // TODO: This should be done in reset instead
         isPastHalfTime = false
         isPastExpirationWarning = false
         timer = Timer.scheduledTimer(withTimeInterval: Double(tickFrequencyMs) / 1000, repeats: true) {
             timer in self.millisecondsElapsed += self.tickFrequencyMs
             if (self.millisecondsElapsed > self.totalMilliseconds / 2 && !self.isPastHalfTime) {
                 self.isPastHalfTime = true
-                Sound.play(file: "half_time_beep.mp3")
+
+                DispatchQueue.global(qos: .background).async {
+                    Sound.play(file: "half_time_beep.mp3")
+                }
             }
 
             if (self.millisecondsElapsed > self.totalMilliseconds - self.expirationWarningMilliseconds && !self.isPastExpirationWarning) {
                 self.isPastExpirationWarning = true
-                Sound.play(file: "expiration_warning.mp3")
+
+                DispatchQueue.global(qos: .background).async {
+                    Sound.play(file: "expiration_warning.mp3")
+                }
             }
 
             if self.millisecondsElapsed > self.totalMilliseconds {
                 self.reset()
-                Sound.play(file: "final_siren.mp3")
+
+                DispatchQueue.global(qos: .background).async {
+                    Sound.play(file: "final_siren.mp3")
+                }
+
                 self.raiseTimerExpired()
             }
         }
-        //Sound.play(file: "expiration_warning.mp3")
+
+        // TODO: Play sound here if possible to preload in init
         mode = .running
     }
 
