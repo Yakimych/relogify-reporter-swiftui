@@ -17,14 +17,17 @@ struct GameTimer: View {
 
     private func expirationWarningMilliseconds() -> Double
     {
-        return 30 * 1000
+        //return 30 * 1000
+        return 2 * 1000
     }
 
     private func totalMilliseconds() -> Double {
         if extraTime {
-            return 2 * 60_000
+            return 5_000
+            //return 2 * 60_000
         }
-        return 5 * 60_000
+        return 10_000
+        //return 5 * 60_000
     }
 
     private let timerState: TimerState = TimerState()
@@ -95,8 +98,11 @@ struct GameTimer: View {
                     else {
                         self.millisecondsLeft = 0
                         self.mode = .stopped
-                        DispatchQueue.global(qos: .background).async { finalSirenSound.play() }
-                        self.presentationMode.wrappedValue.dismiss()
+                        DispatchQueue.global(qos: .background).async {
+                            finalSirenSound.play() { completed in
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                        }
                     }
                 }
             default:
