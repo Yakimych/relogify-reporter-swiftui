@@ -1,32 +1,35 @@
 import SwiftUI
+import Combine
 import SwiftySound
-
-// TODO: Wrap timer-related fields into a class and add unit tests (keep the timer outside)
-enum stopWatchMode {
-    case stopped
-    case running(Date)
-    case paused // TODO: TimeRemaining?
-}
 
 struct GameTimer: View {
     @Environment(\.presentationMode) var presentationMode
 
     @State var extraTime: Bool
-    @State private var millisecondsLeft: Double = 5000.0
+    private var extraTimeBinding: Binding<Bool> {
+        Binding (
+            get: { return self.extraTime },
+            set: setExtraTimeIfAllowed
+        )}
+
+    @State private var millisecondsLeft: Double = 0
     @State var mode: stopWatchMode = .stopped
 
-    // TODO: This will depend on extraTime value
-    private let totalMilliseconds: Double = 5 * 1000
-    private let expirationWarningMilliseconds: Double = 2 * 1000
+    private func expirationWarningMilliseconds() -> Double
+    {
+        return 30 * 1000
+    }
 
-    private static let tickFrequencyMs = 200
+    private func totalMilliseconds() -> Double {
+        if extraTime {
+            return 2 * 60_000
+        }
+        return 5 * 60_000
+    }
 
-    // TODO: is there a concept similar to "ref" in SwiftUI?
-    @State private var isPastHalfTime = false
-    @State private var isPastExpirationWarning = false
+    private let timerState: TimerState = TimerState()
 
-    // TODO: 200 -> constant
-    let timer = Timer.publish(every: 200.0 / 1000, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: TimerState.tickFrequencyMs / 1000, on: .main, in: .common).autoconnect()
 
     private let halfTimeSound: Sound = Sound(url: Bundle.main.url(forResource: "half_time_beep", withExtension: "mp3")!)!
     private let expirationWarningSound: Sound = Sound(url: Bundle.main.url(forResource: "expiration_warning", withExtension: "mp3")!)!
@@ -34,7 +37,17 @@ struct GameTimer: View {
 
     private func start(timeOfStart: Date) {
         switch mode {
-            case .stopped, .paused:
+            case .stopped:
+                reset()
+                mode = .running(timeOfStart)
+            default:
+                break
+        }
+    }
+
+    private func unpause(timeOfStart: Date) {
+        switch mode {
+            case .paused:
                 mode = .running(timeOfStart)
             default:
                 break
@@ -53,10 +66,10 @@ struct GameTimer: View {
 
     private func reset() {
         mode = .stopped
-        millisecondsLeft = totalMilliseconds
+        millisecondsLeft = totalMilliseconds()
 
-        isPastHalfTime = false
-        isPastExpirationWarning = false
+        timerState.isPastHalfTime = false
+        timerState.isPastExpirationWarning = false
     }
 
     private func tick(timeOfTick: Date) {
@@ -69,13 +82,13 @@ struct GameTimer: View {
                     if (self.millisecondsLeft > millisecondsElapsedSinceLastTick) {
                         self.millisecondsLeft -= millisecondsElapsedSinceLastTick
 
-                        if (self.millisecondsLeft < self.expirationWarningMilliseconds && !self.isPastExpirationWarning) {
-                            self.isPastExpirationWarning = true
+                        if (self.millisecondsLeft < expirationWarningMilliseconds() && !timerState.isPastExpirationWarning) {
+                            timerState.isPastExpirationWarning = true
                             DispatchQueue.global(qos: .background).async { expirationWarningSound.play() }
                         }
 
-                        if (self.millisecondsLeft < self.totalMilliseconds / 2 && !self.isPastHalfTime) {
-                            self.isPastHalfTime = true
+                        if (self.millisecondsLeft < totalMilliseconds() / 2 && !timerState.isPastHalfTime) {
+                            timerState.isPastHalfTime = true
                             DispatchQueue.global(qos: .background).async { halfTimeSound.play() }
                         }
                     }
@@ -91,24 +104,52 @@ struct GameTimer: View {
         }
     }
 
+    private func isAllowedToToggleExtraTime() -> Bool {
+        switch self.mode {
+            case .stopped, .paused:
+                return true
+            default:
+                return false
+        }
+    }
+
+    private func setExtraTimeIfAllowed(_ newValue: Bool) {
+        if isAllowedToToggleExtraTime() {
+            extraTime = newValue
+            reset()
+        }
+    }
+
     var body: some View {
         VStack {
             Text("Milliseconds left: \(millisecondsLeft)")
-            Button(action: { start(timeOfStart: Date()) }) {
+            Button(action: {
+                start(timeOfStart: Date())
+            }) {
                 Text("Start")
             }.buttonStyle(TimerButtonStyle())
+
+            Button(action: {
+                unpause(timeOfStart: Date()) }
+            ) {
+                Text("Unpause")
+            }.buttonStyle(TimerButtonStyle())
+
             Button(action: { pause(timeOfPause: Date()) } ) {
                 Text("Pause")
             }.buttonStyle(TimerButtonStyle())
+
             Button(action: reset ) {
                 Text("Reset")
             }.buttonStyle(TimerButtonStyle())
+
+            Toggle(isOn: extraTimeBinding, label: { Text("Extra Time") })
+                .disabled(!isAllowedToToggleExtraTime())
         }
         .navigationBarTitle("Timer")
-        .onReceive(timer) { time in
-            tick(timeOfTick: time)
-        }
+        .onReceive(timer) { time in tick(timeOfTick: time) }
         .onAppear {
+            millisecondsLeft = totalMilliseconds()
             DispatchQueue.global(qos: .background).async {
                 halfTimeSound.prepare()
                 expirationWarningSound.prepare()

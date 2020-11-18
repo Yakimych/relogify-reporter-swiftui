@@ -23,6 +23,7 @@
 		7C72113E2559B05600D2A2E8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C72113D2559B05600D2A2E8 /* Network.swift */; };
 		7C721145255AA60B00D2A2E8 /* AddResultMutation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */; };
 		7C721161255D8F4D00D2A2E8 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C721160255D8F4D00D2A2E8 /* Settings.plist */; };
+		7C910753256563F700C4C31D /* TimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C910752256563F700C4C31D /* TimerState.swift */; };
 		7CBA4ECC2551AE5300313A51 /* ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */; };
 		7CBA4ECE2551AE5300313A51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECD2551AE5300313A51 /* MainView.swift */; };
 		7CBA4ED02551AE5300313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECF2551AE5300313A51 /* Assets.xcassets */; };
@@ -127,6 +128,7 @@
 		7C72113D2559B05600D2A2E8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddResultMutation.graphql; sourceTree = "<group>"; };
 		7C721160255D8F4D00D2A2E8 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		7C910752256563F700C4C31D /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
 		7CBA4EC82551AE5300313A51 /* Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterApp.swift; sourceTree = "<group>"; };
 		7CBA4ECD2551AE5300313A51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				7C721160255D8F4D00D2A2E8 /* Settings.plist */,
 				7CD97399255EA17300C8AD30 /* About.swift */,
 				7C5FF4F2255EF2570011B0ED /* Styling.swift */,
+				7C910752256563F700C4C31D /* TimerState.swift */,
 			);
 			path = Reporter;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				7CBA4ECC2551AE5300313A51 /* ReporterApp.swift in Sources */,
 				7CBA4F2F2551B3E500313A51 /* GameTimer.swift in Sources */,
 				7C7211372559B02500D2A2E8 /* API.swift in Sources */,
+				7C910753256563F700C4C31D /* TimerState.swift in Sources */,
 				7C6912592556ABEA00884215 /* ChoosePlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
