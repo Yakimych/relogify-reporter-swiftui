@@ -147,7 +147,7 @@ struct AddResult: View {
                 Toggle(isOn: $extraTime, label: { Text("Extra Time") })
                 Button(action: { addResult() }) { Text("Add Result") }
             }
-            .navigationBarTitle("\(ownName) vs \(opponentName) in \(communityName)")
+            .navigationBarTitle("Game in \(communityName)")
             .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
                                     .sheet(isPresented: $timerIsOpen) { GameTimer(extraTime: false) }
             )
