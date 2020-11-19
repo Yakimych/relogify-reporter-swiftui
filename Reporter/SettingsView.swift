@@ -52,6 +52,7 @@ struct SettingsView: View {
                                 idealHeight: 30,
                                 maxHeight: 30,
                                 alignment: .center)
+                            .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fill)
 
                         Text("You can add \(maxNumberOfPlayersInCommunities) communities at most")
                             .font(.footnote)

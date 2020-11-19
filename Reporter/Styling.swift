@@ -25,5 +25,6 @@ func withIconButtonStyle(_ image: Image) -> some View {
             idealHeight: 100,
             maxHeight: 100,
             alignment: .center)
+        .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fill)
         .padding()
 }

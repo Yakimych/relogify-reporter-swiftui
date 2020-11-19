@@ -30,11 +30,12 @@ struct ChooseCommunity: View {
                             idealHeight: 50,
                             maxHeight: 50,
                             alignment: .center)
+                        .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fill)
 
                     Text("The community name is the last part of your Relogify URL")
                         .font(.footnote)
                         .multilineTextAlignment(.center)
-            }
+                }
             }.padding(EdgeInsets(top: 10, leading: 0, bottom: 40, trailing: 0))
 
 
