@@ -126,32 +126,56 @@ struct GameTimer: View {
         }
     }
 
+    private func getTimerButtonText(text: String, backgroundColor: Color, textColor: Color) -> some View {
+        let buttonCornerRadius = CGFloat(10.0)
+
+        return Text(text)
+            .fontWeight(.bold)
+            .font(.title3)
+            .frame(maxWidth: .infinity, maxHeight: 60)
+            .background(backgroundColor)
+            .foregroundColor(textColor)
+            .overlay(
+                RoundedRectangle(cornerRadius: buttonCornerRadius)
+                    .stroke(Color.white, lineWidth: 5)
+            )
+            .cornerRadius(buttonCornerRadius)
+    }
+
     var body: some View {
         VStack {
-            Text("Milliseconds left: \(millisecondsLeft)")
-            Button(action: {
-                start(timeOfStart: Date())
-            }) {
-                Text("Start")
-            }.buttonStyle(TimerButtonStyle())
+            Spacer()
 
-            Button(action: {
-                unpause(timeOfStart: Date()) }
-            ) {
-                Text("Unpause")
-            }.buttonStyle(TimerButtonStyle())
+            Text("Milliseconds left: \(millisecondsLeft)")
+                .foregroundColor(.white)
+
+            Button(action: { start(timeOfStart: Date()) }) {
+                getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+            }
+            .padding(.top)
+
+            Button(action: { unpause(timeOfStart: Date()) } ) {
+                getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+            }
+            .padding(.top)
 
             Button(action: { pause(timeOfPause: Date()) } ) {
-                Text("Pause")
-            }.buttonStyle(TimerButtonStyle())
+                getTimerButtonText(text: "Pause", backgroundColor: Color(UIColor.lightGray), textColor: RelogifyColors.relogifyDark)
+            }
+            .padding(.top)
 
             Button(action: reset ) {
-                Text("Reset")
-            }.buttonStyle(TimerButtonStyle())
+                getTimerButtonText(text: "Reset", backgroundColor: Color.red, textColor: RelogifyColors.relogifyDark)
+            }
+            .padding(.top)
 
             Toggle(isOn: extraTimeBinding, label: { Text("Extra Time") })
                 .disabled(!isAllowedToToggleExtraTime())
+
+            Spacer()
         }
+        .padding()
+        .background(Color.black)
         .navigationBarTitle("Timer")
         .onReceive(timer) { time in tick(timeOfTick: time) }
         .onAppear {

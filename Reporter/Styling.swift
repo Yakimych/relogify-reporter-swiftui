@@ -1,17 +1,9 @@
 import SwiftUI
 
-struct TimerButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .foregroundColor(.white)
-            .padding()
-            .background(Color.blue)
-    }
-}
-
 enum RelogifyColors {
     static let relogifyDark = Color(UIColor(red: 27 / 255.0, green: 20 / 255.0, blue: 100 / 255.0, alpha: 1))
     static let relogifyLight = Color(UIColor(red: 247 / 255.0, green: 244 / 255.0, blue: 198 / 255.0, alpha: 1))
+    static let darkGreen = Color(UIColor(red: 0.0, green: 0.5, blue: 0.0, alpha: 1))
 }
 
 func withIconButtonStyle(_ image: Image) -> some View {
