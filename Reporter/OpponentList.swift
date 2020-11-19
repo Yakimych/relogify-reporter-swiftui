@@ -44,47 +44,70 @@ struct OpponentList: View {
         }
     }
 
-    private func getCommunityTabColor(communityName: String) -> Color {
-        if communityName == selectedPlayerInCommunity.communityName {
-            return Color.red
-        }
-        return Color.white
+    private func getCommunityTabColors(communityName: String) -> (Color, Color) {
+        return communityName == selectedPlayerInCommunity.communityName ? (Color.blue, Color.white) : (Color(UIColor.lightGray), Color.black)
+    }
+
+    private func getCommunityTabFontWeight(communityName: String) -> Font.Weight {
+        return communityName == selectedPlayerInCommunity.communityName ? .bold : .light
     }
 
     var body: some View {
+        let headerButtonCornerRadius = CGFloat(10.0)
+
         NavigationView {
-            VStack(alignment: .leading, content: {
-                HStack {
-                    ForEach(playersInCommunitiesStorage.items) {
-                        communityWithPlayer in
-                        Button(communityWithPlayer.communityName, action: { selectedPlayerInCommunity = communityWithPlayer })
-                            .background(getCommunityTabColor(communityName: communityWithPlayer.communityName))
+            switch communitiesWithPlayersRemoteData {
+                case .loading:
+                    ProgressView()
+                case .loaded(let communitiesWithOpponents):
+                    let selectedCommunityWithPlayers = communitiesWithOpponents[selectedPlayerInCommunity.communityName] ?? []
+                    let numberOfCommunityTabs = communitiesWithOpponents.count
+
+                    GeometryReader { metrics in
+                        VStack(alignment: .leading, content: {
+                            if numberOfCommunityTabs > 1 {
+                                HStack {
+                                    ForEach(playersInCommunitiesStorage.items) {
+                                        communityWithPlayer in
+
+                                        let (backgroundColor, foregroundColor) = getCommunityTabColors(communityName: communityWithPlayer.communityName)
+                                        Button(action: { selectedPlayerInCommunity = communityWithPlayer }) {
+                                            Text(communityWithPlayer.communityName)
+                                                .fontWeight(getCommunityTabFontWeight(communityName: communityWithPlayer.communityName))
+                                                .padding()
+                                                .frame(width: metrics.size.width / CGFloat(numberOfCommunityTabs + 1), height: 40)
+                                                .background(backgroundColor)
+                                                .foregroundColor(foregroundColor)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: headerButtonCornerRadius)
+                                                        .stroke(RelogifyColors.relogifyDark, lineWidth: 2)
+                                                )
+                                                .cornerRadius(headerButtonCornerRadius)
+                                        }
+                                    }
+                                }
+                                .padding(.top)
+                                .padding(.leading)
+                            }
+
+                            List(selectedCommunityWithPlayers
+                                    .filter({ $0.playerName != selectedPlayerInCommunity.playerName })
+                                    .map({ $0.playerName })) {opponentName in
+                                NavigationLink(
+                                    destination: AddResult(
+                                        communityName: selectedPlayerInCommunity.communityName,
+                                        ownName: selectedPlayerInCommunity.playerName,
+                                        opponentName: opponentName,
+                                        addResultApiCallState: $addResultApiCallState),
+                                    label: { Text("\(opponentName)") })
+                            }
+                            .listStyle(PlainListStyle())
+                        })
+                        .navigationBarTitle("Opponent list", displayMode: .inline)
                     }
-                }
-
-                switch communitiesWithPlayersRemoteData {
-                    case .loading:
-                        ProgressView()
-                    case .loaded(let communitiesWithOpponents):
-                        let selectedCommunityWithPlayers = communitiesWithOpponents[selectedPlayerInCommunity.communityName] ?? []
-
-                        List(selectedCommunityWithPlayers
-                                .filter({ $0.playerName != selectedPlayerInCommunity.playerName })
-                                .map({ $0.playerName })) {opponentName in
-                            NavigationLink(
-                                destination: AddResult(
-                                    communityName: selectedPlayerInCommunity.communityName,
-                                    ownName: selectedPlayerInCommunity.playerName,
-                                    opponentName: opponentName,
-                                    addResultApiCallState: $addResultApiCallState),
-                                label: { Text("\(opponentName)") })
-                        }
-                        .listStyle(PlainListStyle())
-                    case .error:
-                        Text("Failed to fetch opponent list, please check your internet connection and try again")
-                }
-            })
-            .navigationBarTitle("Opponent list", displayMode: .inline)
+                case .error:
+                    Text("Failed to fetch opponent list, please check your internet connection and try again")
+            }
         }
         .onAppear {
             if !playersInCommunitiesStorage.items.isEmpty {
