@@ -162,6 +162,12 @@ struct GameTimer: View {
                         .font(.system(size: 72))
                         .foregroundColor(RelogifyColors.relogifyLight)
 
+                    Toggle(isOn: extraTimeBinding, label: { Text("Extra Time") })
+                        .frame(width: 150, height: 30, alignment: .center)
+                        .foregroundColor(RelogifyColors.relogifyLight)
+                        .disabled(!isAllowedToToggleExtraTime())
+                        .toggleStyle(SwitchToggleStyle(tint: .orange))
+
                     if case .notStarted = mode {
                         Button(action: { start(timeOfStart: Date()) }) {
                             getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
@@ -187,11 +193,6 @@ struct GameTimer: View {
                         getTimerButtonText(text: "Reset", backgroundColor: Color.red, textColor: RelogifyColors.relogifyDark)
                     }
                     .padding(.top)
-
-                    Toggle(isOn: extraTimeBinding, label: { Text("Extra Time") })
-                        .frame(width: 150, height: 50, alignment: .center)
-                        .foregroundColor(RelogifyColors.relogifyLight)
-                        .disabled(!isAllowedToToggleExtraTime())
 
                     Spacer()
                 }
