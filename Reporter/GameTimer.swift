@@ -5,7 +5,7 @@ import SwiftySound
 struct GameTimer: View {
     @Environment(\.presentationMode) var presentationMode
 
-    @State var extraTime: Bool
+    @Binding var extraTime: Bool
     private var extraTimeBinding: Binding<Bool> {
         Binding (
             get: { return self.extraTime },
@@ -214,6 +214,6 @@ struct GameTimer: View {
 
 struct GameTimer_Previews: PreviewProvider {
     static var previews: some View {
-        GameTimer(extraTime: false)
+        GameTimer(extraTime: .constant(false))
     }
 }

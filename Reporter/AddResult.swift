@@ -149,7 +149,7 @@ struct AddResult: View {
             }
             .navigationBarTitle("Game in \(communityName)")
             .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
-                                    .sheet(isPresented: $timerIsOpen) { GameTimer(extraTime: false) }
+                                    .sheet(isPresented: $timerIsOpen) { GameTimer(extraTime: $extraTime) }
             )
             .alert(isPresented: errorAddingResult) {
                 Alert(title: Text("Error"), message: Text("The result has not been added, please check your internet connection and try again"))
