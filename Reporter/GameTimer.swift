@@ -13,7 +13,7 @@ struct GameTimer: View {
         )}
 
     @State private var millisecondsLeft: Double = 0
-    @State var mode: stopWatchMode = .stopped
+    @State var mode: stopWatchMode = .notStarted
 
     private func expirationWarningMilliseconds() -> Double
     {
@@ -40,7 +40,7 @@ struct GameTimer: View {
 
     private func start(timeOfStart: Date) {
         switch mode {
-            case .stopped:
+            case .notStarted:
                 reset()
                 mode = .running(timeOfStart)
             default:
@@ -68,7 +68,7 @@ struct GameTimer: View {
     }
 
     private func reset() {
-        mode = .stopped
+        mode = .notStarted
         millisecondsLeft = totalMilliseconds()
 
         timerState.isPastHalfTime = false
@@ -97,7 +97,9 @@ struct GameTimer: View {
                     }
                     else {
                         self.millisecondsLeft = 0
-                        self.mode = .stopped
+                        withAnimation {
+                            self.mode = .expired
+                        }
                         DispatchQueue.global(qos: .background).async {
                             finalSirenSound.play() { completed in
                                 self.presentationMode.wrappedValue.dismiss()
@@ -112,7 +114,7 @@ struct GameTimer: View {
 
     private func isAllowedToToggleExtraTime() -> Bool {
         switch self.mode {
-            case .stopped, .paused:
+            case .notStarted, .paused:
                 return true
             default:
                 return false
@@ -137,60 +139,73 @@ struct GameTimer: View {
             .foregroundColor(textColor)
             .overlay(
                 RoundedRectangle(cornerRadius: buttonCornerRadius)
-                    .stroke(Color.white, lineWidth: 5)
+                    .stroke(RelogifyColors.relogifyLight, lineWidth: 5)
             )
             .cornerRadius(buttonCornerRadius)
     }
 
     var body: some View {
-        VStack {
-            Spacer()
+        ZStack {
+            Color.black
 
-            Text(TimerUtils.getFormattedTimeLeft(numberOfMilliseconds: Int(millisecondsLeft)))
-                .font(.system(size: 72))
-                .foregroundColor(.white)
+            if case .expired = mode {
+                Text("Game over!")
+                    .font(.system(size: 48))
+                    .fontWeight(.bold)
+                    .foregroundColor(RelogifyColors.relogifyLight)
+            }
+            else {
+                VStack {
+                    Spacer()
 
-            if case .stopped = mode {
-                Button(action: { start(timeOfStart: Date()) }) {
-                    getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+                    Text(TimerUtils.getFormattedTimeLeft(numberOfMilliseconds: Int(millisecondsLeft)))
+                        .font(.system(size: 72))
+                        .foregroundColor(RelogifyColors.relogifyLight)
+
+                    if case .notStarted = mode {
+                        Button(action: { start(timeOfStart: Date()) }) {
+                            getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+                        }
+                        .padding(.top)
+                    }
+
+                    if case .paused = mode {
+                        Button(action: { unpause(timeOfStart: Date()) } ) {
+                            getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+                        }
+                        .padding(.top)
+                    }
+
+                    if case .running = mode {
+                        Button(action: { pause(timeOfPause: Date()) } ) {
+                            getTimerButtonText(text: "Pause", backgroundColor: Color(UIColor.lightGray), textColor: RelogifyColors.relogifyDark)
+                        }
+                        .padding(.top)
+                    }
+
+                    Button(action: reset) {
+                        getTimerButtonText(text: "Reset", backgroundColor: Color.red, textColor: RelogifyColors.relogifyDark)
+                    }
+                    .padding(.top)
+
+                    Toggle(isOn: extraTimeBinding, label: { Text("Extra Time") })
+                        .frame(width: 150, height: 50, alignment: .center)
+                        .foregroundColor(RelogifyColors.relogifyLight)
+                        .disabled(!isAllowedToToggleExtraTime())
+
+                    Spacer()
                 }
-                .padding(.top)
-            }
-
-            if case .paused = mode {
-                Button(action: { unpause(timeOfStart: Date()) } ) {
-                    getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+                .padding()
+                .navigationBarTitle("Timer")
+                .onReceive(timer) { time in tick(timeOfTick: time) }
+                .onAppear {
+                    millisecondsLeft = totalMilliseconds()
+                    DispatchQueue.global(qos: .background).async {
+                        halfTimeSound.prepare()
+                        expirationWarningSound.prepare()
+                        finalSirenSound.prepare()
+                    }
                 }
-                .padding(.top)
-            }
-
-            if case .running = mode {
-                Button(action: { pause(timeOfPause: Date()) } ) {
-                    getTimerButtonText(text: "Pause", backgroundColor: Color(UIColor.lightGray), textColor: RelogifyColors.relogifyDark)
-                }
-                .padding(.top)
-            }
-
-            Button(action: reset) {
-                getTimerButtonText(text: "Reset", backgroundColor: Color.red, textColor: RelogifyColors.relogifyDark)
-            }
-            .padding(.top)
-
-            Toggle(isOn: extraTimeBinding, label: { Text("Extra Time") })
-                .disabled(!isAllowedToToggleExtraTime())
-
-            Spacer()
-        }
-        .padding()
-        .background(Color.black)
-        .navigationBarTitle("Timer")
-        .onReceive(timer) { time in tick(timeOfTick: time) }
-        .onAppear {
-            millisecondsLeft = totalMilliseconds()
-            DispatchQueue.global(qos: .background).async {
-                halfTimeSound.prepare()
-                expirationWarningSound.prepare()
-                finalSirenSound.prepare()
             }
         }
     }

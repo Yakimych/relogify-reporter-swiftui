@@ -1,9 +1,10 @@
 import Foundation
 
 enum stopWatchMode {
-    case stopped
+    case notStarted
     case running(Date)
     case paused
+    case expired
 }
 
 public class TimerUtils {
