@@ -150,22 +150,28 @@ struct GameTimer: View {
                 .font(.system(size: 72))
                 .foregroundColor(.white)
 
-            Button(action: { start(timeOfStart: Date()) }) {
-                getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+            if case .stopped = mode {
+                Button(action: { start(timeOfStart: Date()) }) {
+                    getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+                }
+                .padding(.top)
             }
-            .padding(.top)
 
-            Button(action: { unpause(timeOfStart: Date()) } ) {
-                getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+            if case .paused = mode {
+                Button(action: { unpause(timeOfStart: Date()) } ) {
+                    getTimerButtonText(text: "Start", backgroundColor: RelogifyColors.darkGreen, textColor: Color.yellow)
+                }
+                .padding(.top)
             }
-            .padding(.top)
 
-            Button(action: { pause(timeOfPause: Date()) } ) {
-                getTimerButtonText(text: "Pause", backgroundColor: Color(UIColor.lightGray), textColor: RelogifyColors.relogifyDark)
+            if case .running = mode {
+                Button(action: { pause(timeOfPause: Date()) } ) {
+                    getTimerButtonText(text: "Pause", backgroundColor: Color(UIColor.lightGray), textColor: RelogifyColors.relogifyDark)
+                }
+                .padding(.top)
             }
-            .padding(.top)
 
-            Button(action: reset ) {
+            Button(action: reset) {
                 getTimerButtonText(text: "Reset", backgroundColor: Color.red, textColor: RelogifyColors.relogifyDark)
             }
             .padding(.top)
