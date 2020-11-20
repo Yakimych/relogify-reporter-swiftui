@@ -32,7 +32,7 @@ struct GameTimer: View {
 
     private let timerState: TimerState = TimerState()
 
-    let timer = Timer.publish(every: TimerState.tickFrequencyMs / 1000, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: TimerUtils.tickFrequencyMs / 1000, on: .main, in: .common).autoconnect()
 
     private let halfTimeSound: Sound = Sound(url: Bundle.main.url(forResource: "half_time_beep", withExtension: "mp3")!)!
     private let expirationWarningSound: Sound = Sound(url: Bundle.main.url(forResource: "expiration_warning", withExtension: "mp3")!)!
@@ -146,7 +146,8 @@ struct GameTimer: View {
         VStack {
             Spacer()
 
-            Text("Milliseconds left: \(millisecondsLeft)")
+            Text(TimerUtils.getFormattedTimeLeft(numberOfMilliseconds: Int(millisecondsLeft)))
+                .font(.system(size: 72))
                 .foregroundColor(.white)
 
             Button(action: { start(timeOfStart: Date()) }) {

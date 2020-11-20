@@ -24,11 +24,11 @@
 		7C721145255AA60B00D2A2E8 /* AddResultMutation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */; };
 		7C721161255D8F4D00D2A2E8 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C721160255D8F4D00D2A2E8 /* Settings.plist */; };
 		7C910753256563F700C4C31D /* TimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C910752256563F700C4C31D /* TimerState.swift */; };
+		7C9107662567DDCE00C4C31D /* TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9107652567DDCE00C4C31D /* TimerTests.swift */; };
 		7CBA4ECC2551AE5300313A51 /* ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */; };
 		7CBA4ECE2551AE5300313A51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECD2551AE5300313A51 /* MainView.swift */; };
 		7CBA4ED02551AE5300313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECF2551AE5300313A51 /* Assets.xcassets */; };
 		7CBA4ED32551AE5300313A51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4ED22551AE5300313A51 /* Preview Assets.xcassets */; };
-		7CBA4EDE2551AE5300313A51 /* ReporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4EDD2551AE5300313A51 /* ReporterTests.swift */; };
 		7CBA4EE92551AE5300313A51 /* ReporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4EE82551AE5300313A51 /* ReporterUITests.swift */; };
 		7CBA4EEE2551AE5300313A51 /* Reporter WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7CBA4EED2551AE5300313A51 /* Reporter WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7CBA4EF32551AE5400313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4EF22551AE5400313A51 /* Assets.xcassets */; };
@@ -129,6 +129,7 @@
 		7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddResultMutation.graphql; sourceTree = "<group>"; };
 		7C721160255D8F4D00D2A2E8 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		7C910752256563F700C4C31D /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
+		7C9107652567DDCE00C4C31D /* TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
 		7CBA4EC82551AE5300313A51 /* Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterApp.swift; sourceTree = "<group>"; };
 		7CBA4ECD2551AE5300313A51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -136,7 +137,6 @@
 		7CBA4ED22551AE5300313A51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7CBA4ED42551AE5300313A51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CBA4ED92551AE5300313A51 /* ReporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CBA4EDD2551AE5300313A51 /* ReporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterTests.swift; sourceTree = "<group>"; };
 		7CBA4EDF2551AE5300313A51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CBA4EE42551AE5300313A51 /* ReporterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReporterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBA4EE82551AE5300313A51 /* ReporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterUITests.swift; sourceTree = "<group>"; };
@@ -298,8 +298,8 @@
 		7CBA4EDC2551AE5300313A51 /* ReporterTests */ = {
 			isa = PBXGroup;
 			children = (
-				7CBA4EDD2551AE5300313A51 /* ReporterTests.swift */,
 				7CBA4EDF2551AE5300313A51 /* Info.plist */,
+				7C9107652567DDCE00C4C31D /* TimerTests.swift */,
 			);
 			path = ReporterTests;
 			sourceTree = "<group>";
@@ -766,7 +766,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CBA4EDE2551AE5300313A51 /* ReporterTests.swift in Sources */,
+				7C9107662567DDCE00C4C31D /* TimerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
