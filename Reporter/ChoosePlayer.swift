@@ -26,11 +26,11 @@ struct ChoosePlayer: View {
         }
     }
 
-    private func getListItemColor(playerName: String) -> Color {
+    private func getPlayerRowColors(playerName: String) -> (Color, Color) {
         if playerName == maybeSelectedPlayerName {
-            return Color.red
+            return (RelogifyColors.relogifyDark, RelogifyColors.relogifyLight)
         }
-        return Color.white
+        return (RelogifyColors.relogifyLight, RelogifyColors.relogifyDark)
     }
 
     private func canAddPlayer() -> Bool {
@@ -64,32 +64,41 @@ struct ChoosePlayer: View {
     }
 
     var body: some View {
-        VStack {
-            switch playersRemoteData {
-                case .loading:
-                    ProgressView()
-                case .loaded(let playerNames):
-                    List(playerNames.filter(playerNotAlreadyAdded)) { playerName in
-                        Button(playerName, action: { maybeSelectedPlayerName = playerName })
-                            .background(getListItemColor(playerName: playerName))
-                    }
-                    .listStyle(PlainListStyle())
+        ZStack {
+            RelogifyColors.relogifyLight
 
-                    Button(action: {
-                        addPlayerToLocalStorage()
-                        isAddingPlayerInCommunity = false
-                    }) {
-                        withIconButtonStyle(Image(systemName: "checkmark.circle"))
-                            .foregroundColor(getConfirmationButtonColor())
-                    }
-                    .disabled(!canAddPlayer())
-                case .error:
-                    Text("Failed to fetch players, please check your internet connection and try again")
+            VStack {
+                switch playersRemoteData {
+                    case .loading:
+                        ProgressView()
+                    case .loaded(let playerNames):
+                        List {
+                            ForEach(playerNames.filter(playerNotAlreadyAdded)) { playerName in
+                                let (backgroundColor, textColor) = getPlayerRowColors(playerName: playerName)
+
+                                Button(playerName, action: { maybeSelectedPlayerName = playerName })
+                                    .background(Color.clear)
+                                    .foregroundColor(textColor)
+                                    .listRowBackground(backgroundColor)
+                            }
+                        }
+                        .listStyle(PlainListStyle())
+
+                        Button(action: {
+                            addPlayerToLocalStorage()
+                            isAddingPlayerInCommunity = false
+                        }) {
+                            withIconButtonStyle(Image(systemName: "checkmark.circle"), color: getConfirmationButtonColor())
+                        }
+                        .disabled(!canAddPlayer())
+                    case .error:
+                        Text("Failed to fetch players, please check your internet connection and try again")
+                }
             }
-        }
-        .navigationTitle("Choose player in '\(communityName)'")
-        .onAppear {
-            loadData(communityName: communityName)
+            .navigationTitle("Choose player in '\(communityName)'")
+            .onAppear {
+                loadData(communityName: communityName)
+            }
         }
     }
 }

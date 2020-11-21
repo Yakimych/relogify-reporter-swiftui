@@ -12,23 +12,32 @@ let featureList = """
 struct About: View {
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Relogify Reporter").font(.title2).padding()
-                Text("Manage multiple Relogify communities and add results against other players.")
-                    .multilineTextAlignment(.center)
+            ZStack {
+                RelogifyColors.relogifyLight
 
-                Link("Additional features at relogify.com:", destination: URL(string: relogifyUrl)!)
-                    .font(.title3)
-                    .padding()
-                Text(featureList).font(.subheadline)
+                VStack {
+                    Text("Relogify Reporter").font(.title2).padding()
+                    Text("Manage multiple Relogify communities and add results against other players.")
+                        .multilineTextAlignment(.center)
 
-                Link(destination: URL(string: relogifyUrl)!, label: {
-                    Image("logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    Link("Additional features at relogify.com:", destination: URL(string: relogifyUrl)!)
+                        .font(.title3)
                         .padding()
+                    Text(featureList).font(.subheadline)
+
+                    Link(destination: URL(string: relogifyUrl)!, label: {
+                        Image("logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding()
+                    })
+                }
+                .navigationBarTitle("About", displayMode: .inline)
+                .background(NavigationConfigurator { nc in
+                    nc.navigationBar.barTintColor = UIColor(RelogifyColors.relogifyBlue)
+                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
                 })
-            }.navigationBarTitle("About", displayMode: .inline)
+            }
         }
     }
 }

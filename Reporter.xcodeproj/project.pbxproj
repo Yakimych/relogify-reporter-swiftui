@@ -23,6 +23,7 @@
 		7C72113E2559B05600D2A2E8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C72113D2559B05600D2A2E8 /* Network.swift */; };
 		7C721145255AA60B00D2A2E8 /* AddResultMutation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */; };
 		7C721161255D8F4D00D2A2E8 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C721160255D8F4D00D2A2E8 /* Settings.plist */; };
+		7C77FBAD2568A0A000209742 /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77FBAC2568A0A000209742 /* NavigationConfigurator.swift */; };
 		7C910753256563F700C4C31D /* TimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C910752256563F700C4C31D /* TimerState.swift */; };
 		7C9107662567DDCE00C4C31D /* TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9107652567DDCE00C4C31D /* TimerTests.swift */; };
 		7CBA4ECC2551AE5300313A51 /* ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */; };
@@ -128,6 +129,7 @@
 		7C72113D2559B05600D2A2E8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddResultMutation.graphql; sourceTree = "<group>"; };
 		7C721160255D8F4D00D2A2E8 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		7C77FBAC2568A0A000209742 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
 		7C910752256563F700C4C31D /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
 		7C9107652567DDCE00C4C31D /* TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
 		7CBA4EC82551AE5300313A51 /* Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,6 +285,7 @@
 				7CD97399255EA17300C8AD30 /* About.swift */,
 				7C5FF4F2255EF2570011B0ED /* Styling.swift */,
 				7C910752256563F700C4C31D /* TimerState.swift */,
+				7C77FBAC2568A0A000209742 /* NavigationConfigurator.swift */,
 			);
 			path = Reporter;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				7C6912602556AC7F00884215 /* SettingsView.swift in Sources */,
 				7CBA4F282551B1A100313A51 /* AddResult.swift in Sources */,
 				7CD9739A255EA17300C8AD30 /* About.swift in Sources */,
+				7C77FBAD2568A0A000209742 /* NavigationConfigurator.swift in Sources */,
 				7CBA4ECC2551AE5300313A51 /* ReporterApp.swift in Sources */,
 				7CBA4F2F2551B3E500313A51 /* GameTimer.swift in Sources */,
 				7C7211372559B02500D2A2E8 /* API.swift in Sources */,

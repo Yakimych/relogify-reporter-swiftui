@@ -8,31 +8,36 @@ struct MainView: View {
     var body: some View {
         if playersInCommunitiesStorage.items.isEmpty {
             NavigationView {
-                VStack {
+                ZStack {
+                    RelogifyColors.relogifyLight
                     ChooseCommunity(isAddingPlayerInCommunity: $isAddingFirstCommunity)
                 }
             }
         }
         else {
-            TabView {
-                OpponentList(playersInCommunitiesStorage: playersInCommunitiesStorage)
-                    .tag(0)
-                    .tabItem {
-                        Image(systemName: "list.bullet")
-                        Text("Opponents")
-                    }
-                SettingsView()
-                    .tag(1)
-                    .tabItem {
-                        Image(systemName: "gear")
-                        Text("Settings")
-                    }
-                About()
-                    .tag(2)
-                    .tabItem {
-                        Image(systemName: "info.circle")
-                        Text("About")
-                    }
+            ZStack {
+                RelogifyColors.relogifyLight
+
+                TabView {
+                    OpponentList(playersInCommunitiesStorage: playersInCommunitiesStorage)
+                        .tag(0)
+                        .tabItem {
+                            Image(systemName: "list.bullet")
+                            Text("Opponents")
+                        }
+                    SettingsView()
+                        .tag(1)
+                        .tabItem {
+                            Image(systemName: "gear")
+                            Text("Settings")
+                        }
+                    About()
+                        .tag(2)
+                        .tabItem {
+                            Image(systemName: "info.circle")
+                            Text("About")
+                        }
+                }
             }
         }
     }

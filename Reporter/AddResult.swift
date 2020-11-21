@@ -103,58 +103,62 @@ struct AddResult: View {
     }
 
     var body: some View {
-        if addResultPending() {
-            VStack {
-                Text("Adding Result: \(ownName) \(ownPoints):\(opponentPoints) \(opponentName)")
-                ProgressView()
-            }
-        }
-        else {
-            VStack(alignment: .center) {
-                HStack {
-                    VStack {
-                        Text(ownName)
-                        TextField("Player", text: $ownPoints)
-                            .keyboardType(.numberPad)
-                            .onReceive(Just(ownPoints), perform: { self.ownPoints = toNumericString(stringValue: $0) })
-                        ScrollView {
-                            VStack(spacing: 10) {
-                                ForEach(0..<maxSelectablePoints) { currentNumber in
-                                    Button(action: { self.ownPoints = String(currentNumber) }) {
-                                        getScoreButtonText(scoreNumber: currentNumber, backgroundColor: getScoreButtonColor(self.ownPoints, currentNumber))
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    VStack{
-                        Text(opponentName)
-                        TextField("Opponent", text: $opponentPoints)
-                            .keyboardType(.numberPad)
-                            .onReceive(Just(opponentPoints), perform: { self.opponentPoints = toNumericString(stringValue: $0) })
-                        ScrollView {
-                            VStack(spacing: 10) {
-                                ForEach(0..<maxSelectablePoints) { currentNumber in
-                                    Button(action: { self.opponentPoints = String(currentNumber) }) {
-                                        getScoreButtonText(scoreNumber: currentNumber, backgroundColor: getScoreButtonColor(self.opponentPoints, currentNumber))
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+        ZStack {
+            RelogifyColors.relogifyLight
 
-                Toggle(isOn: $extraTime, label: { Text("Extra Time") })
-                Button(action: { addResult() }) { Text("Add Result") }
+            if addResultPending() {
+                VStack {
+                    Text("Adding Result: \(ownName) \(ownPoints):\(opponentPoints) \(opponentName)")
+                    ProgressView()
+                }
             }
-            .navigationBarTitle("Game in \(communityName)")
-            .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
-                                    .sheet(isPresented: $timerIsOpen) { GameTimer(extraTime: $extraTime) }
-            )
-            .alert(isPresented: errorAddingResult) {
-                Alert(title: Text("Error"), message: Text("The result has not been added, please check your internet connection and try again"))
+            else {
+                VStack(alignment: .center) {
+                    HStack {
+                        VStack {
+                            Text(ownName)
+                            TextField("Player", text: $ownPoints)
+                                .keyboardType(.numberPad)
+                                .onReceive(Just(ownPoints), perform: { self.ownPoints = toNumericString(stringValue: $0) })
+                            ScrollView {
+                                VStack(spacing: 10) {
+                                    ForEach(0..<maxSelectablePoints) { currentNumber in
+                                        Button(action: { self.ownPoints = String(currentNumber) }) {
+                                            getScoreButtonText(scoreNumber: currentNumber, backgroundColor: getScoreButtonColor(self.ownPoints, currentNumber))
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        VStack{
+                            Text(opponentName)
+                            TextField("Opponent", text: $opponentPoints)
+                                .keyboardType(.numberPad)
+                                .onReceive(Just(opponentPoints), perform: { self.opponentPoints = toNumericString(stringValue: $0) })
+                            ScrollView {
+                                VStack(spacing: 10) {
+                                    ForEach(0..<maxSelectablePoints) { currentNumber in
+                                        Button(action: { self.opponentPoints = String(currentNumber) }) {
+                                            getScoreButtonText(scoreNumber: currentNumber, backgroundColor: getScoreButtonColor(self.opponentPoints, currentNumber))
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    Toggle(isOn: $extraTime, label: { Text("Extra Time") })
+                    Button(action: { addResult() }) { Text("Add Result") }
+                }
+                .navigationBarTitle("Game in \(communityName)")
+                .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
+                                        .sheet(isPresented: $timerIsOpen) { GameTimer(extraTime: $extraTime) }
+                )
+                .alert(isPresented: errorAddingResult) {
+                    Alert(title: Text("Error"), message: Text("The result has not been added, please check your internet connection and try again"))
+                }
+                .padding()
             }
-            .padding()
         }
     }
 }

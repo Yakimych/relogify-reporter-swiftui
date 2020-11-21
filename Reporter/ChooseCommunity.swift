@@ -16,55 +16,58 @@ struct ChooseCommunity: View {
     }
 
     var body: some View {
-        VStack {
+        ZStack {
+            RelogifyColors.relogifyLight
+
             VStack {
-                HStack {
-                    Image(systemName: "info.circle")
-                        .resizable()
-                        .foregroundColor(Color.blue)
-                        .frame(
-                            minWidth: 10,
-                            idealWidth: 50,
-                            maxWidth: 50,
-                            minHeight: 10,
-                            idealHeight: 50,
-                            maxHeight: 50,
-                            alignment: .center)
-                        .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fill)
+                VStack {
+                    HStack {
+                        Image(systemName: "info.circle")
+                            .resizable()
+                            .foregroundColor(Color.blue)
+                            .frame(
+                                minWidth: 10,
+                                idealWidth: 50,
+                                maxWidth: 50,
+                                minHeight: 10,
+                                idealHeight: 50,
+                                maxHeight: 50,
+                                alignment: .center)
+                            .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fill)
 
-                    Text("The community name is the last part of your Relogify URL")
-                        .font(.footnote)
-                        .multilineTextAlignment(.center)
+                        Text("The community name is the last part of your Relogify URL")
+                            .font(.footnote)
+                            .multilineTextAlignment(.center)
+                    }
+                }.padding(EdgeInsets(top: 10, leading: 0, bottom: 40, trailing: 0))
+
+
+                VStack(alignment: .leading) {
+                    Text("Community name")
+                        .font(.callout)
+                        .bold()
+                        .multilineTextAlignment(.leading)
+
+                    HStack {
+                        Text("https://relogify.com/").font(.subheadline)
+                        TextField("communityname", text: $communityName)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .autocapitalization(.none)
+                    }
                 }
-            }.padding(EdgeInsets(top: 10, leading: 0, bottom: 40, trailing: 0))
 
-
-            VStack(alignment: .leading) {
-                Text("Community name")
-                    .font(.callout)
-                    .bold()
-                    .multilineTextAlignment(.leading)
-
-                HStack {
-                    Text("https://relogify.com/").font(.subheadline)
-                    TextField("communityname", text: $communityName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.none)
+                NavigationLink(
+                    destination: ChoosePlayer(communityName: communityName, isAddingPlayerInCommunity: $isAddingPlayerInCommunity)
+                ) {
+                    withIconButtonStyle(Image(systemName: "arrow.right.circle"), color: getNextButtonColor())
                 }
+                .isDetailLink(false)
+                .disabled(!canProceed())
+                .padding()
             }
-
-            NavigationLink(
-                destination: ChoosePlayer(communityName: communityName, isAddingPlayerInCommunity: $isAddingPlayerInCommunity)
-            ) {
-                withIconButtonStyle(Image(systemName: "arrow.right.circle"))
-                    .foregroundColor(getNextButtonColor())
-            }
-            .isDetailLink(false)
-            .disabled(!canProceed())
+            .navigationTitle("Choose community")
             .padding()
         }
-        .navigationTitle("Choose community")
-        .padding()
     }
 }
 
