@@ -10,6 +10,12 @@ struct ChoosePlayer: View {
 
     @State private var playersRemoteData: RemoteData<[String]> = .loading
 
+    init(communityName: String, isAddingPlayerInCommunity: Binding<Bool>) {
+        self.communityName = communityName
+        self._isAddingPlayerInCommunity = isAddingPlayerInCommunity
+        UITableView.appearance().backgroundColor = .clear
+    }
+
     private func loadData(communityName: String) {
         Network.shared.apollo.fetch(query: GetPlayersQuery(communityName: communityName)) { result in
             var loadedPlayers: [String] = []
@@ -95,7 +101,7 @@ struct ChoosePlayer: View {
                         Text("Failed to fetch players, please check your internet connection and try again")
                 }
             }
-            .navigationTitle("Choose player in '\(communityName)'")
+            .navigationBarTitle("Choose player in '\(communityName)'", displayMode: .inline)
             .onAppear {
                 loadData(communityName: communityName)
             }

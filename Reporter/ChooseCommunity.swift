@@ -65,7 +65,12 @@ struct ChooseCommunity: View {
                 .disabled(!canProceed())
                 .padding()
             }
-            .navigationTitle("Choose community")
+            .navigationBarTitle("Choose community", displayMode: .inline)
+            .background(NavigationConfigurator { nc in
+                nc.navigationBar.barTintColor = UIColor(RelogifyColors.relogifyBlue)
+                nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor(.white)]
+            })
+            .accentColor(.white)
             .padding()
         }
     }

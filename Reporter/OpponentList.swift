@@ -136,6 +136,7 @@ struct OpponentList: View {
                 Alert(title: Text("Success"), message: Text("The result has been added!"))
             }
         }
+        .accentColor(.white)
     }
 }
 
