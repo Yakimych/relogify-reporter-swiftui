@@ -130,7 +130,8 @@ struct AddResult: View {
                                 }
                             }
                         }
-                        VStack{
+
+                        VStack {
                             Text(opponentName)
                             TextField("Opponent", text: $opponentPoints)
                                 .keyboardType(.numberPad)
@@ -147,8 +148,16 @@ struct AddResult: View {
                         }
                     }
 
-                    Toggle(isOn: $extraTime, label: { Text("Extra Time") })
-                    Button(action: { addResult() }) { Text("Add Result") }
+                    Toggle(isOn: $extraTime, label: { Text("Extra Time").frame(maxWidth: .infinity, alignment: .trailing) })
+                        .frame(width: 150, height: 30, alignment: .center)
+                        .padding()
+
+                    Button(action: { addResult() }) {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .foregroundColor(RelogifyColors.relogifyRed)
+                            .frame(width: 100, height: 100)
+                        }
                 }
                 .navigationBarTitle("Game in \(communityName)")
                 .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
