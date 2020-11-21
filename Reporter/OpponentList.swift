@@ -77,20 +77,21 @@ struct OpponentList: View {
                             VStack(alignment: .leading, content: {
                                 if numberOfCommunityTabs > 1 {
                                     HStack {
-                                        ForEach(playersInCommunitiesStorage.items) {
-                                            communityWithPlayer in
+                                        ForEach(playersInCommunitiesStorage.items) {communityWithPlayer in
+                                            let (backgroundColor, foregroundColor) =
+                                                getCommunityTabColors(communityName: communityWithPlayer.communityName)
 
-                                            let (backgroundColor, foregroundColor) = getCommunityTabColors(communityName: communityWithPlayer.communityName)
                                             Button(action: { selectedPlayerInCommunity = communityWithPlayer }) {
                                                 Text(communityWithPlayer.communityName)
+                                                    .font(.footnote)
                                                     .fontWeight(getCommunityTabFontWeight(communityName: communityWithPlayer.communityName))
                                                     .padding()
-                                                    .frame(width: metrics.size.width / CGFloat(numberOfCommunityTabs + 1), height: 40)
+                                                    .frame(width: metrics.size.width / CGFloat(numberOfCommunityTabs + 1), height: 30)
                                                     .background(backgroundColor)
                                                     .foregroundColor(foregroundColor)
                                                     .overlay(
                                                         RoundedRectangle(cornerRadius: headerButtonCornerRadius)
-                                                            .stroke(RelogifyColors.relogifyDark, lineWidth: 2)
+                                                            .stroke(RelogifyColors.relogifyDark, lineWidth: 1)
                                                     )
                                                     .cornerRadius(headerButtonCornerRadius)
                                             }
