@@ -115,9 +115,12 @@ struct AddResult: View {
             else {
                 VStack(alignment: .center) {
                     HStack {
+                        Spacer()
+
                         VStack {
                             Text(ownName)
                             TextField("Player", text: $ownPoints)
+                                .multilineTextAlignment(.center)
                                 .keyboardType(.numberPad)
                                 .onReceive(Just(ownPoints), perform: { self.ownPoints = toNumericString(stringValue: $0) })
                             ScrollView {
@@ -131,9 +134,12 @@ struct AddResult: View {
                             }
                         }
 
+                        Spacer()
+
                         VStack {
                             Text(opponentName)
                             TextField("Opponent", text: $opponentPoints)
+                                .multilineTextAlignment(.center)
                                 .keyboardType(.numberPad)
                                 .onReceive(Just(opponentPoints), perform: { self.opponentPoints = toNumericString(stringValue: $0) })
                             ScrollView {
@@ -146,6 +152,8 @@ struct AddResult: View {
                                 }
                             }
                         }
+
+                        Spacer()
                     }
 
                     Toggle(isOn: $extraTime, label: { Text("Extra Time").frame(maxWidth: .infinity, alignment: .trailing) })
@@ -157,7 +165,7 @@ struct AddResult: View {
                             .resizable()
                             .foregroundColor(RelogifyColors.relogifyRed)
                             .frame(width: 100, height: 100)
-                        }
+                    }
                 }
                 .navigationBarTitle("Game in \(communityName)")
                 .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
