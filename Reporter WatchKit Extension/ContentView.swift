@@ -3,9 +3,10 @@ import WatchConnectivity
 
 class TestWatchWrapper2: NSObject, WCSessionDelegate {
     private let session: WCSession
-    private var something: [String: String] = [:]
+    private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
 
-    init(session: WCSession = .default) {
+    init(session: WCSession = .default, playersInCommunitiesStorage: PlayersInCommunitiesStorage) {
+        self.playersInCommunitiesStorage = playersInCommunitiesStorage
         self.session = session
         super.init()
         self.session.delegate = self
@@ -17,7 +18,14 @@ class TestWatchWrapper2: NSObject, WCSessionDelegate {
 
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let valueFromContext = applicationContext[PlayersInCommunitiesStorage.storageKey] {
-            something = valueFromContext as! [String: String]
+            let receivedCommunityDictionary = valueFromContext as! [String: String]
+
+            let updatedPlayersInCommunities: [PlayerInCommunity] =
+                receivedCommunityDictionary.keys.map({ PlayerInCommunity(communityName: $0, playerName: receivedCommunityDictionary[$0]!, id: UUID()) })
+
+            DispatchQueue.main.async {
+                self.playersInCommunitiesStorage.items = updatedPlayersInCommunities
+            }
         }
     }
 
@@ -25,9 +33,10 @@ class TestWatchWrapper2: NSObject, WCSessionDelegate {
         if WCSession.isSupported() {
             session.activate()
 
-            if let valueFromContext = session.receivedApplicationContext[PlayersInCommunitiesStorage.storageKey] {
-                something = valueFromContext as! [String: String]
-            }
+            // TODO: Can this be removed?
+//            if let valueFromContext = session.receivedApplicationContext[PlayersInCommunitiesStorage.storageKey] {
+//                something = valueFromContext as! [String: String]
+//            }
         }
     }
 
@@ -35,56 +44,53 @@ class TestWatchWrapper2: NSObject, WCSessionDelegate {
         return session.activationState
     }
 
-    func getSomething() -> [String: String] {
-        return something
+    func getSomething() -> [PlayerInCommunity] {
+        return playersInCommunitiesStorage.items
     }
 }
 
 struct ContentView: View {
-    //@EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
+    var playersInCommunitiesStorage: PlayersInCommunitiesStorage
 
-    var testWatchWrapper2 = TestWatchWrapper2()
+    var testWatchWrapper2: TestWatchWrapper2
     @State var activationState: WCSessionActivationState = .notActivated
-    @State var valueFromPhone: [String: String] = [:]
 
-      var body: some View {
-        //let communities = playersInCommunitiesStorage.items
+    init(storage: PlayersInCommunitiesStorage) {
+        playersInCommunitiesStorage = storage
+        testWatchWrapper2 = TestWatchWrapper2(playersInCommunitiesStorage: storage)
+    }
 
-        VStack {
-            Button("Activate Session") {
-                testWatchWrapper2.activateSession()
-            }
-
-            Button("Update State") {
-                activationState = testWatchWrapper2.getActivationState()
-                valueFromPhone = testWatchWrapper2.getSomething()
-            }
-
-            Text("Count: \(valueFromPhone.count)")
-
-            switch (self.activationState) {
-                case WCSessionActivationState.notActivated:
-                    Text("Not Activated")
-                case WCSessionActivationState.activated:
-                    Text("Activated")
-                case WCSessionActivationState.inactive:
-                    Text("Inactive")
-                @unknown default:
-                    Text("Unknown")
-            }
-//
-//            VStack {
-//                Text("Communities: \(playersInCommunitiesStorage.items.count)")
-//                List(communities) { community in
-//                    Text(community.communityName)
-//                }
-//            }
+    func getActivateButtonText() -> String {
+        switch (self.activationState) {
+            case WCSessionActivationState.notActivated:
+                return "Not Activated"
+            case WCSessionActivationState.activated:
+                return "Activated"
+            case WCSessionActivationState.inactive:
+                return "Inactive"
+            @unknown default:
+                return "Unknown"
         }
     }
-}
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+      var body: some View {
+        let communities = playersInCommunitiesStorage.items
+            VStack {
+                Button(getActivateButtonText()) {
+                    testWatchWrapper2.activateSession()
+                }
+
+                Button("Update State") {
+                    activationState = testWatchWrapper2.getActivationState()
+                }
+
+                Text("Count: \(communities.count)")
+                List {
+                    ForEach(communities) { community in
+                        Text("\(community.communityName) (\(community.playerName))")
+                    }
+                }
+
+            }
     }
 }
