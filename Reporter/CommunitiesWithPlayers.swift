@@ -31,7 +31,6 @@ class PlayersInCommunitiesStorage: NSObject, ObservableObject, WCSessionDelegate
         return []
     }
 
-
     private let session: WCSession
 
     init(session: WCSession = .default) {
@@ -45,7 +44,6 @@ class PlayersInCommunitiesStorage: NSObject, ObservableObject, WCSessionDelegate
     }
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-
     }
 
     #if os(watchOS)
