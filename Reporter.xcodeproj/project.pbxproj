@@ -51,7 +51,6 @@
 		7CC96DF3256AB41C00674387 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69126B2556E4ED00884215 /* Extensions.swift */; };
 		7CC96DF9256AB43800674387 /* CommunitiesWithPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C691272255731B800884215 /* CommunitiesWithPlayers.swift */; };
 		7CD9739A255EA17300C8AD30 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD97399255EA17300C8AD30 /* About.swift */; };
-		7CDBF8E9256BBB0F00EC7CDB /* WatchTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBF8E8256BBB0F00EC7CDB /* WatchTestView.swift */; };
 		E5EFD1516418561A576137A1 /* Pods_ReporterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49652F1717D6F71A1DDC3BA /* Pods_ReporterTests.framework */; };
 		F5CD48A6BA3D8D2B4B6269B3 /* Pods_Reporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A98229747631BF30E480BC7 /* Pods_Reporter.framework */; };
 /* End PBXBuildFile section */
@@ -167,7 +166,6 @@
 		7CBA4F5225555A1C00313A51 /* expiration_warning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = expiration_warning.mp3; sourceTree = "<group>"; };
 		7CBA4F5325555A1C00313A51 /* half_time_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = half_time_beep.mp3; sourceTree = "<group>"; };
 		7CD97399255EA17300C8AD30 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
-		7CDBF8E8256BBB0F00EC7CDB /* WatchTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTestView.swift; sourceTree = "<group>"; };
 		886FAA7C7A2A5B654F992ACD /* Pods_Reporter_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reporter_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE1B7497A37B3B15ED2F45B /* Pods-Reporter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter.debug.xcconfig"; path = "Target Support Files/Pods-Reporter/Pods-Reporter.debug.xcconfig"; sourceTree = "<group>"; };
 		9C19C4C24B13749AC23A12BB /* Pods-Reporter WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-Reporter WatchKit Extension/Pods-Reporter WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 				7C5FF4F2255EF2570011B0ED /* Styling.swift */,
 				7C910752256563F700C4C31D /* TimerState.swift */,
 				7C77FBAC2568A0A000209742 /* NavigationConfigurator.swift */,
-				7CDBF8E8256BBB0F00EC7CDB /* WatchTestView.swift */,
 			);
 			path = Reporter;
 			sourceTree = "<group>";
@@ -760,7 +757,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CDBF8E9256BBB0F00EC7CDB /* WatchTestView.swift in Sources */,
 				7C5FF4F3255EF2570011B0ED /* Styling.swift in Sources */,
 				7C72113E2559B05600D2A2E8 /* Network.swift in Sources */,
 				7C69124D2556AA8E00884215 /* ChooseCommunity.swift in Sources */,

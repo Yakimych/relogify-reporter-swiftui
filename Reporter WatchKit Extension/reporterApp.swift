@@ -7,7 +7,7 @@ struct ReporterApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView(storage: playersInCommunitiesStorage)
+                ContentView()
                     .environmentObject(playersInCommunitiesStorage)
             }
         }

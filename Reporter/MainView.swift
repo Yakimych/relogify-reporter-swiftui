@@ -7,15 +7,12 @@ struct MainView: View {
 
     var body: some View {
         if playersInCommunitiesStorage.items.isEmpty {
-
-            WatchTestView()
-
-//            NavigationView {
-//                ZStack {
-//                    RelogifyColors.relogifyLight
-//                    ChooseCommunity(isAddingPlayerInCommunity: $isAddingFirstCommunity)
-//                }
-//            }
+            NavigationView {
+                ZStack {
+                    RelogifyColors.relogifyLight
+                    ChooseCommunity(isAddingPlayerInCommunity: $isAddingFirstCommunity)
+                }
+            }
         }
         else {
             ZStack {
