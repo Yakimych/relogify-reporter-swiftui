@@ -18,13 +18,12 @@ class TestWatchWrapper2: NSObject, WCSessionDelegate {
 
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let valueFromContext = applicationContext[PlayersInCommunitiesStorage.storageKey] {
-            let receivedCommunityDictionary = valueFromContext as! [String: String]
+            let receivedCommunityData = valueFromContext as! Data
 
-            let updatedPlayersInCommunities: [PlayerInCommunity] =
-                receivedCommunityDictionary.keys.map({ PlayerInCommunity(communityName: $0, playerName: receivedCommunityDictionary[$0]!, id: UUID()) })
+            let decodedPlayersInCommunities = (try? PropertyListDecoder().decode([PlayerInCommunity].self, from: receivedCommunityData)) ?? []
 
             DispatchQueue.main.async {
-                self.playersInCommunitiesStorage.items = updatedPlayersInCommunities
+                self.playersInCommunitiesStorage.items = decodedPlayersInCommunities
             }
         }
     }

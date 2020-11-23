@@ -38,8 +38,10 @@ class TestWatchWrapper: NSObject, WCSessionDelegate {
         return session.isReachable
     }
 
-    func asd() {
-        try! session.updateApplicationContext([PlayersInCommunitiesStorage.storageKey: ["test": "Player1", "test2": "Player2"]])
+    func encodeAndSend(items: [PlayerInCommunity]) {
+        if let encoded = try? PropertyListEncoder().encode(items) {
+            try! session.updateApplicationContext([PlayersInCommunitiesStorage.storageKey: encoded])
+        }
     }
 }
 
@@ -64,7 +66,7 @@ struct WatchTestView: View {
             }
 
             Button("Send") {
-                testWatchWrapper.asd()
+                testWatchWrapper.encodeAndSend(items: [PlayerInCommunity(communityName: "manualtest", playerName: "testplayer", id: UUID())])
             }
 
             Text("Watch is reachable: \(watchIsReachable ? "YES!" : "NO")")
