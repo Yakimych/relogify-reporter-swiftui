@@ -75,6 +75,8 @@ struct OpponentList: View {
 
                         GeometryReader { metrics in
                             VStack(alignment: .leading, content: {
+                                WatchTestView()
+
                                 if numberOfCommunityTabs > 1 {
                                     HStack {
                                         ForEach(playersInCommunitiesStorage.items) {communityWithPlayer in
