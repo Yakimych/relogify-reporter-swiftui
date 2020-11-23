@@ -1,18 +1,14 @@
-//
-//  ReporterApp.swift
-//  Reporter WatchKit Extension
-//
-//  Created by Kyrylo Yakymenko on 2020-11-03.
-//
-
 import SwiftUI
 
 @main
 struct ReporterApp: App {
+    @StateObject private var playersInCommunitiesStorage = PlayersInCommunitiesStorage()
+
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                ContentView(storage: playersInCommunitiesStorage)
+                    .environmentObject(playersInCommunitiesStorage)
             }
         }
 
