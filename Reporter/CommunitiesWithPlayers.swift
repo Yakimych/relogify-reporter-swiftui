@@ -7,7 +7,7 @@ struct PlayerInCommunity: Identifiable, Codable {
 }
 
 class PlayersInCommunitiesStorage: ObservableObject {
-    static private let storageKey = "PlayersInCommunities"
+    static public let storageKey = "PlayersInCommunities"
 
     @Published var items = [PlayerInCommunity]() {
         didSet {

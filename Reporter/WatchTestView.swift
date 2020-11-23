@@ -39,7 +39,7 @@ class TestWatchWrapper: NSObject, WCSessionDelegate {
     }
 
     func asd() {
-        try! session.updateApplicationContext(["asd": ["test": "Player1", "test2": "Player2"]])
+        try! session.updateApplicationContext([PlayersInCommunitiesStorage.storageKey: ["test": "Player1", "test2": "Player2"]])
     }
 }
 
