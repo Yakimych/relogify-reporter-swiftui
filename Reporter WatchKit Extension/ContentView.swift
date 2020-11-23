@@ -16,7 +16,7 @@ class TestWatchWrapper2: NSObject, WCSessionDelegate {
     }
 
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        if let valueFromContext = applicationContext["asd"] {
+        if let valueFromContext = applicationContext[PlayersInCommunitiesStorage.storageKey] {
             something = valueFromContext as! [String: String]
         }
     }
@@ -25,7 +25,7 @@ class TestWatchWrapper2: NSObject, WCSessionDelegate {
         if WCSession.isSupported() {
             session.activate()
 
-            if let valueFromContext = session.receivedApplicationContext["asd"] {
+            if let valueFromContext = session.receivedApplicationContext[PlayersInCommunitiesStorage.storageKey] {
                 something = valueFromContext as! [String: String]
             }
         }
