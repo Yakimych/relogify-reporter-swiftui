@@ -3,7 +3,7 @@ import WatchConnectivity
 
 class TestWatchWrapper2: NSObject, WCSessionDelegate {
     private let session: WCSession
-    private var something: String = "[NOT RECEIVED2]"
+    private var something: [String: String] = [:]
 
     init(session: WCSession = .default) {
         self.session = session
@@ -17,7 +17,7 @@ class TestWatchWrapper2: NSObject, WCSessionDelegate {
 
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let valueFromContext = applicationContext["asd"] {
-            something = valueFromContext as! String
+            something = valueFromContext as! [String: String]
         }
     }
 
@@ -26,7 +26,7 @@ class TestWatchWrapper2: NSObject, WCSessionDelegate {
             session.activate()
 
             if let valueFromContext = session.receivedApplicationContext["asd"] {
-                something = valueFromContext as! String
+                something = valueFromContext as! [String: String]
             }
         }
     }
@@ -35,20 +35,20 @@ class TestWatchWrapper2: NSObject, WCSessionDelegate {
         return session.activationState
     }
 
-    func getSomething() -> String {
+    func getSomething() -> [String: String] {
         return something
     }
 }
 
 struct ContentView: View {
-    @EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
+    //@EnvironmentObject private var playersInCommunitiesStorage: PlayersInCommunitiesStorage
 
     var testWatchWrapper2 = TestWatchWrapper2()
     @State var activationState: WCSessionActivationState = .notActivated
-    @State var valueFromPhone: String = "[NOT RECEIVED]"
+    @State var valueFromPhone: [String: String] = [:]
 
       var body: some View {
-        let communities = playersInCommunitiesStorage.items
+        //let communities = playersInCommunitiesStorage.items
 
         VStack {
             Button("Activate Session") {
@@ -60,7 +60,7 @@ struct ContentView: View {
                 valueFromPhone = testWatchWrapper2.getSomething()
             }
 
-            Text(valueFromPhone)
+            Text("Count: \(valueFromPhone.count)")
 
             switch (self.activationState) {
                 case WCSessionActivationState.notActivated:
@@ -72,13 +72,13 @@ struct ContentView: View {
                 @unknown default:
                     Text("Unknown")
             }
-
-            VStack {
-                Text("Communities: \(playersInCommunitiesStorage.items.count)")
-                List(communities) { community in
-                    Text(community.communityName)
-                }
-            }
+//
+//            VStack {
+//                Text("Communities: \(playersInCommunitiesStorage.items.count)")
+//                List(communities) { community in
+//                    Text(community.communityName)
+//                }
+//            }
         }
     }
 }
