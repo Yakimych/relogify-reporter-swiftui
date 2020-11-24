@@ -10,7 +10,7 @@ struct OpponentsInCommunity: View {
             Text("Opponents in \(communityName)")
 
             List(opponentList) { opponentName in
-                Text(opponentName)
+                NavigationLink(opponentName, destination: AddResult(communityName: communityName, ownName: playerName, opponentName: opponentName))
             }
         }
     }

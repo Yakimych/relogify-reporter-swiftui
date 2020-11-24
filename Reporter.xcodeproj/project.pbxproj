@@ -29,6 +29,7 @@
 		7CB45906256D19AE0092E46F /* OpponentsInCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB45905256D19AE0092E46F /* OpponentsInCommunity.swift */; };
 		7CB4590C256D1E880092E46F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7211362559B02500D2A2E8 /* API.swift */; };
 		7CB45912256D1EA90092E46F /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C721160255D8F4D00D2A2E8 /* Settings.plist */; };
+		7CB45919256D35FD0092E46F /* AddResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB45918256D35FD0092E46F /* AddResult.swift */; };
 		7CBA4ECC2551AE5300313A51 /* ReporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */; };
 		7CBA4ECE2551AE5300313A51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECD2551AE5300313A51 /* MainView.swift */; };
 		7CBA4ED02551AE5300313A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4ECF2551AE5300313A51 /* Assets.xcassets */; };
@@ -140,6 +141,7 @@
 		7C910752256563F700C4C31D /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
 		7C9107652567DDCE00C4C31D /* TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
 		7CB45905256D19AE0092E46F /* OpponentsInCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsInCommunity.swift; sourceTree = "<group>"; };
+		7CB45918256D35FD0092E46F /* AddResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResult.swift; sourceTree = "<group>"; };
 		7CBA4EC82551AE5300313A51 /* Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterApp.swift; sourceTree = "<group>"; };
 		7CBA4ECD2551AE5300313A51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				7CBA4EFE2551AE5400313A51 /* ReporterApp.swift */,
 				7CBA4F002551AE5400313A51 /* ContentView.swift */,
 				7CB45905256D19AE0092E46F /* OpponentsInCommunity.swift */,
+				7CB45918256D35FD0092E46F /* AddResult.swift */,
 				7CBA4F022551AE5400313A51 /* NotificationController.swift */,
 				7CBA4F042551AE5400313A51 /* NotificationView.swift */,
 				7CBA4F062551AE5400313A51 /* ComplicationController.swift */,
@@ -811,6 +814,7 @@
 				7CBA4EFF2551AE5400313A51 /* ReporterApp.swift in Sources */,
 				7CC96DF9256AB43800674387 /* CommunitiesWithPlayers.swift in Sources */,
 				7CBA4F052551AE5400313A51 /* NotificationView.swift in Sources */,
+				7CB45919256D35FD0092E46F /* AddResult.swift in Sources */,
 				7CB45906256D19AE0092E46F /* OpponentsInCommunity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
