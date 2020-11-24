@@ -31,15 +31,6 @@ struct AddResult: View {
 
     private let maxSelectablePoints = 20
 
-    private func addResultPending() -> Bool {
-        switch self.addResultApiCallState {
-            case .calling:
-                return true
-            default:
-                return false
-        }
-    }
-
     private func getScoreButtonColor(_ playerPointsString: String, _ currentNumber: Int) -> Color {
         if Int(playerPointsString) == currentNumber {
             return Color.green
@@ -106,7 +97,7 @@ struct AddResult: View {
         ZStack {
             RelogifyColors.relogifyLight
 
-            if addResultPending() {
+            if case .calling = addResultApiCallState {
                 VStack {
                     Text("Adding Result: \(ownName) \(ownPoints):\(opponentPoints) \(opponentName)")
                     ProgressView()
