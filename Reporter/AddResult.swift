@@ -77,11 +77,10 @@ struct AddResult: View {
         }
     }
 
-    private func getScoreButtonText(scoreNumber: Int, backgroundColor: Color) -> some View {
-        let buttonCornerRadius = CGFloat(15.0)
+    private let buttonCornerRadius = CGFloat(15.0)
 
+    private func getScoreButtonText(scoreNumber: Int, backgroundColor: Color) -> some View {
         return Text(String(scoreNumber))
-            .fontWeight(.bold)
             .font(.title2)
             .frame(width: 100, height: 50)
             .background(backgroundColor)
@@ -149,13 +148,21 @@ struct AddResult: View {
 
                     Toggle(isOn: $extraTime, label: { Text("Extra Time").frame(maxWidth: .infinity, alignment: .trailing) })
                         .frame(width: 150, height: 30, alignment: .center)
+                        .toggleStyle(SwitchToggleStyle(tint: .orange))
                         .padding()
 
                     Button(action: { addResult() }) {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .foregroundColor(RelogifyColors.relogifyRed)
-                            .frame(width: 100, height: 100)
+                        Text("Add Result")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, maxHeight: 60)
+                            .background(Color.orange)
+                            .foregroundColor(RelogifyColors.relogifyDark)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: buttonCornerRadius)
+                                    .stroke(Color.black, lineWidth: 5)
+                            )
+                            .cornerRadius(buttonCornerRadius)
                     }
                 }
                 .navigationBarTitle("Game in \(communityName)")
