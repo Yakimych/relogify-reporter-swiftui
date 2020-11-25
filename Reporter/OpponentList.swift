@@ -65,10 +65,7 @@ struct OpponentList: View {
                     case .loading:
                         ProgressView()
                             .navigationBarTitle("Loading player list...", displayMode: .inline)
-                            .background(NavigationConfigurator { nc in
-                                nc.navigationBar.barTintColor = UIColor(RelogifyColors.relogifyBlue)
-                                nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                            })
+                            .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
                     case .loaded(let communitiesWithOpponents):
                         let selectedCommunityWithPlayers = communitiesWithOpponents[selectedPlayerInCommunity.communityName] ?? []
                         let numberOfCommunityTabs = communitiesWithOpponents.count
@@ -118,10 +115,7 @@ struct OpponentList: View {
                                 .listStyle(PlainListStyle())
                             })
                             .navigationBarTitle("Opponent list", displayMode: .inline)
-                            .background(NavigationConfigurator { nc in
-                                nc.navigationBar.barTintColor = UIColor(RelogifyColors.relogifyBlue)
-                                nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                            })
+                            .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
                         }
                     case .error:
                         Text("Failed to fetch opponent list, please check your internet connection and try again")

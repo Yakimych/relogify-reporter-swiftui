@@ -32,12 +32,9 @@ struct About: View {
                             .padding()
                     })
                 }
-                .navigationBarTitle("About", displayMode: .inline)
-                .background(NavigationConfigurator { nc in
-                    nc.navigationBar.barTintColor = UIColor(RelogifyColors.relogifyBlue)
-                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                })
             }
+            .navigationBarTitle("About", displayMode: .inline)
+            .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
         }
     }
 }

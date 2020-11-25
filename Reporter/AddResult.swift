@@ -175,6 +175,7 @@ struct AddResult: View {
                 .padding()
             }
         }
+        .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
     }
 }
 

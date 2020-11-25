@@ -12,6 +12,7 @@ struct MainView: View {
                     RelogifyColors.relogifyLight
                     ChooseCommunity(isAddingPlayerInCommunity: $isAddingFirstCommunity)
                 }
+                .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
             }
         }
         else {
@@ -39,6 +40,7 @@ struct MainView: View {
                         }
                 }
             }
+            .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
         }
     }
 }
@@ -46,5 +48,6 @@ struct MainView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(PlayersInCommunitiesStorage())
     }
 }

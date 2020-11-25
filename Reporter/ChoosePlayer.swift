@@ -101,10 +101,11 @@ struct ChoosePlayer: View {
                         Text("Failed to fetch players, please check your internet connection and try again")
                 }
             }
-            .navigationBarTitle("Choose player in '\(communityName)'", displayMode: .inline)
-            .onAppear {
-                loadData(communityName: communityName)
-            }
+        }
+        .navigationBarTitle("Choose player in '\(communityName)'", displayMode: .inline)
+        .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
+        .onAppear {
+            loadData(communityName: communityName)
         }
     }
 }

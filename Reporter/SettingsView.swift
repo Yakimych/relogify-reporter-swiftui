@@ -70,14 +70,10 @@ struct SettingsView: View {
                         }
                     }
                 }
-                .navigationBarTitle("Settings", displayMode: .inline)
-                .background(NavigationConfigurator { nc in
-                    nc.navigationBar.barTintColor = UIColor(RelogifyColors.relogifyBlue)
-                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor(.white)]
-                })
             }
+            .navigationBarTitle("Settings", displayMode: .inline)
+            .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
         }
-        .accentColor(.white)
     }
 }
 
