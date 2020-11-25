@@ -5,6 +5,12 @@ struct MainView: View {
 
     @State private var isAddingFirstCommunity: Bool = false
 
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(RelogifyColors.relogifyDark)
+        //UITabBar.appearance().barTintColor = UIColor(RelogifyColors.relogifyDark)
+        UITabBar.appearance().unselectedItemTintColor = UIColor.white
+    }
+
     var body: some View {
         if playersInCommunitiesStorage.items.isEmpty {
             NavigationView {
@@ -32,13 +38,14 @@ struct MainView: View {
                             Image(systemName: "gear")
                             Text("Settings")
                         }
-                    About()
+                  About()
                         .tag(2)
                         .tabItem {
                             Image(systemName: "info.circle")
                             Text("About")
                         }
                 }
+                .accentColor(RelogifyColors.relogifyDark)
             }
             .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
         }
