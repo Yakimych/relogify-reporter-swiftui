@@ -6,11 +6,7 @@ struct MainView: View {
     @State private var isAddingFirstCommunity: Bool = false
 
     init() {
-//        UITabBar.appearance().backgroundColor = UIColor(RelogifyColors.relogifyDark)
-//        UITabBar.appearance().barTintColor = UIColor(RelogifyColors.relogifyDark)
-//        UITabBar.appearance().backgroundColor = UIColor(RelogifyColors.relogifyBlue)
         UITabBar.appearance().barTintColor = UIColor(RelogifyColors.relogifyBlue)
-
         UITabBar.appearance().unselectedItemTintColor = UIColor.white
     }
 
