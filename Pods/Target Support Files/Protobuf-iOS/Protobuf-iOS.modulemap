@@ -1,0 +1,6 @@
+framework module Protobuf {
+  umbrella header "Protobuf-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

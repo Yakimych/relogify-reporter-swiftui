@@ -10,6 +10,8 @@ target 'Reporter' do
   use_frameworks!
   pod 'SwiftySound'
 
+  pod 'Firebase/Messaging'
+
   target 'ReporterTests' do
     inherit! :search_paths
     # Pods for testing
@@ -34,5 +36,6 @@ target 'Reporter WatchKit Extension' do
   use_frameworks!
 
   # Pods for Reporter WatchKit Extension
+  pod 'Firebase/Messaging'
 
 end
