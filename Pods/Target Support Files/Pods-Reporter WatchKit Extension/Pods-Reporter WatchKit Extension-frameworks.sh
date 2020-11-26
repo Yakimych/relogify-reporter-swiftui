@@ -175,13 +175,13 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-watchOS/GoogleUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-54e75ca4/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PromisesObjC-watchOS/FBLPromises.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Protobuf-watchOS/Protobuf.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb-watchOS/nanopb.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-watchOS/GoogleUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-54e75ca4/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PromisesObjC-watchOS/FBLPromises.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Protobuf-watchOS/Protobuf.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb-watchOS/nanopb.framework"

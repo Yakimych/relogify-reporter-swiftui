@@ -175,14 +175,14 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS/GoogleUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-00567490/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PromisesObjC-iOS/FBLPromises.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Protobuf-iOS/Protobuf.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb-iOS/nanopb.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS/GoogleUtilities.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities-00567490/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PromisesObjC-iOS/FBLPromises.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Protobuf-iOS/Protobuf.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework"

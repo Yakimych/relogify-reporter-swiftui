@@ -10,6 +10,7 @@ target 'Reporter' do
   use_frameworks!
   pod 'SwiftySound'
 
+  pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
 
   target 'ReporterTests' do

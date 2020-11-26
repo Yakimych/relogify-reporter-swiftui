@@ -1,6 +1,0 @@
-framework module GoogleUtilities {
-  umbrella header "GoogleUtilities-watchOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
