@@ -17,7 +17,7 @@
 		7C69126C2556E4ED00884215 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69126B2556E4ED00884215 /* Extensions.swift */; };
 		7C691273255731B800884215 /* CommunitiesWithPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C691272255731B800884215 /* CommunitiesWithPlayers.swift */; };
 		7C69127A2557340D00884215 /* OpponentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6912792557340D00884215 /* OpponentList.swift */; };
-		7C7211132559AB4700D2A2E8 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7C7211122559AB4700D2A2E8 /* SwiftPackageProductDependency */; };
+		7C7211132559AB4700D2A2E8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 7C7211122559AB4700D2A2E8 /* Apollo */; };
 		7C72112B2559AE9C00D2A2E8 /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7C72112A2559AE9C00D2A2E8 /* Queries.graphql */; };
 		7C7211372559B02500D2A2E8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7211362559B02500D2A2E8 /* API.swift */; };
 		7C72113E2559B05600D2A2E8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C72113D2559B05600D2A2E8 /* Network.swift */; };
@@ -51,7 +51,7 @@
 		7CBA4F5525555A1C00313A51 /* expiration_warning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F5225555A1C00313A51 /* expiration_warning.mp3 */; };
 		7CBA4F5625555A1C00313A51 /* half_time_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA4F5325555A1C00313A51 /* half_time_beep.mp3 */; };
 		7CC96DD4256A8DCF00674387 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C72113D2559B05600D2A2E8 /* Network.swift */; };
-		7CC96DE2256A8E3600674387 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7CC96DE1256A8E3600674387 /* SwiftPackageProductDependency */; };
+		7CC96DE2256A8E3600674387 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 7CC96DE1256A8E3600674387 /* Apollo */; };
 		7CC96DF3256AB41C00674387 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69126B2556E4ED00884215 /* Extensions.swift */; };
 		7CC96DF9256AB43800674387 /* CommunitiesWithPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C691272255731B800884215 /* CommunitiesWithPlayers.swift */; };
 		7CD9739A255EA17300C8AD30 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD97399255EA17300C8AD30 /* About.swift */; };
@@ -139,6 +139,7 @@
 		7C721144255AA60B00D2A2E8 /* AddResultMutation.graphql */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddResultMutation.graphql; sourceTree = "<group>"; };
 		7C721160255D8F4D00D2A2E8 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		7C77FBAC2568A0A000209742 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
+		7C86C8F0256FE9F2009AA39B /* Reporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Reporter.entitlements; sourceTree = "<group>"; };
 		7C910752256563F700C4C31D /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
 		7C9107652567DDCE00C4C31D /* TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
 		7CB45905256D19AE0092E46F /* OpponentsInCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentsInCommunity.swift; sourceTree = "<group>"; };
@@ -189,7 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5CD48A6BA3D8D2B4B6269B3 /* Pods_Reporter.framework in Frameworks */,
-				7C7211132559AB4700D2A2E8 /* BuildFile in Frameworks */,
+				7C7211132559AB4700D2A2E8 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				590D48A508F4A745E3F1E265 /* Pods_Reporter_WatchKit_Extension.framework in Frameworks */,
-				7CC96DE2256A8E3600674387 /* BuildFile in Frameworks */,
+				7CC96DE2256A8E3600674387 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +276,7 @@
 		7CBA4ECA2551AE5300313A51 /* Reporter */ = {
 			isa = PBXGroup;
 			children = (
+				7C86C8F0256FE9F2009AA39B /* Reporter.entitlements */,
 				7CBA4F5025555A0200313A51 /* Sounds */,
 				7CBA4ECB2551AE5300313A51 /* ReporterApp.swift */,
 				7CBA4ECD2551AE5300313A51 /* MainView.swift */,
@@ -409,7 +411,7 @@
 			);
 			name = Reporter;
 			packageProductDependencies = (
-				7C7211122559AB4700D2A2E8 /* SwiftPackageProductDependency */,
+				7C7211122559AB4700D2A2E8 /* Apollo */,
 			);
 			productName = Reporter;
 			productReference = 7CBA4EC82551AE5300313A51 /* Reporter.app */;
@@ -489,7 +491,7 @@
 			);
 			name = "Reporter WatchKit Extension";
 			packageProductDependencies = (
-				7CC96DE1256A8E3600674387 /* SwiftPackageProductDependency */,
+				7CC96DE1256A8E3600674387 /* Apollo */,
 			);
 			productName = "Reporter WatchKit Extension";
 			productReference = 7CBA4EF92551AE5400313A51 /* Reporter WatchKit Extension.appex */;
@@ -533,7 +535,7 @@
 			);
 			mainGroup = 7CBA4EBF2551AE5200313A51;
 			packageReferences = (
-				7C7211112559AB4700D2A2E8 /* RemoteSwiftPackageReference */,
+				7C7211112559AB4700D2A2E8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 7CBA4EC92551AE5300313A51 /* Products */;
 			projectDirPath = "";
@@ -1076,7 +1078,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Reporter/Reporter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Reporter/Preview Content\"";
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
 				ENABLE_PREVIEWS = YES;
@@ -1088,6 +1092,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.Reporter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Relogify Reporter Dev";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1100,7 +1105,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Reporter/Reporter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Reporter/Preview Content\"";
 				DEVELOPMENT_TEAM = 6VLW8UX5U2;
 				ENABLE_PREVIEWS = YES;
@@ -1112,6 +1119,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.relogify.Reporter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Relogify Reporter Dev";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1275,7 +1283,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7C7211112559AB4700D2A2E8 /* RemoteSwiftPackageReference */ = {
+		7C7211112559AB4700D2A2E8 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
 			requirement = {
@@ -1286,14 +1294,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7C7211122559AB4700D2A2E8 /* SwiftPackageProductDependency */ = {
+		7C7211122559AB4700D2A2E8 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7C7211112559AB4700D2A2E8 /* RemoteSwiftPackageReference */;
+			package = 7C7211112559AB4700D2A2E8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
-		7CC96DE1256A8E3600674387 /* SwiftPackageProductDependency */ = {
+		7CC96DE1256A8E3600674387 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7C7211112559AB4700D2A2E8 /* RemoteSwiftPackageReference */;
+			package = 7C7211112559AB4700D2A2E8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
 /* End XCSwiftPackageProductDependency section */
