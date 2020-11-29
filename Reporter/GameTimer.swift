@@ -17,17 +17,14 @@ struct GameTimer: View {
 
     private func expirationWarningMilliseconds() -> Double
     {
-        //return 30 * 1000
-        return 2 * 1000
+        return 30 * 1000
     }
 
     private func totalMilliseconds() -> Double {
         if extraTime {
-            return 5_000
-            //return 2 * 60_000
+            return 2 * 60_000
         }
-        return 10_000
-        //return 5 * 60_000
+        return 5 * 60_000
     }
 
     private let timerState: TimerState = TimerState()
