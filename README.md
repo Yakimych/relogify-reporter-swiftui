@@ -7,7 +7,5 @@ Supported features:
 - Browse players in the community
 - Add a match result against another player
 - Match timer (can be used in e.g. table hockey) with support for extra time
-
-Planned features:
 - Support for Apple Watch
-- Challenge a player to a game (receiving and responding to challenges currently only supported on Android)
+
