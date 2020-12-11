@@ -23,3 +23,9 @@ func withIconButtonStyle(_ image: Image, color: Color) -> some View {
         .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fill)
         .padding()
 }
+
+struct GlobalTextModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content.foregroundColor(Color.black)
+    }
+}

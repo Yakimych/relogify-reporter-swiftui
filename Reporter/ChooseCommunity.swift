@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ChooseCommunity: View {
+    @Environment(\.colorScheme) var colorScheme
+
     @State private var communityName: String = ""
     @Binding var isAddingPlayerInCommunity: Bool
 
@@ -52,6 +54,7 @@ struct ChooseCommunity: View {
                         Text("https://relogify.com/").font(.subheadline)
                         TextField("communityname", text: $communityName)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
                             .autocapitalization(.none)
                     }
                 }
@@ -65,6 +68,7 @@ struct ChooseCommunity: View {
                 .disabled(!canProceed())
                 .padding()
             }
+            .modifier(GlobalTextModifier())
             .padding()
         }
         .navigationBarTitle("Choose community", displayMode: .inline)

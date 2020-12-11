@@ -70,6 +70,7 @@ struct SettingsView: View {
                         }
                     }
                 }
+                .modifier(GlobalTextModifier())
             }
             .navigationBarTitle("Settings", displayMode: .inline)
             .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))

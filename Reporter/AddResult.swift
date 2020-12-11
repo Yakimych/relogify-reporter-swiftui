@@ -101,6 +101,7 @@ struct AddResult: View {
                     Text("Adding Result: \(ownName) \(ownPoints):\(opponentPoints) \(opponentName)")
                     ProgressView()
                 }
+                .modifier(GlobalTextModifier())
             }
             else {
                 VStack(alignment: .center) {
@@ -165,6 +166,7 @@ struct AddResult: View {
                             .cornerRadius(buttonCornerRadius)
                     }
                 }
+                .modifier(GlobalTextModifier())
                 .navigationBarTitle("Game in \(communityName)")
                 .navigationBarItems(trailing: Button(action: { self.timerIsOpen.toggle() }) { Text("Timer") }
                                         .sheet(isPresented: $timerIsOpen) { GameTimer(extraTime: $extraTime) }

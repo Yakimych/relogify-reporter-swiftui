@@ -121,6 +121,7 @@ struct OpponentList: View {
                         Text("Failed to fetch opponent list, please check your internet connection and try again")
                 }
             }
+            .modifier(GlobalTextModifier())
             .onAppear {
                 if !playersInCommunitiesStorage.items.isEmpty {
                     selectedPlayerInCommunity = playersInCommunitiesStorage.items[0]

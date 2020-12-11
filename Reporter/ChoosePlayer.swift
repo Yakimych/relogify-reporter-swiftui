@@ -101,6 +101,7 @@ struct ChoosePlayer: View {
                         Text("Failed to fetch players, please check your internet connection and try again")
                 }
             }
+            .modifier(GlobalTextModifier())
         }
         .navigationBarTitle("Choose player in '\(communityName)'", displayMode: .inline)
         .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))

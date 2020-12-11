@@ -32,6 +32,7 @@ struct About: View {
                             .padding()
                     })
                 }
+                .modifier(GlobalTextModifier())
             }
             .navigationBarTitle("About", displayMode: .inline)
             .navigationBarColor(UIColor(RelogifyColors.relogifyBlue))
